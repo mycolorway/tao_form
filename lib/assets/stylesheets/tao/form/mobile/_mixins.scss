@@ -1,0 +1,23 @@
+@mixin text-field-style {
+  display: block;
+  width: 100%;
+  padding: $form-field-padding-v $form-field-padding-h;
+  background: $white-color;
+  border: none;
+  font-size: $form-field-font-size;
+  line-height: $form-field-line-height;
+  transition: border-color 300ms, box-shadow 300ms;
+  text-align: right;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[readonly] {
+    color: $light-grey-color;
+  }
+
+  &[disabled] {
+    color: $lightest-grey-color;
+  }
+}

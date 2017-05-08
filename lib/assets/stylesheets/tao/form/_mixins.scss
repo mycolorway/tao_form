@@ -1,0 +1,31 @@
+@mixin text-field-style {
+  width: $form-field-width;
+  padding: $form-field-padding-v $form-field-padding-h;
+  background: $white-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-s;
+  font-size: $form-field-font-size;
+  line-height: $form-field-line-height;
+  transition: border-color 300ms, box-shadow 300ms;
+
+  &:hover {
+    border-color: #cccccc;
+  }
+
+  &:focus {
+    border-color: #cccccc;
+    outline: none;
+    box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
+  }
+
+  &[readonly] {
+    color: $light-grey-color;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background: $lighter-grey-bg-color;
+    border-color: #e6e6e6;
+    color: $lightest-grey-color;
+  }
+}

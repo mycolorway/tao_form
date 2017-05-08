@@ -7,6 +7,7 @@ module TaoForm
       super view, options
       @record = record
       @html_options = @options.delete(:html) || {}
+      options[:wrapper] = :tao_mobile if view.request.variant.mobile?
     end
 
     def render &block

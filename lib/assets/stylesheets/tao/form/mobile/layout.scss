@@ -1,0 +1,131 @@
+@import './globals';
+
+tao-form {
+  display: block;
+
+  form {
+    fieldset {
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      legend {
+        display: block;
+        width: 100%;
+        line-height: 1;
+        padding: 0.5rem 1rem;
+        background: $lighter-grey-bg-color;
+        font-size: $font-size-s;
+        color: $lighter-grey-color;
+        border-bottom: 1px solid $border-color;
+      }
+    }
+
+    & > .error {
+      display: block;
+      font-size: $font-size-s;
+      padding: 1rem;
+      color: $red-color;
+      border-bottom: 1px solid $red-color;
+      text-align: center;
+    }
+
+    .form-input {
+      background: $white-color;
+      border-bottom: 1px solid $border-color;
+
+      .input-content {
+        min-height: $form-field-height;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .input-label {
+          flex: 0 0 auto;
+          display: block;
+          margin: $form-field-padding-v 0 $form-field-padding-v $form-field-padding-h;
+          line-height: $form-field-line-height;
+          font-size: $form-label-font-size;
+          color: $light-grey-color;
+          position: relative;
+
+          &.required abbr {
+            display: block;
+            width: 0.5em;
+            position: absolute;
+            top: 0;
+            left: -0.5em;
+            text-decoration: none;
+            color: $red-color;
+            border: none;
+          }
+        }
+
+        .input-label ~ * {
+          flex: 1 1 auto;
+        }
+
+        .input-field-placeholder {
+          flex: 1 1 auto;
+          display: block;
+          padding: $form-field-padding-v $form-field-padding-h;
+          line-height: $form-field-line-height;
+          font-size: $form-field-font-size;
+          color: $text-color;
+          text-align: right;
+        }
+      }
+
+      .error {
+        color: $red-color;
+        padding: $form-hint-padding;
+        font-size: $form-hint-font-size;
+        border-top: 1px dotted $red-color;
+      }
+
+      .hint {
+        color: $lighter-grey-color;
+        padding: $form-hint-padding;
+        font-size: $form-hint-font-size;
+        border-top: 1px dotted $border-color;
+      }
+
+      .bottom-hint {
+        display: block;
+        color: $lighter-grey-color;
+        padding: $form-hint-padding;
+        font-size: $form-hint-font-size;
+        border-top: 1px dotted $border-color;
+      }
+    }
+
+    .form-buttons {
+      margin: 2rem 1rem;
+
+      .button {
+        display: flex;
+        width: 100%;
+      }
+
+      .success-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $button-padding;
+        font-size: $button-font-size;
+        line-height: $button-line-height;
+        border-radius: $border-radius-s;
+        text-align: center;
+        vertical-align: middle;
+        background: $white-color;
+        border: 1px solid $green-color;
+        color: $green-color;
+        fill: $green-color;
+
+        .icon {
+          margin: 0 0.4em 0 0;
+        }
+      }
+    }
+  }
+}

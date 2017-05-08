@@ -1,0 +1,8 @@
+@import '../globals';
+@import 'tao/form/inputs/text';
+
+tao-form .text-field {
+  .prefix {
+    display: none;
+  }
+}

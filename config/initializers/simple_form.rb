@@ -5,61 +5,49 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: 'form-input',
+  config.wrappers :tao_desktop, class: 'form-input',
     hint_class: 'input-with-hint', error_class: 'input-with-errors' do |b|
-    ## Extensions enabled by default
-    # Any of these extensions can be disabled for a
-    # given input by passing: `f.input EXTENSION_NAME => false`.
-    # You can make any of these extensions optional by
-    # renaming `b.use` to `b.optional`.
 
-    # Determines whether to use HTML5 (:email, :url, ...)
-    # and required attributes
     b.use :html5
-
-    # Calculates placeholders automatically from I18n
-    # You can also pass a string as f.input placeholder: "Placeholder"
     b.use :placeholder
-
-    ## Optional extensions
-    # They are disabled unless you pass `f.input EXTENSION_NAME => true`
-    # to the input. If so, they will retrieve the values from the model
-    # if any exists. If you want to enable any of those
-    # extensions by default, you can change `b.optional` to `b.use`.
-
-    # Calculates maxlength from length validations for string inputs
     b.optional :maxlength
-
-    # Calculates pattern from format validations for string inputs
     b.optional :pattern
-
-    # Calculates min and max from length validations for numeric inputs
     b.optional :min_max
-
-    # Calculates readonly automatically from readonly attributes
     b.optional :readonly
 
-    ## Inputs
     b.use :label, class: 'input-label'
     b.wrapper tag: :div, class: 'input-content' do |content|
       content.use :input
-      content.use :validation_hint, wrap_with: {tag: :span, class: 'validation-hint'}
-      content.use :error, wrap_with: { tag: :span, class: :error }
+      content.use :error, wrap_with: { tag: :div, class: :error }
+      content.use :bottom_hint, wrap_with: {tag: :div, class: 'bottom-hint'}
     end
 
-    b.wrapper tag: :div, class: 'input-info', unless_blank: true do |info|
-      info.use :hint,  wrap_with: { tag: :span, class: :hint }
-    end
-
-    ## full_messages_for
-    # If you want to display the full error message for the attribute, you can
-    # use the component :full_error, like:
-    #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
+    b.use :hint,  wrap_with: { tag: :div, class: :hint }
   end
 
+  config.wrappers :tao_mobile, class: 'form-input',
+    hint_class: 'input-with-hint', error_class: 'input-with-errors' do |b|
+
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+
+    b.wrapper tag: :div, class: 'input-content' do |content|
+      content.use :label, class: 'input-label'
+      content.use :input
+    end
+
+    b.use :error, wrap_with: { tag: :div, class: :error }
+    b.use :hint,  wrap_with: { tag: :div, class: :hint }
+    b.use :bottom_hint, wrap_with: {tag: :div, class: 'bottom-hint'}
+  end
+
+
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper = :tao_desktop
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
@@ -140,7 +128,7 @@ SimpleForm.setup do |config|
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.
-  # config.custom_inputs_namespaces << "CustomInputs"
+  config.custom_inputs_namespaces << "TaoForm::Inputs"
 
   # Default priority for time_zone inputs.
   # config.time_zone_priority = nil
