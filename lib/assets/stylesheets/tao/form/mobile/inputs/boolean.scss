@@ -1,0 +1,9 @@
+@import 'tao/form/mobile/globals';
+
+tao-form .boolean-field {
+  height: $form-field-height;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 $form-field-padding-h;
+}

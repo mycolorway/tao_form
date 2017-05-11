@@ -35,7 +35,6 @@ tao-form {
       align-items: flex-start;
       align-content: flex-start;
       margin: 0 0 0.75rem 0;
-      min-height: $form-field-height;
 
       &:last-child {
         margin-bottom: 0;
@@ -48,7 +47,7 @@ tao-form {
         padding: $form-field-padding-v 0;
         text-align: right;
         margin: 0 $form-field-margin-h 0 0;
-        line-height: $form-field-line-height;
+        line-height: $form-label-line-height;
         font-size: $form-label-font-size;
         color: $light-grey-color;
 
@@ -61,6 +60,11 @@ tao-form {
 
 
       .input-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: $form-field-height;
+
         .input-field-wrapper {
           margin-bottom: 0.75rem;
 

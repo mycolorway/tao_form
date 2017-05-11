@@ -1,0 +1,91 @@
+@import 'tao/form/globals';
+
+tao-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  user-select: none;
+  outline: none;
+
+  .checkbox-wrapper {
+    display: block;
+    background-color: #fff;
+    border: 1px #9B9B9B solid;
+    border-radius: 2px;
+    height: 1.125rem;
+    width: 1.125rem;
+    transition: border-color 200ms, background 200ms;
+    position: relative;
+    outline: none;
+
+    @if not $mobile {
+      &:hover {
+        border-color: #63D65C;
+      }
+
+      &:focus {
+        border-color: #63D65C;
+        box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
+      }
+    }
+
+    .icon {
+      display: none;
+      margin: 1px;
+      height: 0.875rem;
+      width: 0.875rem;
+      fill: #ffffff;
+
+      &.icon-indeterminate {
+        width: 10px;
+        height: 2px;
+        margin: 7px 3px;
+        border-radius: 2px;
+        background: #ffffff;
+      }
+    }
+  }
+
+  input[type=checkbox] {
+    display: none;
+
+    &:indeterminate + .checkbox-wrapper,
+    &:checked + .checkbox-wrapper {
+      background-color: #55BB33;
+      border-color: #55BB33;
+
+      &:hover {
+        background-color: #63D65C;
+        border-color: #63D65C;
+      }
+    }
+
+    &:indeterminate + .checkbox-wrapper .icon-indeterminate,
+    &:checked + .checkbox-wrapper .icon-checkbox {
+      display: block;
+    }
+
+    &:disabled + .checkbox-wrapper {
+      border: 1px #DDDDDD solid;
+      background-color: #F6F6F6;
+
+      @if not $mobile {
+        &:hover {
+          border: 1px #DDDDDD solid;
+          background-color: #F6F6F6;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .icon {
+        fill: #dddddd;
+      }
+
+      .icon-indeterminate {
+        background: #dddddd;
+      }
+    }
+  }
+}

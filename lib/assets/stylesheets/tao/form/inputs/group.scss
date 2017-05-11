@@ -1,0 +1,27 @@
+@import 'tao/form/globals';
+
+tao-form .group-field {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .checkbox,
+  .radio {
+    display: inline-block;
+    margin: 0 1.5em 0 0;
+
+    label {
+      display: flex;
+      @include truncate-text;
+      height: $form-field-height;
+      align-items: center;
+
+      tao-checkbox,
+      tao-radio {
+        margin: 0 0.5em 0 0;
+      }
+    }
+  }
+}

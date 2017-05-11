@@ -43,7 +43,7 @@ tao-form {
         .input-label {
           flex: 0 0 auto;
           display: block;
-          margin: $form-field-padding-v 0 $form-field-padding-v $form-field-padding-h;
+          padding: $form-field-padding-v $form-field-padding-h;
           line-height: $form-field-line-height;
           font-size: $form-label-font-size;
           color: $light-grey-color;
