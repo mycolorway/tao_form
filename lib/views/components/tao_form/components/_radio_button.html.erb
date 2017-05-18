@@ -1,10 +1,6 @@
-<%= content_tag 'tao-radio', nil, component.html_options do %>
+<%= content_tag 'tao-radio', nil, component.options do %>
 
-  <% if block_given %>
-    <%= yield %>
-  <% else %>
-    <%= component.builder.radio_button component.attribute_name, component.options, component.checked_value, component.unchecked_value %>
-  <% end %>
+  <%= yield %>
 
   <div class="radio-wrapper" tabindex="0">
     <div class="icon icon-radio"></div>

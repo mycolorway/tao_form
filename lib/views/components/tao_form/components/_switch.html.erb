@@ -1,6 +1,6 @@
-<%= content_tag 'tao-switch', nil, component.html_options do %>
+<%= content_tag 'tao-switch', nil, component.options do %>
 
-  <%= component.builder.check_box component.attribute_name, component.options, component.checked_value, component.unchecked_value %>
+  <%= yield %>
 
   <div class="switch-wrapper">
     <div class="switch-toggle"></div>

@@ -1,0 +1,9 @@
+zh-CN:
+  tao_form:
+    components:
+      select:
+        list:
+          search_placeholder: Search Options
+          no_option: No option found
+          loading: Loading...
+          tips: '<span class="size"></span> more options are hidden, please search for them.'

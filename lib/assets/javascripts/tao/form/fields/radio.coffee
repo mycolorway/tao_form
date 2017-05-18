@@ -1,4 +1,4 @@
-class Tao.Radio extends TaoComponent
+class Tao.Form.Radio extends TaoComponent
 
   @tag 'tao-radio'
 
@@ -14,12 +14,13 @@ class Tao.Radio extends TaoComponent
 
   _bind: ->
     @on "click.tao-radio-#{@taoId}", '.radio-wrapper', (e) =>
-      @_toggleChecked()
-      @trigger 'change'
+      if @field.is(':enabled')
+        @_toggleChecked()
+        @trigger 'change'
       false
 
     @on "keydown.tao-radio-#{@taoId}", '.radio-wrapper', (e) =>
-      return unless e.which == 13
+      return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
       @trigger 'change'
       false
@@ -30,4 +31,4 @@ class Tao.Radio extends TaoComponent
   _toggleChecked: ->
     @checked = !@checked
 
-TaoComponent.register Tao.Radio
+TaoComponent.register Tao.Form.Radio

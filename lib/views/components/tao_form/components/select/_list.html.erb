@@ -1,0 +1,11 @@
+<%= content_tag 'tao-select-list', nil, class: 'select-list' do %>
+  <div class="search-input">
+    <%= tao_icon :search %>
+    <%= text_field_tag nil, '', {tabindex: '-1', class: 'search-field', placeholder: component.t(:search_placeholder)} %>
+  </div>
+  <div class="options-list">
+  </div>
+  <div class="no-option"><%= component.t :no_option %></div>
+  <div class="tips"><%= component.t(:tips).html_safe %></div>
+  <div class="loading-mesasge"><%= component.t :loading %></div>
+<% end %>

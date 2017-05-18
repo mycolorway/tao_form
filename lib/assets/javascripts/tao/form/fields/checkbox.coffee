@@ -1,4 +1,4 @@
-class Tao.Checkbox extends TaoComponent
+class Tao.Form.Checkbox extends TaoComponent
 
   @tag 'tao-checkbox'
 
@@ -14,14 +14,15 @@ class Tao.Checkbox extends TaoComponent
 
   _bind: ->
     @on "click.tao-checkbox-#{@taoId}", '.checkbox-wrapper', (e) =>
-      @_toggleChecked()
-      @trigger 'change'
+      if @field.is(':enabled')
+        @_toggleChecked()
+        @trigger 'change'
       false
 
     @on "keydown.tao-checkbox-#{@taoId}", '.checkbox-wrapper', (e) =>
-      return unless e.which == 13
-      @_toggleChecked()
-      @trigger 'change'
+      return unless e.which == 13 && @field.is(':enabled')
+        @_toggleChecked()
+        @trigger 'change'
       false
 
   _disconnected: ->
@@ -30,4 +31,4 @@ class Tao.Checkbox extends TaoComponent
   _toggleChecked: ->
     @checked = !@checked
 
-TaoComponent.register Tao.Checkbox
+TaoComponent.register Tao.Form.Checkbox
