@@ -66,8 +66,9 @@ class Tao.Form.Select.List extends TaoComponent
 
       @_lastRenderGroup = null
       for option in @options
-        if option.group && @_lastRenderGroup != option.group
-          $list.append @_renderGroup(option.group)
+        if option.data.group && @_lastRenderGroup != option.data.group
+          @_lastRenderGroup = option.data.group
+          $list.append @_renderGroup(option.data.group)
         $list.append @_renderOption(option)
 
       @_refreshScrollPosition()

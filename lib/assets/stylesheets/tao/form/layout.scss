@@ -60,9 +60,6 @@ tao-form {
 
 
       .input-content {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         min-height: $form-field-height;
 
         .input-field-wrapper {
@@ -82,21 +79,21 @@ tao-form {
           color: $text-color;
         }
 
-        .bottom-hint {
+        & > .bottom-hint {
           display: block;
           color: $lighter-grey-color;
           margin: 0.375rem 0;
           font-size: $form-hint-font-size;
         }
 
-        .error {
+        & > .error {
           color: $red-color;
           margin: 0.375rem 0;
           font-size: $form-hint-font-size;
         }
       }
 
-      .hint {
+      & > .hint {
         opacity: 0;
         color: $lighter-grey-color;
         margin: 0 0 0 $form-field-margin-h;
@@ -111,7 +108,7 @@ tao-form {
       }
 
       &:hover, &.focus {
-        .input-info {
+        .hint {
           opacity: 1;
         }
       }
