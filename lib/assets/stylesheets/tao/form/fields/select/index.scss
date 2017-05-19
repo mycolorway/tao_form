@@ -1,0 +1,9 @@
+//= require_self
+//= require_tree ./
+
+@import 'tao/form/globals';
+
+tao-select {
+  display: inline-block;
+  position: relative;
+}

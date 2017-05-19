@@ -1,0 +1,96 @@
+@import 'tao/form/globals';
+
+tao-select-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: $form-field-width;
+  background: $white-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-s;
+  transition: border-color 300ms, box-shadow 300ms;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #cccccc;
+  }
+
+  &[active='true'],
+  &:focus {
+    border-color: #cccccc;
+    outline: none;
+    box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
+  }
+
+  &[disabled='true'] {
+    cursor: not-allowed;
+    background: $lighter-grey-bg-color;
+    border-color: #e6e6e6;
+    color: $lightest-grey-color;
+
+    &[selected='true'][clearable='true'] .link-clear {
+      display: none;
+    }
+  }
+
+  select {
+    display: none;
+  }
+
+  .placeholder,
+  .selected-text {
+    padding: $form-field-padding-v $form-field-padding-h;
+    font-size: $form-field-font-size;
+    line-height: $form-field-line-height;
+    min-height: $form-field-height - 0.125rem;
+  }
+
+  .placeholder {
+    color: $lightest-grey-color;
+  }
+
+  .selected-text {
+    display: none;
+  }
+
+  .icon-wrapper,
+  .link-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: $form-field-height - 0.125rem;
+    height: $form-field-height - 0.125rem;
+    fill: $lighter-grey-color;
+  }
+
+  .link-clear {
+    display: none;
+    text-decoration: none;
+    outline: none;
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+
+  &[selected='true'] {
+    .placeholder {
+      display: none;
+    }
+
+    .selected-text {
+      display: block;
+    }
+
+    &[clearable='true'] {
+      .link-clear {
+        display: flex;
+      }
+
+      .icon-arrow-down {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="zhiren_icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main" transform="translate(1.000000, 1.000000)" fill="#9B9B9B">
+            <path d="M14.5610109,16.0768647 C13.0302194,17.2814309 11.0990251,18 9,18 C4.02943725,18 0,13.9705627 0,9 C0,4.02943725 4.02943725,0 9,0 C13.9705627,0 18,4.02943725 18,9 C18,11.3489613 17.1001192,13.4877442 15.6262932,15.0904129 L21.8402784,20.8382529 C22.0438968,21.0265968 22.0482516,21.3387618 21.8607428,21.5248371 L21.5286336,21.8544073 C21.3363174,22.0452534 21.0152795,22.0472113 20.8117305,21.8589237 L14.5610109,16.0768647 Z M9,17 C13.418278,17 17,13.418278 17,9 C17,4.581722 13.418278,1 9,1 C4.581722,1 1,4.581722 1,9 C1,13.418278 4.581722,17 9,17 Z" id="Search"></path>
+        </g>
+    </g>
+</svg>

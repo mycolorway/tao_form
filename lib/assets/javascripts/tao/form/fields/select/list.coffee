@@ -5,9 +5,13 @@ class Tao.Form.Select.List extends TaoComponent
 
   @tag 'tao-select-list'
 
-  @attribute 'active', 'empty', 'loading', 'searchable', type: 'boolean'
+  @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'maxListSize', type: 'number'
+  @attribute 'empty', 'loading', 'searchable', type: 'boolean'
+
+  @attribute 'direction'
+
+  @attribute 'maxListSize', type: 'number', default: 20
 
   _connected: ->
     @searchField = @jq.find('.search-field')
@@ -35,7 +39,7 @@ class Tao.Form.Select.List extends TaoComponent
         false
       else if e.which == 40
         @highlightNextOption()
-      null
+        false
 
     @on "click.tao-select-list-#{@taoId}", '.option', (e) =>
       $option = $ e.currentTarget
@@ -47,13 +51,15 @@ class Tao.Form.Select.List extends TaoComponent
     if @active
       @trigger 'show'
       @searchField.focus() if @searchable
+      @_refreshScrollPosition()
     else
+      @searchField.val ''
       @trigger 'hide'
+      @trigger 'search', ['']
 
   setOptions: (options, totalSize) ->
     @options = options.slice 0, @maxListSize
     $list = @jq.find('.options-list').empty()
-    $tips = @jq.find('.tips')
 
     if @options.length > 0
       @empty = false
@@ -63,8 +69,12 @@ class Tao.Form.Select.List extends TaoComponent
         if option.group && @_lastRenderGroup != option.group
           $list.append @_renderGroup(option.group)
         $list.append @_renderOption(option)
+
+      @_refreshScrollPosition()
+      @highlightFirstOption()
     else
       @empty = true
+      @highlightedOption = null
 
     @_refreshTips totalSize
 
@@ -78,12 +88,13 @@ class Tao.Form.Select.List extends TaoComponent
         <span class="hint"></span>
       </div>
     """).data('option', option)
-    $option.find('.name').text(option.data.label || option.name)
+    $option.find('.name').text(option.data.label || option.text)
     $option.find('.hint').text(option.data.hint) if option.data.hint
     $option.attr 'data-value', option.value
     $option
 
   _refreshTips: (totalSize) ->
+    $tips = @jq.find('.tips')
     if totalSize && @options.length > 0 && totalSize > @options.length
       $tips.removeClass('hidden')
         .find('.size').text(totalSize - @options.length)
@@ -91,17 +102,30 @@ class Tao.Form.Select.List extends TaoComponent
       $tips.addClass('hidden')
         .find('.size').text('')
 
+  _refreshScrollPosition: ->
+    return unless @active
+
+    @_reflow()
+
+    $list = @jq.find('.list-wrapper')
+    if @direction == 'up'
+      $list.scrollTop $list[0].scrollHeight
+    else
+      $list.scrollTop 0
+
   highlightNextOption: ->
     if @highlightedOption
-      $option = @jq.find(".option[value='#{@highlightedOption.value}']").next('.option')
-      @highlightOption $option
+      method = if @direction == 'up' then 'prev' else 'next'
+      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option')
+      @highlightOption($option) if $option.length > 0
     else
       @highlightFirstOption()
 
   highlightPrevOption: ->
     if @highlightedOption
-      $option = @jq.find(".option[value='#{@highlightedOption.value}']").prev('.option')
-      @highlightOption $option
+      method = if @direction == 'up' then 'next' else 'prev'
+      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option')
+      @highlightOption($option) if $option.length > 0
     else
       @highlightFirstOption()
 
@@ -109,15 +133,25 @@ class Tao.Form.Select.List extends TaoComponent
     @highlightOption @jq.find('.option:first')
 
   highlightOption: (option) ->
-    if option instanceOf Option
-      $option = @jq.find(".option[value='#{option.value}']")
+    if option instanceof Option
+      $option = @jq.find(".option[data-value='#{option.value}']")
     else
       $option = option
 
-    return false unless $option && $option.length > 0
+    return false unless $option && !$option.hasClass('highlighted')
     $option.addClass('highlighted')
       .siblings('.option').removeClass('highlighted')
+    @highlightedOption = $option.data 'option'
 
+  setMaxHeight: (maxHeight) ->
+    maxHeight = if maxHeight
+      searchHeight = if @searchable then @jq.find('.search-input').outerHeight() else 0
+      optionHeight = @jq.find('.options-list .option:first').outerHeight()
+      Math.floor((maxHeight - searchHeight) / optionHeight) * optionHeight
+    else
+      ''
 
+    @jq.find('.list-wrapper').css
+      maxHeight: maxHeight
 
 TaoComponent.register Tao.Form.Select.List

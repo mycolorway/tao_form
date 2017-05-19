@@ -5,11 +5,9 @@ class Tao.Form.Select.Result extends TaoComponent
 
   @tag 'tao-select-result'
 
-  @attribute 'selected', type: 'boolean',
+  @attribute 'active', 'selected', 'clearable', type: 'boolean'
 
-  @attribute 'clearable', type: 'boolean'
-
-  @attribute 'disabled', type: 'boolean'
+  @attribute 'disabled', type: 'boolean', observe: true
 
   _connected: ->
     @field = @jq.find 'select'

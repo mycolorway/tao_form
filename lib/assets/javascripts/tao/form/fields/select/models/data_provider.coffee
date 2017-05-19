@@ -16,7 +16,7 @@ class Tao.Form.Select.DataProvider extends TaoModule
       @options.push option
 
   getOption: (value) ->
-    return value if value instanceOf Option
+    return value if value instanceof Option
     return null if _.isNull(value) || _.isUndefined(value)
 
     result = @options.filter (option) -> option.value == value

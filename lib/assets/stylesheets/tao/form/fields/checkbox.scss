@@ -14,7 +14,6 @@ tao-checkbox {
     height: 1.125rem;
     width: 1.125rem;
     transition: border-color 200ms, background 200ms;
-    position: relative;
     outline: none;
 
     @if not $mobile {

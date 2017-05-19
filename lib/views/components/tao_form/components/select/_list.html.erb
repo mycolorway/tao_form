@@ -1,11 +1,16 @@
 <%= content_tag 'tao-select-list', nil, class: 'select-list' do %>
   <div class="search-input">
-    <%= tao_icon :search %>
+    <div class="icon-wrapper">
+      <%= tao_icon :search %>
+    </div>
     <%= text_field_tag nil, '', {tabindex: '-1', class: 'search-field', placeholder: component.t(:search_placeholder)} %>
   </div>
-  <div class="options-list">
+  <div class="list-wrapper">
+  <!-- This wrapper fixes column-reverse and overflow-y not scrollable in Firefox:
+    https://github.com/philipwalton/flexbugs/issues/108  -->
+    <div class="options-list"></div>
   </div>
   <div class="no-option"><%= component.t :no_option %></div>
   <div class="tips"><%= component.t(:tips).html_safe %></div>
-  <div class="loading-mesasge"><%= component.t :loading %></div>
+  <div class="loading-message"><%= component.t :loading %></div>
 <% end %>

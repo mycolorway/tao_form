@@ -7,10 +7,10 @@ class Tao.Form.Select.Option extends TaoModule
 
   @fromElement: (element) ->
     $element = $ element
-    return unless (value = $element.val()) && !$option.is(':disabled')
+    return unless (value = $element.val()) && !$element.is(':disabled')
 
     data = $element.data()
-    data.group = $option.parent('optgroup').prop('label') if $option.parent('optgroup').length
+    data.group = $element.parent('optgroup').prop('label') if $element.parent('optgroup').length
 
     new @
       text: $element.text()

@@ -1,14 +1,12 @@
+DataProvider = Tao.Form.Select.DataProvider
+
 class Tao.Form.Select.Element extends TaoComponent
 
   @tag 'tao-select'
 
-  @attribute 'active', type: 'boolean'
+  @attribute 'active', type: 'boolean', observe: true
 
   @attribute 'remote', type: 'hash'
-
-  @attribute 'maxListSize', type: 'number', default: 20
-
-  @attribute 'listOffset', type: 'number', default: 6
 
   @attribute 'searchableSize', type: 'number', default: 8
 
@@ -17,25 +15,22 @@ class Tao.Form.Select.Element extends TaoComponent
 
   _connected: ->
     @field = @jq.find 'select'
-    @result = @jq.find('.select-result').get(0)
-    @list = @jq.find('.select-list').get(0)
     @selectedOption = null
 
     @dataProvider = new DataProvider
       remote: @remote
       field: @field
 
-    if @list.connected
-      @_initList()
-    else
-      @on "connected.tao-select-#{@taoId}", '.select-list', (e) =>
-        @_initList()
+    @result = @findComponent '.select-result', =>
+      @selectOption @field.val()
 
-    @selectOption @field.val()
+    @list = @findComponent '.select-list', =>
+      @_initList()
+
     @_bind()
 
   _initList: ->
-    options = @dataProvider.options.filter (option) -> option.value != @value
+    options = @dataProvider.options.filter (option) => option.value != @value
     @list.setOptions options, @remote?.totalOptionSize
     @list.searchable = if @remote
       @dataProvider.options.length < @remote.totalOptionSize
@@ -82,11 +77,7 @@ class Tao.Form.Select.Element extends TaoComponent
       null
 
     @on "search.tao-select-#{@taoId}", (e, value) =>
-      @list.loading = true
-      @dataProvider.filter value, (options, totalSize) =>
-        options = options.filter (option) -> option.value != @value
-        @list.setOptions options, totalSize
-        @list.loading = false
+      @_filterList value
 
   _disconnected: ->
     @off ".tao-select-#{@taoId}"
@@ -98,6 +89,7 @@ class Tao.Form.Select.Element extends TaoComponent
 
   _activeChanged: ->
     @list.active = @active
+    @result.active = @active
 
     @_unbindDocumentMousedown()
     if @active
@@ -119,16 +111,24 @@ class Tao.Form.Select.Element extends TaoComponent
     rect = @getBoundingClientRect()
     offsetToWindowTop = rect.top
     offsetToWindowBottom = $(window).height() - rect.bottom
+
+    @list.setMaxHeight false
+    @_reflow()
     listHeight = @list.jq.outerHeight()
 
-    if offsetToWindowBottom < listHeight
-      @list.jq.css
-        maxHeight: offsetToWindowTop - 20
-        top: - listHeight - @listOffset
+    if offsetToWindowBottom < listHeight && offsetToWindowTop > offsetToWindowBottom
+      @list.setMaxHeight offsetToWindowTop - 20
+      @list.direction = 'up'
     else
-      @list.jq.css
-        maxHeight: offsetToWindowBottom - 20
-        top: @result.jq.outerHeight() + @listOffset
+      @list.setMaxHeight(offsetToWindowBottom - 20) if offsetToWindowBottom < listHeight
+      @list.direction = 'down'
+
+  _filterList: (value) ->
+    @list.loading = true
+    @dataProvider.filter value, (options, totalSize) =>
+      @list.loading = false
+      options = options.filter (option) => option.value != @value
+      @list.setOptions options, totalSize
 
   selectOption: (option) ->
     option = @dataProvider.getOption option
@@ -144,4 +144,4 @@ class Tao.Form.Select.Element extends TaoComponent
     @active = false
     @
 
-TaoComponent.register Tao.Form.Select
+TaoComponent.register Tao.Form.Select.Element

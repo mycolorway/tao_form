@@ -1,9 +1,13 @@
 <%= content_tag 'tao-select-result', nil, component.html_options do %>
   <%= yield %>
   <div class="selected-text">
-    <%= component.options[:placeholder].presence %>
   </div>
-  <%= tao_icon :arrow_down %>
+  <div class="placeholder">
+    <%= component.html_options[:placeholder].presence %>
+  </div>
+  <div class="icon-wrapper">
+    <%= tao_icon :arrow_down %>
+  </div>
   <%= link_to 'javascript:;', tabindex: '-1', class: 'link-clear', title: component.t(:clear_option) do %>
     <%= tao_icon :close %>
   <% end %>
