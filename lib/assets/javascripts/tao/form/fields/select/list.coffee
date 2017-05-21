@@ -7,7 +7,9 @@ class Tao.Form.Select.List extends TaoComponent
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'empty', 'loading', 'searchable', type: 'boolean'
+  @attribute 'empty', 'loading', 'searching', 'searchable', type: 'boolean'
+
+  @attribute 'hiddenSize', type: 'number', observe: true
 
   @attribute 'direction'
 
@@ -24,7 +26,9 @@ class Tao.Form.Select.List extends TaoComponent
 
   _bind: ->
     @on "input.tao-select-list-#{@taoId}", '.search-field', _.debounce (e) =>
-      @trigger 'search', [@searchField.val()]
+      val = @searchField.val()
+      @searching = !!val
+      @trigger 'search', [val]
     , 200
 
     @on "keydown.tao-select-list-#{@taoId}", '.search-field', (e) =>
@@ -54,11 +58,16 @@ class Tao.Form.Select.List extends TaoComponent
       @_refreshScrollPosition()
     else
       @searchField.val ''
+      @searching = false
       @trigger 'hide'
       @trigger 'search', ['']
 
+  _hiddenSizeChanged: ->
+    @jq.find('.tips .size').text(@hiddenSize)
+
   setOptions: (options, totalSize) ->
     @options = options.slice 0, @maxListSize
+    @hiddenSize = (totalSize || @options.length) - @options.length
     $list = @jq.find('.options-list').empty()
 
     if @options.length > 0
@@ -77,8 +86,6 @@ class Tao.Form.Select.List extends TaoComponent
       @empty = true
       @highlightedOption = null
 
-    @_refreshTips totalSize
-
   _renderGroup: (name) ->
     $('<div>', class: 'optgroup').text(name)
 
@@ -93,15 +100,6 @@ class Tao.Form.Select.List extends TaoComponent
     $option.find('.hint').text(option.data.hint) if option.data.hint
     $option.attr 'data-value', option.value
     $option
-
-  _refreshTips: (totalSize) ->
-    $tips = @jq.find('.tips')
-    if totalSize && @options.length > 0 && totalSize > @options.length
-      $tips.removeClass('hidden')
-        .find('.size').text(totalSize - @options.length)
-    else
-      $tips.addClass('hidden')
-        .find('.size').text('')
 
   _refreshScrollPosition: ->
     return unless @active

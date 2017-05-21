@@ -37,29 +37,27 @@ class Tao.Form.Select.DataProvider extends TaoModule
   _fetch: (value, callback) ->
     return unless @remote && @remote.url
 
-    onFetch = (result) =>
-      result.options = (new Option(option) for option in result.options)
-      @trigger 'fetch', [result, value]
-      callback?.call @, result
-
     $.ajax
       url: @remote.url
       data: _.extend {}, @remote.params,
         "#{@remote.searchKey}": value
       dataType: 'json'
     .done (result) ->
-      if _.isArray(result.options) && result.options.length > 0 && _.isArray(result.options[0])
-        options = result.options.reduce (opts, group) ->
+      options = if _.isArray(result.options) && result.options.length > 0 && _.isArray(result.options[0])
+        result.options.reduce (opts, group) ->
           return unless _.isArray(group) && group.length > 1 && _.isArray(group[1])
           group[1].forEach (opt) ->
             opts.push Option.fromJson(opt, group[0])
+          opts
         , []
       else if _.isPlainObject(result.options)
-        options = []
-        for groupName, opts of result.options
-          opts.forEach (opt) ->
-            options.push Option.fromJson(opt, groupName)
+        _.flatten(
+          for groupName, opts of result.options
+            Option.fromJson(opt, groupName) for opt in opts
+        )
       else if _.isArray result.options
-        options = Option.fromJson(option) for option in result.options
+        (Option.fromJson(option) for option in result.options)
+      else
+        []
 
       callback? options, result.totalSize

@@ -62,6 +62,7 @@ class Tao.Form.Select.Element extends TaoComponent
 
     @on "clear.tao-select-#{@taoId}", '.select-result', (e) =>
       @active = false
+      @_filterList ''
       null
 
     @on "select.tao-select-#{@taoId}", '.select-list', (e, option) =>

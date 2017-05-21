@@ -22,15 +22,16 @@ class Tao.Form.Select.Result extends TaoComponent
 
     @on "click.tao-select-result-#{@taoId}", '.link-clear', (e) =>
       return if @disabled
-      selectedOption = @selectedOption
-      @clear()
-      @trigger 'clear', [selectedOption]
+      @clear() && @trigger('clear')
       false
 
     @on "keydown.tao-select-result-#{@taoId}", (e) =>
       return if @disabled
       if e.which == 13
         @trigger 'enterPress'
+        false
+      else if e.which == 8 || e.which == 46
+        @clear() && @trigger('clear')
         false
       else if e.which == 38
         @trigger 'arrowPress', ['up']
@@ -46,27 +47,30 @@ class Tao.Form.Select.Result extends TaoComponent
       @jq.attr 'tabindex', '0'
 
   selectOption: (option) ->
-    return unless option
+    return false unless option
     @jq.find('.selected-text').text option.text
     @selected = true
     @selectedOption = option
     @_setSelectedOption option
-    @
 
   unselectOption: (option = @selectedOption) ->
-    return unless option
+    return false unless option
     @jq.find('.selected-text').text ''
     @selected = false
     @selectedOption = null
     @_setSelectedOption false
-    @
 
   _setSelectedOption: (option) ->
     @field.find('option:selected').prop 'selected', false
-    if option
-      $option = @field.find("option[value='#{option.value}']")
-      $option = @_generateOption(option) unless $option.length > 0
+    return true unless option
+
+    $option = @field.find("option[value='#{option.value}']")
+    $option = @_generateOption(option) unless $option.length > 0
+    if $option.length > 0
       $option.prop 'selected', true
+      true
+    else
+      false
 
   _generateOption: (option) ->
     $option = $('<option>', test: option.text, value: option.value).appendTo(@field)
@@ -75,7 +79,6 @@ class Tao.Form.Select.Result extends TaoComponent
 
   clear: ->
     @unselectOption()
-    @
 
 
 TaoComponent.register Tao.Form.Select.Result

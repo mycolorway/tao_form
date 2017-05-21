@@ -13,6 +13,11 @@ module TaoForm
         @choices = choices
         @html_options = html_options
         @disabled = @html_options[:disabled].presence || false
+        @html_options[:remote] = @options.delete(:remote) if @options[:remote].present?
+
+        if @html_options[:remote].present? && @html_options[:remote].is_a?(Hash)
+          @html_options[:remote] = @html_options[:remote].to_json
+        end
       end
 
       def render &block

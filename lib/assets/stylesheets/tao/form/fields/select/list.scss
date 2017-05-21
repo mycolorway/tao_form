@@ -136,8 +136,11 @@ tao-select-list {
   }
 
   .tips,
+  .search-not-found,
+  .remote-no-option,
   .no-option,
   .loading-message {
+    display: none;
     flex: 0 0 auto;
     height: $select-option-height;
     padding: $select-option-padding;
@@ -147,36 +150,38 @@ tao-select-list {
     text-align: center;
   }
 
-  .no-option,
-  .loading-message {
-    display: none;
-  }
-
-  .tips.hidden {
-    display: none;
+  .tips {
+    border-top: 1px solid $border-color;
   }
 
   &[empty='true'] {
-    .options-list,
-    .tips {
-      display: none;
-    }
-
-    .no-option {
+    &:not([hidden-size='0']) .remote-no-option {
       display: block;
     }
+
+    &[hidden-size='0'] .no-optoin {
+      display: block;
+    }
+
+    &[searching='true'] .search-not-found{
+      display: block;
+    }
+  }
+
+  &[empty='false']:not([hidden-size='0']) .tips {
+    display: block;
   }
 
   &[loading='true'] {
-    .options-list,
-    .no-option,
-    .tips {
-      display: none;
-    }
-
     .loading-message {
       display: block;
     }
-  }
 
+    .tips,
+    .search-not-found,
+    .remote-no-option,
+    .no-option {
+      display: none !important;
+    }
+  }
 }
