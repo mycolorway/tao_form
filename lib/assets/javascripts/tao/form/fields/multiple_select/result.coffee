@@ -15,14 +15,15 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
     @_bind()
 
   _disconnected: ->
-    @off ".tao-multiple-select-result-#{@taoId}"
+    @off()
 
   _bind: ->
-    @on "click.tao-multiple-select-result-#{@taoId}", '.link-add', (e) =>
+    @on 'click', '.link-add', (e) =>
       return if @disabled
       @trigger 'addClick'
+      false
 
-    @on "click.tao-multiple-select-result-#{@taoId}", '.selected-item', (e) =>
+    @on 'click', '.selected-item', (e) =>
       return if @disabled
       $option = $ e.currentTarget
       option = $option.data 'option'
@@ -30,7 +31,7 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
       @trigger 'unselectOption', [option]
       false
 
-    @on "keydown.tao-multiple-select-result-#{@taoId}", '.link-add', (e) =>
+    @on 'keydown', '.link-add', (e) =>
       return if @disabled
       if e.which == 13
         @trigger 'enterPress'

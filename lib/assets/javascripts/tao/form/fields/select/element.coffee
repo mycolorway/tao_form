@@ -39,11 +39,11 @@ class Tao.Form.Select.Element extends TaoComponent
       @dataProvider.options.length > @searchableSize
 
   _bindResultEvents: ->
-    @on "click.tao-select-#{@taoId}", '.select-result', (e) =>
+    @on 'click', '.select-result', (e) =>
       @_toggleActive()
       null
 
-    @on "enterPress.tao-select-#{@taoId}", '.select-result', (e) =>
+    @on 'enterPress', '.select-result', (e) =>
       if @active
         if @selectOption @list.highlightedOption
           @trigger 'change', @selectedOption
@@ -51,7 +51,7 @@ class Tao.Form.Select.Element extends TaoComponent
         @active = true
       null
 
-    @on "arrowPress.tao-select-#{@taoId}", '.select-result', (e, direction) =>
+    @on 'arrowPress', '.select-result', (e, direction) =>
       if @active
         if direction == 'up'
           @list.highlightPrevOption()
@@ -61,7 +61,7 @@ class Tao.Form.Select.Element extends TaoComponent
         @active = true
       null
 
-    @on "clear.tao-select-#{@taoId}", '.select-result', (e) =>
+    @on 'clear', '.select-result', (e) =>
       @active = false
       @selectedOption = null
       @_filterList ''
@@ -69,23 +69,23 @@ class Tao.Form.Select.Element extends TaoComponent
       null
 
   _bindListEvents: ->
-    @on "select.tao-select-#{@taoId}", '.select-list', (e, option) =>
+    @on 'select', '.select-list', (e, option) =>
       @selectOption option
       @trigger 'change', @selectedOption
       null
 
-    @on "show.tao-select-#{@taoId}", '.select-list', (e) =>
+    @on 'show', '.select-list', (e) =>
       @_positionList()
 
-    @on "searchEscapePress.tao-select-#{@taoId}", '.select-list', (e) =>
+    @on 'searchEscapePress', '.select-list', (e) =>
       @active = false
       null
 
-    @on "search.tao-select-#{@taoId}", '.select-list', (e, value) =>
+    @on 'search', '.select-list', (e, value) =>
       @_filterList value
 
   _disconnected: ->
-    @off ".tao-select-#{@taoId}"
+    @off()
     $(document).off ".tao-select-#{@taoId}"
     @dataProvider = null
 

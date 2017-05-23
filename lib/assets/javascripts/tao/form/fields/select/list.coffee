@@ -22,16 +22,16 @@ class Tao.Form.Select.List extends TaoComponent
     @_bind()
 
   _disconnected: ->
-    @off ".tao-select-list-#{@taoId}"
+    @off()
 
   _bind: ->
-    @on "input.tao-select-list-#{@taoId}", '.search-field', _.debounce (e) =>
+    @on 'input', '.search-field', _.debounce (e) =>
       val = @searchField.val()
       @searching = !!val
       @trigger 'search', [val]
     , 200
 
-    @on "keydown.tao-select-list-#{@taoId}", '.search-field', (e) =>
+    @on 'keydown', '.search-field', (e) =>
       if e.which == 13
         @trigger('select', [@highlightedOption]) if @highlightedOption
         false
@@ -45,7 +45,7 @@ class Tao.Form.Select.List extends TaoComponent
         @highlightNextOption()
         false
 
-    @on "click.tao-select-list-#{@taoId}", '.option', (e) =>
+    @on 'click', '.option', (e) =>
       $option = $ e.currentTarget
       option = $option.data('option')
       @trigger('select', [option]) if option

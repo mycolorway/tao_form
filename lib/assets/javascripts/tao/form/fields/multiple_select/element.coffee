@@ -24,18 +24,18 @@ class Tao.Form.MultipleSelect.Element extends Tao.Form.Select.Element
     @_bindListEvents()
 
   _bindResultEvents: ->
-    @on "addClick.tao-select-#{@taoId}", '.select-result', (e) =>
+    @on 'addClick', '.select-result', (e) =>
       @_toggleActive()
       null
 
-    @on "unselectOption.tao-select-#{@taoId}", '.select-result', (e, option) =>
+    @on 'unselectOption', '.select-result', (e, option) =>
       _.remove @selectedOption, (opt) -> opt.value == option.value
       @active = false
       @_filterList ''
       @trigger 'change', @selectedOption
       null
 
-    @on "enterPress.tao-select-#{@taoId}", '.select-result', (e) =>
+    @on 'enterPress', '.select-result', (e) =>
       if @active
         if @selectOption @list.highlightedOption
           @trigger 'change', @selectedOption
@@ -43,7 +43,7 @@ class Tao.Form.MultipleSelect.Element extends Tao.Form.Select.Element
         @active = true
       null
 
-    @on "arrowPress.tao-select-#{@taoId}", '.select-result', (e, direction) =>
+    @on 'arrowPress', '.select-result', (e, direction) =>
       if @active
         if direction == 'up'
           @list.highlightPrevOption()
@@ -52,6 +52,12 @@ class Tao.Form.MultipleSelect.Element extends Tao.Form.Select.Element
       else
         @active = true
       null
+
+  _bindDocumentMousedown: ->
+    $(document).on "mousedown.tao-select-#{@taoId}", (e) =>
+      return if $.contains(@, e.target) && @result != e.target
+      @active = false
+      @_unbindDocumentMousedown()
 
   selectOption: (option) ->
     option = @dataProvider.getOption option

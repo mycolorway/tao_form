@@ -13,20 +13,20 @@ class Tao.Form.Switch extends TaoComponent
     @_bind()
 
   _bind: ->
-    @on "click.tao-switch-#{@taoId}", '.switch-wrapper', (e) =>
+    @on 'click', '.switch-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()
         @trigger 'change'
       false
 
-    @on "keydown.tao-switch-#{@taoId}", '.switch-wrapper', (e) =>
+    @on 'keydown', '.switch-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
       @trigger 'change'
       false
 
   _disconnected: ->
-    @off ".tao-switch-#{@taoId}"
+    @off()
 
   _toggleChecked: ->
     @checked = !@checked

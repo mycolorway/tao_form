@@ -13,18 +13,18 @@ class Tao.Form.Select.Result extends TaoComponent
     @_bind()
 
   _disconnected: ->
-    @off ".tao-select-result-#{@taoId}"
+    @off()
 
   _bind: ->
-    @on "click.tao-select-result-#{@taoId}", (e) =>
+    @on 'click', (e) =>
       return false if @disabled
 
-    @on "click.tao-select-result-#{@taoId}", '.link-clear', (e) =>
+    @on 'click', '.link-clear', (e) =>
       return if @disabled
       @clear() && @trigger('clear')
       false
 
-    @on "keydown.tao-select-result-#{@taoId}", (e) =>
+    @on 'keydown', (e) =>
       return if @disabled
       if e.which == 13
         @trigger 'enterPress'

@@ -5,24 +5,22 @@ class Tao.Form.Base extends TaoComponent
   @attribute 'successMessage'
 
   _connected: ->
-    @form = @jq.find '> form'
     @_bind()
 
   _bind: ->
-    @form.on "ajax:beforeSend.tao-form-#{@taoId}", (e) =>
+    @on 'ajax:beforeSend', '> form', (e) =>
       @_clearErrors()
       @trigger 'beforeSubmit'
 
-    @form.on "ajax:success.tao-form-#{@taoId}", (e) =>
+    @on 'ajax:success', '> form', (e) =>
       @_showSuccessMessage()
       @trigger 'success'
 
   _disconnected: ->
-    @form.off ".tao-form-#{@taoId}"
-    @form = null
+    @off()
 
   _clearErrors: ->
-    @form.find('.input-with-errors').each (i, input) =>
+    @jq.find('.input-with-errors').each (i, input) =>
       @_clearError input
 
   _clearError: (input) ->
@@ -32,7 +30,7 @@ class Tao.Form.Base extends TaoComponent
   _showSuccessMessage: ->
     return unless @successMessage
 
-    $button = @form.find('button[data-disable-with]:disabled, input[data-disable-with]:disabled')
+    $button = @jq.find('button[data-disable-with]:disabled, input[data-disable-with]:disabled')
     $message = $('<div>')
       .addClass('success-message')
       .append([Tao.ui.iconTag('success'), @successMessage])
@@ -46,5 +44,5 @@ class Tao.Form.Base extends TaoComponent
   beforeCache: ->
     super
     clearTimeout @_successTimer
-    @form.find('.success-message').remove()
-    @form.find('button[data-disable-with]:hidden, input[data-disable-with]:hidden').show()
+    @jq.find('.success-message').remove()
+    @jq.find('button[data-disable-with]:hidden, input[data-disable-with]:hidden').show()

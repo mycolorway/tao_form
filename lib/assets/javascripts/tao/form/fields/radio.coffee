@@ -13,20 +13,20 @@ class Tao.Form.Radio extends TaoComponent
     @_bind()
 
   _bind: ->
-    @on "click.tao-radio-#{@taoId}", '.radio-wrapper', (e) =>
+    @on 'click', '.radio-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()
         @trigger 'change'
       false
 
-    @on "keydown.tao-radio-#{@taoId}", '.radio-wrapper', (e) =>
+    @on 'keydown', '.radio-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
       @trigger 'change'
       false
 
   _disconnected: ->
-    @off ".tao-radio-#{@taoId}"
+    @off()
 
   _toggleChecked: ->
     @checked = !@checked

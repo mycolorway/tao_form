@@ -5,11 +5,11 @@ class Tao.Form.Element extends Tao.Form.Base
   _bind: ->
     super
 
-    @form.on "focus.tao-form-#{@taoId}", '.input-field', (e) =>
+    @on 'focus', '.input-field', (e) =>
       $field = $ e.currentTarget
       $field.closest('.form-input').addClass 'focus'
 
-    @form.on "blur.tao-form-#{@taoId}", '.input-field', (e) =>
+    @on 'blur', '.input-field', (e) =>
       $field = $ e.currentTarget
       $field.closest('.form-input').removeClass 'focus'
 
