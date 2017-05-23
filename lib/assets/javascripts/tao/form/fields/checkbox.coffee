@@ -21,8 +21,8 @@ class Tao.Form.Checkbox extends TaoComponent
 
     @on "keydown.tao-checkbox-#{@taoId}", '.checkbox-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
-        @_toggleChecked()
-        @trigger 'change'
+      @_toggleChecked()
+      @trigger 'change'
       false
 
   _disconnected: ->

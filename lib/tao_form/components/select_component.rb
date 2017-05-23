@@ -1,5 +1,4 @@
 require 'tao_form/components/select/result_component'
-require 'tao_form/components/select/multiple_result_component'
 require 'tao_form/components/select/list_component'
 
 module TaoForm
@@ -21,7 +20,7 @@ module TaoForm
       end
 
       def render &block
-        view.content_tag 'tao-select', nil, html_options do
+        view.content_tag self.class.tag_name, nil, html_options do
           render_result(&block) + render_list
         end
       end

@@ -27,17 +27,18 @@ class Tao.Form.Select.Element extends TaoComponent
     @list = @findComponent '.select-list', =>
       @_initList()
 
-    @_bind()
+    @_bindResultEvents()
+    @_bindListEvents()
 
   _initList: ->
-    options = @dataProvider.options.filter (option) => option.value != @value
+    options = @dataProvider.unselectedOptions()
     @list.setOptions options, @remote?.totalOptionSize
     @list.searchable = if @remote
       @dataProvider.options.length < @remote.totalOptionSize
     else
       @dataProvider.options.length > @searchableSize
 
-  _bind: ->
+  _bindResultEvents: ->
     @on "click.tao-select-#{@taoId}", '.select-result', (e) =>
       @_toggleActive()
       null
@@ -62,9 +63,12 @@ class Tao.Form.Select.Element extends TaoComponent
 
     @on "clear.tao-select-#{@taoId}", '.select-result', (e) =>
       @active = false
+      @selectedOption = null
       @_filterList ''
+      @trigger 'change', @selectedOption
       null
 
+  _bindListEvents: ->
     @on "select.tao-select-#{@taoId}", '.select-list', (e, option) =>
       @selectOption option
       @trigger 'change', @selectedOption
@@ -77,7 +81,7 @@ class Tao.Form.Select.Element extends TaoComponent
       @active = false
       null
 
-    @on "search.tao-select-#{@taoId}", (e, value) =>
+    @on "search.tao-select-#{@taoId}", '.select-list', (e, value) =>
       @_filterList value
 
   _disconnected: ->
@@ -96,7 +100,7 @@ class Tao.Form.Select.Element extends TaoComponent
     if @active
       @_bindDocumentMousedown()
     else
-      @result.jq.focus()
+      @result.focus()
     @
 
   _unbindDocumentMousedown: ->
@@ -128,7 +132,7 @@ class Tao.Form.Select.Element extends TaoComponent
     @list.loading = true
     @dataProvider.filter value, (options, totalSize) =>
       @list.loading = false
-      options = options.filter (option) => option.value != @value
+      options = @dataProvider.unselectedOptions options
       @list.setOptions options, totalSize
 
   selectOption: (option) ->
@@ -137,12 +141,12 @@ class Tao.Form.Select.Element extends TaoComponent
     @result.selectOption option
     @selectedOption = option
     @active = false
-    option
+    true
 
   unselectOption: ->
     @result.unselectOption()
     @selectedOption = null
     @active = false
-    @
+    true
 
 TaoComponent.register Tao.Form.Select.Element

@@ -1,0 +1,76 @@
+@import 'tao/form/globals';
+
+tao-multiple-select-result {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  min-width: $form-field-width;
+
+  select {
+    display: none;
+  }
+
+  .selected-item,
+  .link-add {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 0 0 auto;
+    padding: 0 0.75rem;
+    margin: 0 0.25rem 0.25rem 0;
+    height: 2.375rem;
+    background: $lighter-grey-bg-color;
+    border-radius: $border-radius-s;
+    color: $text-color;
+    font-size: 0.875rem;
+    text-decoration: none;
+    outline: none;
+
+    .icon-close {
+      width: 1em;
+      height: 1em;
+      margin: 0 0 0 8px;
+      fill: $lighter-grey-color;
+    }
+
+    &:hover {
+      background: $light-grey-bg-color;
+
+      .icon-close {
+        fill: $text-color;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 2px 0px rgba(#000000, 0.4);
+    }
+  }
+
+  .link-add {
+    padding: 0 0.625rem 0 0.5rem;
+
+    .icon-add {
+      font-size: 1rem;
+      margin: 0 0.25rem 0 0;
+    }
+  }
+
+  &.disabled {
+    .link-add,
+    .selected-item {
+      cursor: not-allowed;
+      color: $lightest-grey-color;
+
+      &:hover {
+        background-color: $lighter-grey-bg-color;
+      }
+
+      .icon-add,
+      .icon-close {
+        cursor: not-allowed;
+        fill: $lightest-grey-color;
+      }
+    }
+  }
+}

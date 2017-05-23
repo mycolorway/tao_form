@@ -13,7 +13,11 @@ class Tao.Form.Select.DataProvider extends TaoModule
     .get()
 
     @field.on 'addOption', (e, option) =>
-      @options.push option
+      if option.data?.group
+        index = _.findIndex @options, (opt) -> opt.data?.group == option.data?.group
+        @options.splice index, 0, option
+      else
+        @options.unshift option
 
   getOption: (value) ->
     return value if value instanceof Option
@@ -61,3 +65,11 @@ class Tao.Form.Select.DataProvider extends TaoModule
         []
 
       callback? options, result.totalSize
+
+  unselectedOptions: (options = @options) ->
+    options.filter (option) =>
+      value = @field.val()
+      if _.isArray(value)
+        !(option.value in value)
+      else
+        option.value != @value

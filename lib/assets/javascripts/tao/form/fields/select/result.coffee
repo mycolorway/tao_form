@@ -1,6 +1,4 @@
 
-Option = Tao.Form.Select.Option
-
 class Tao.Form.Select.Result extends TaoComponent
 
   @tag 'tao-select-result'
@@ -11,6 +9,7 @@ class Tao.Form.Select.Result extends TaoComponent
 
   _connected: ->
     @field = @jq.find 'select'
+    @jq.attr('tabindex', '0') unless @disabled
     @_bind()
 
   _disconnected: ->
@@ -52,6 +51,7 @@ class Tao.Form.Select.Result extends TaoComponent
     @selected = true
     @selectedOption = option
     @_setSelectedOption option
+    true
 
   unselectOption: (option = @selectedOption) ->
     return false unless option
@@ -59,18 +59,15 @@ class Tao.Form.Select.Result extends TaoComponent
     @selected = false
     @selectedOption = null
     @_setSelectedOption false
+    true
 
   _setSelectedOption: (option) ->
     @field.find('option:selected').prop 'selected', false
-    return true unless option
+    return unless option
 
     $option = @field.find("option[value='#{option.value}']")
     $option = @_generateOption(option) unless $option.length > 0
-    if $option.length > 0
-      $option.prop 'selected', true
-      true
-    else
-      false
+    $option.prop 'selected', true
 
   _generateOption: (option) ->
     $option = $('<option>', test: option.text, value: option.value).appendTo(@field)
@@ -79,6 +76,5 @@ class Tao.Form.Select.Result extends TaoComponent
 
   clear: ->
     @unselectOption()
-
 
 TaoComponent.register Tao.Form.Select.Result

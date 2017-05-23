@@ -9,7 +9,6 @@ module TaoForm
           super view, builder, attribute_name, options
           @choices = choices
           @html_options = html_options
-          @html_options.merge! tabindex: '0'
 
           if @html_options[:class].present?
             @html_options[:class] += " select-result"

@@ -10,13 +10,14 @@ tao-select-list {
   display: none;
   flex-direction: column;
   position: absolute;
-  top: $form-field-height + $select-list-offset;
+  top: 100%;
   left: 0;
-  min-width: 100%;
+  min-width: $form-field-width;
   background: $white-color;
   border: 1px solid $border-color;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.2);
   z-index: $z-index-popover;
+  margin-top: $select-list-offset;
 
   &[active='true'] {
     display: flex;
@@ -25,7 +26,9 @@ tao-select-list {
   &[direction='up'] {
     flex-direction: column-reverse;
     top: auto;
-    bottom: $form-field-height + $select-list-offset;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: $select-list-offset;
 
     .search-input {
       border-top: 1px solid $border-color;
@@ -159,7 +162,7 @@ tao-select-list {
       display: block;
     }
 
-    &[hidden-size='0'] .no-optoin {
+    &[hidden-size='0'] .no-option {
       display: block;
     }
 
