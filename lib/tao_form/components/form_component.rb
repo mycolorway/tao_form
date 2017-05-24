@@ -12,7 +12,7 @@ module TaoForm
       end
 
       def render &block
-        view.content_tag self.class.tag_name, view.simple_form_for(record, options, &block), html_options
+        view.content_tag tag_name, view.simple_form_for(record, options, &block), html_options
       end
 
       def self.component_name

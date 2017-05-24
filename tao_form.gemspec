@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "tao_on_rails", "~> 0.8.1"
+  spec.add_dependency "tao_on_rails", "~> 0.9.0"
   spec.add_dependency "tao_ui", "~> 0.1.3"
   spec.add_dependency "simple_form", "~> 3.4.0"
 

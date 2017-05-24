@@ -1,6 +1,6 @@
 module TaoForm
   module Components
-    class CheckBoxComponent < Base
+    class CheckBoxComponent < FieldComponent
 
       attr_reader :checked_value, :unchecked_value
 

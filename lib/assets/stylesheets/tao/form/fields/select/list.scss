@@ -19,7 +19,7 @@ tao-select-list {
   z-index: $z-index-popover;
   margin-top: $select-list-offset;
 
-  &[active='true'] {
+  &[active] {
     display: flex;
   }
 
@@ -83,7 +83,7 @@ tao-select-list {
     }
   }
 
-  &[searchable='true'] {
+  &[searchable] {
     .search-input {
       display: flex;
     }
@@ -157,7 +157,7 @@ tao-select-list {
     border-top: 1px solid $border-color;
   }
 
-  &[empty='true'] {
+  &[empty] {
     &:not([hidden-size='0']) .remote-no-option {
       display: block;
     }
@@ -166,16 +166,23 @@ tao-select-list {
       display: block;
     }
 
-    &[searching='true'] .search-not-found{
-      display: block;
+    &[searching] {
+      .remote-no-option,
+      .no-option {
+        display: none;
+      }
+
+      .search-not-found{
+        display: block;
+      }
     }
   }
 
-  &[empty='false']:not([hidden-size='0']) .tips {
+  &:not([empty]):not([hidden-size='0']) .tips {
     display: block;
   }
 
-  &[loading='true'] {
+  &[loading] {
     .loading-message {
       display: block;
     }

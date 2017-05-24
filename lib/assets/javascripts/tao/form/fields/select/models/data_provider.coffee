@@ -72,4 +72,4 @@ class Tao.Form.Select.DataProvider extends TaoModule
       if _.isArray(value)
         !(option.value in value)
       else
-        option.value != @value
+        option.value != value

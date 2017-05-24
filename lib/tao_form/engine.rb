@@ -5,6 +5,7 @@ require 'tao_form/components'
 
 module TaoForm
   class Engine < Rails::Engine
+    isolate_namespace TaoForm
 
     config.i18n.load_path += Dir[config.root.join('config', 'locales', '**', '*.{rb,yml}')]
 

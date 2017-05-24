@@ -1,7 +1,7 @@
 module TaoForm
   module Components
     module Select
-      class ResultComponent < TaoForm::Components::Base
+      class ResultComponent < TaoForm::Components::FieldComponent
 
         attr_reader :choices, :html_options
 

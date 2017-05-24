@@ -3,7 +3,7 @@ require 'tao_form/components/select/list_component'
 
 module TaoForm
   module Components
-    class SelectComponent < Base
+    class SelectComponent < FieldComponent
 
       attr_reader :choices, :html_options, :disabled
 
@@ -20,7 +20,7 @@ module TaoForm
       end
 
       def render &block
-        view.content_tag self.class.tag_name, nil, html_options do
+        view.content_tag tag_name, nil, html_options do
           render_result(&block) + render_list
         end
       end

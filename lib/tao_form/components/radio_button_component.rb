@@ -1,6 +1,6 @@
 module TaoForm
   module Components
-    class RadioButtonComponent < Base
+    class RadioButtonComponent < FieldComponent
 
       attr_reader :checked_value, :unchecked_value
 

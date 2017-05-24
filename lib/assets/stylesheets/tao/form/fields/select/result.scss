@@ -15,20 +15,20 @@ tao-select-result {
     border-color: #cccccc;
   }
 
-  &[active='true'],
+  &[active],
   &:focus {
     border-color: #cccccc;
     outline: none;
     box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
   }
 
-  &[disabled='true'] {
+  &[disabled] {
     cursor: not-allowed;
     background: $lighter-grey-bg-color;
     border-color: #e6e6e6;
     color: $lightest-grey-color;
 
-    &[selected='true'][clearable='true'] .link-clear {
+    &[selected][clearable] .link-clear {
       display: none;
     }
   }
@@ -74,7 +74,7 @@ tao-select-result {
     }
   }
 
-  &[selected='true'] {
+  &[selected] {
     .placeholder {
       display: none;
     }
@@ -83,7 +83,7 @@ tao-select-result {
       display: block;
     }
 
-    &[clearable='true'] {
+    &[clearable] {
       .link-clear {
         display: flex;
       }

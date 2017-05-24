@@ -1,6 +1,6 @@
 module TaoForm
   module Components
-    class Base < TaoOnRails::Components::Base
+    class FieldComponent < TaoOnRails::Components::Base
 
       attr_reader :builder, :attribute_name
 
