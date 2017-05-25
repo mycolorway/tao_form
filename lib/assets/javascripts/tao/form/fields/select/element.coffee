@@ -101,7 +101,6 @@ class Tao.Form.Select.Element extends TaoComponent
       @_bindDocumentMousedown()
     else
       @result.focus()
-    @
 
   _unbindDocumentMousedown: ->
     $(document).off "mousedown.tao-select-#{@taoId}"
