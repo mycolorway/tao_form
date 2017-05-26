@@ -19,7 +19,7 @@ module TaoForm
           super
         else
           super {
-            builder.check_box attribute_name, options, checked_value, unchecked_value
+            builder.check_box attribute_name, {}, checked_value, unchecked_value
           }
         end
       end

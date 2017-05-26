@@ -5,12 +5,13 @@ module TaoForm
   module Components
     class SelectComponent < FieldComponent
 
-      attr_reader :choices, :html_options, :disabled
+      attr_reader :choices, :html_options, :disabled, :max_list_size
 
       def initialize view, builder, attribute_name, choices = nil, options = {}, html_options = {}
         super view, builder, attribute_name, options
         @choices = choices
-        @html_options = html_options
+        @html_options = transform_html_options html_options
+        @max_list_size = @html_options.delete(:'max-list-size')
         @disabled = @html_options[:disabled].presence || false
         @html_options[:remote] = @options.delete(:remote) if @options[:remote].present?
 
@@ -33,7 +34,7 @@ module TaoForm
       end
 
       def render_list
-        view.tao_select_list maxListSize: html_options[:maxListSize]
+        view.tao_select_list max_list_size: max_list_size
       end
 
       def clearable

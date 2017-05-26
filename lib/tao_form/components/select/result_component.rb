@@ -8,7 +8,7 @@ module TaoForm
         def initialize view, builder, attribute_name, choices = nil, options = {}, html_options
           super view, builder, attribute_name, options
           @choices = choices
-          @html_options = html_options
+          @html_options = transform_html_options html_options
 
           if @html_options[:class].present?
             @html_options[:class] += " select-result"

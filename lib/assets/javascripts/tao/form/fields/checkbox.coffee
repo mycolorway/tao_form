@@ -1,6 +1,6 @@
 class Tao.Form.Checkbox extends TaoComponent
 
-  @tag 'tao-checkbox'
+  @tag 'tao-check-box'
 
   @get 'checked', ->
     @field?.prop 'checked'

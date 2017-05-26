@@ -19,7 +19,7 @@ module TaoForm
           super
         else
           super {
-            builder.radio_button attribute_name, options, checked_value, unchecked_value
+            builder.radio_button attribute_name, {}, checked_value, unchecked_value
           }
         end
       end

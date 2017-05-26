@@ -7,7 +7,7 @@ module TaoForm
       def initialize view, record, options
         super view, options
         @record = record
-        @html_options = @options.delete(:html) || {}
+        @html_options = transform_html_options(@options.delete(:html) || {})
         @options[:wrapper] = :tao_mobile if view.request.variant.mobile?
       end
 

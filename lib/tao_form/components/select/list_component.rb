@@ -6,10 +6,10 @@ module TaoForm
         def initialize view, options = {}
           super view, options
 
-          if @options[:class].present?
-            @options[:class] += " select-list"
+          if html_options[:class].present?
+            html_options[:class] += " select-list"
           else
-            @options[:class] = "select-list"
+            html_options[:class] = "select-list"
           end
         end
 

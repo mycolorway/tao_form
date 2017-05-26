@@ -88,7 +88,7 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
       </a>
     """)
 
-    $item.append Tao.ui.iconTag('close')
+    $item.append Tao.iconTag('close')
     $item.attr 'data-value', option.value
       .data 'option', option
       .find('.name').text option.text

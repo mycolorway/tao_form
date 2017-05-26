@@ -1,6 +1,6 @@
 class Tao.Form.Radio extends TaoComponent
 
-  @tag 'tao-radio'
+  @tag 'tao-radio-button'
 
   @get 'checked', ->
     @field?.prop 'checked'

@@ -33,7 +33,7 @@ class Tao.Form.Base extends TaoComponent
     $button = @jq.find('button[data-disable-with]:disabled, input[data-disable-with]:disabled')
     $message = $('<div>')
       .addClass('success-message')
-      .append([Tao.ui.iconTag('success'), @successMessage])
+      .append([Tao.iconTag('success'), @successMessage])
       .insertAfter $button.hide()
 
     @_successTimer = setTimeout =>
