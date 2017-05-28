@@ -7,8 +7,8 @@
   </div>
   <div class="icon-wrapper">
     <%= tao_icon :arrow_down %>
+    <%= link_to 'javascript:;', tabindex: '-1', class: 'link-clear', title: component.t(:clear_option) do %>
+      <%= tao_icon :close %>
+    <% end %>
   </div>
-  <%= link_to 'javascript:;', tabindex: '-1', class: 'link-clear', title: component.t(:clear_option) do %>
-    <%= tao_icon :close %>
-  <% end %>
 <% end %>

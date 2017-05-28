@@ -1,64 +1,43 @@
 
-class Tao.Form.Select.Result extends TaoComponent
+class Tao.Form.Select.ResultBase extends TaoComponent
 
   @tag 'tao-select-result'
 
-  @attribute 'active', 'selected', 'clearable', type: 'boolean'
+  @attribute 'selected', 'clearable', type: 'boolean'
 
   @attribute 'disabled', type: 'boolean', observe: true
 
   _connected: ->
     @field = @jq.find 'select'
-    @jq.attr('tabindex', '0') unless @disabled
     @_bind()
 
   _disconnected: ->
     @off()
 
   _bind: ->
-    @on 'click', (e) =>
-      return false if @disabled
+    @on 'click', 'select', =>
+      @trigger 'activeClick'
+      false
 
     @on 'click', '.link-clear', (e) =>
       return if @disabled
       @clear() && @trigger('clear')
       false
 
-    @on 'keydown', (e) =>
-      return if @disabled
-      if e.which == 13
-        @trigger 'enterPress'
-        false
-      else if e.which == 8 || e.which == 46
-        @clear() && @trigger('clear')
-        false
-      else if e.which == 38
-        @trigger 'arrowPress', ['up']
-        false
-      else if e.which == 40
-        @trigger 'arrowPress', ['down']
-        false
-
-  _disabledChanged: ->
-    if @disabled
-      @jq.removeAttr 'tabindex'
-    else
-      @jq.attr 'tabindex', '0'
-
   selectOption: (option) ->
     return false unless option
-    @jq.find('.selected-text').text option.text
-    @selected = true
     @selectedOption = option
+    @selected = true
     @_setSelectedOption option
+    @jq.find('.selected-text').text option.text
     true
 
   unselectOption: (option = @selectedOption) ->
     return false unless option
-    @jq.find('.selected-text').text ''
-    @selected = false
     @selectedOption = null
+    @selected = false
     @_setSelectedOption false
+    @jq.find('.selected-text').text ''
     true
 
   _setSelectedOption: (option) ->
@@ -76,5 +55,3 @@ class Tao.Form.Select.Result extends TaoComponent
 
   clear: ->
     @unselectOption()
-
-TaoComponent.register Tao.Form.Select.Result

@@ -1,0 +1,148 @@
+@import 'tao/form/mobile/globals';
+
+$select-option-height: $form-field-height - 0.125rem;
+$select-option-padding: $form-field-padding-v $form-field-padding-h;
+$select-option-line-height: $form-field-line-height;
+$select-option-font-size: 0.875rem;
+
+tao-select-list {
+  background: $white-color;
+
+  .search-input {
+    display: none;
+    flex: 0 0 auto;
+    border-bottom: 1px solid $border-color;
+    align-items: center;
+    justify-content: space-between;
+
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: $select-option-height;
+      height: $select-option-height;
+      fill: $lightest-grey-color;
+    }
+
+    .search-field {
+      display: block;
+      flex: 1 1 auto;
+      width: auto;
+      padding: $select-option-padding;
+      padding-left: 0;
+      font-size: $select-option-font-size;
+      line-height: $select-option-line-height;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &[searchable] {
+    .search-input {
+      display: flex;
+    }
+  }
+
+  .list-wrapper {
+    overflow-y: auto;
+    flex: 0 0 auto;
+  }
+
+  .options-list {
+    .option {
+      display: flex;
+      flex: 0 0 auto;
+      padding: $select-option-padding;
+      font-size: $select-option-font-size;
+      line-height: $select-option-line-height;
+      border-bottom: 1px solid $border-color;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      &.highlighted {
+        background: $lighter-grey-bg-color;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .hint {
+        font-size: $font-size-xs;
+        color: $lightest-grey-color;
+      }
+    }
+
+    .optgroup {
+      background: #efefef;
+      padding: 0 1rem;
+      line-height: 1.875rem;
+      color: $lighter-grey-color;
+      font-size: $font-size-xs;
+      font-weight: bold;
+    }
+  }
+
+  .tips,
+  .search-not-found,
+  .remote-no-option,
+  .no-option,
+  .loading-message {
+    display: none;
+    flex: 0 0 auto;
+    height: $select-option-height;
+    padding: $select-option-padding;
+    font-size: $select-option-font-size;
+    line-height: $select-option-line-height;
+    color: $lightest-grey-color;
+    text-align: center;
+  }
+
+  .tips {
+    border-top: 1px solid $border-color;
+  }
+
+  &[empty] {
+    .list-wrapper {
+      display: none;
+    }
+    
+    &:not([hidden-size='0']) .remote-no-option {
+      display: block;
+    }
+
+    &[hidden-size='0'] .no-option {
+      display: block;
+    }
+
+    &[searching] {
+      .remote-no-option,
+      .no-option {
+        display: none;
+      }
+
+      .search-not-found{
+        display: block;
+      }
+    }
+  }
+
+  &:not([empty]):not([hidden-size='0']) .tips {
+    display: block;
+  }
+
+  &[loading] {
+    .loading-message {
+      display: block;
+    }
+
+    .tips,
+    .search-not-found,
+    .remote-no-option,
+    .no-option {
+      display: none !important;
+    }
+  }
+}

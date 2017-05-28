@@ -26,10 +26,13 @@ tao-select-result {
     cursor: not-allowed;
     background: $lighter-grey-bg-color;
     border-color: #e6e6e6;
-    color: $lightest-grey-color;
 
     &[selected][clearable] .link-clear {
       display: none;
+    }
+
+    .selected-text {
+      color: $lightest-grey-color;
     }
   }
 
@@ -50,6 +53,7 @@ tao-select-result {
   }
 
   .selected-text {
+    color: $form-field-text-color;
     display: none;
   }
 

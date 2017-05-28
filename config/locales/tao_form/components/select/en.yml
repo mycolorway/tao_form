@@ -3,6 +3,7 @@ zh-CN:
     components:
       select:
         placeholder: Please Select
+        ok: OK
         list:
           search_placeholder: Search Options
           no_option: No option
@@ -12,6 +13,6 @@ zh-CN:
           search_not_found: No option Found
         result:
           clear_option: Clear Option
-      multiple_select:
-        result:
+          selected: 'Selected: '
+        multiple_result:
           add: Add

@@ -3,6 +3,7 @@ zh-CN:
     components:
       select:
         placeholder: 请选择
+        ok: 确定
         list:
           search_placeholder: 搜索选项
           no_option: 没有选项
@@ -12,6 +13,6 @@ zh-CN:
           tips: 有 <span class="size"></span> 个选项没有显示，请使用更精确的搜索条件
         result:
           clear_option: 清除选项
-      multiple_select:
-        result:
+          selected: '已选择：'
+        multiple_result:
           add: 添加

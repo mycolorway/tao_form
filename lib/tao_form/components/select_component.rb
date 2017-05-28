@@ -1,36 +1,50 @@
 require 'tao_form/components/select/result_component'
+require 'tao_form/components/select/multiple_result_component'
 require 'tao_form/components/select/list_component'
 
 module TaoForm
   module Components
     class SelectComponent < FieldComponent
 
-      attr_reader :choices, :html_options, :disabled, :max_list_size
+      attr_reader :choices, :html_options, :disabled, :multiple, :max_list_size, :block_for_render
 
       def initialize view, builder, attribute_name, choices = nil, options = {}, html_options = {}
         super view, builder, attribute_name, options
         @choices = choices
-        @html_options = transform_html_options html_options
-        @max_list_size = @html_options.delete(:'max-list-size')
-        @disabled = @html_options[:disabled].presence || false
-        @html_options[:remote] = @options.delete(:remote) if @options[:remote].present?
+        @max_list_size = html_options.delete(:max_list_size)
+        @disabled = html_options[:disabled].presence || false
+        @multiple = @options.delete(:multiple) || html_options.delete(:multiple) || false
+        
+        html_options[:multiple] = @multiple
+        html_options[:remote] = @options.delete(:remote)
 
-        if @html_options[:remote].present? && @html_options[:remote].is_a?(Hash)
-          @html_options[:remote] = @html_options[:remote].to_json
+        if html_options[:remote].present? && html_options[:remote].is_a?(Hash)
+          html_options[:remote] = html_options[:remote].to_json
+        end
+
+        @html_options = transform_html_options html_options
+
+        unless @options[:icon].present?
+          @options[:icon] = :arrow_down
         end
       end
 
       def render &block
-        view.content_tag tag_name, nil, html_options do
-          render_result(&block) + render_list
-        end
+        @block_for_render = block
+        super
       end
 
-      def render_result &block
-        view.tao_select_result(
-          builder, attribute_name, choices, options,
-          placeholder: placeholder, clearable: clearable, disabled: disabled, &block
-        )
+      def render_result
+        if multiple
+          view.tao_multiple_select_result(
+            builder, attribute_name, choices, options, disabled: disabled, &block_for_render
+          )
+        else
+          view.tao_select_result(
+            builder, attribute_name, choices, options,
+            placeholder: placeholder, clearable: clearable, disabled: disabled, &block_for_render
+          )
+        end
       end
 
       def render_list

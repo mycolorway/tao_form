@@ -1,0 +1,53 @@
+@import 'tao/form/globals';
+
+tao-multiple-select-result {
+  display: none;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.75rem 0.5rem 0.75rem;
+  border-bottom: 1px solid $border-color;
+
+  &[selected] {
+    display: flex;
+  }
+
+  select {
+    display: none;
+  }
+
+  .selected-item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 0 0 auto;
+    padding: 0 0.5rem;
+    margin: 0 0.25rem 0.25rem 0;
+    height: 2rem;
+    background: $lighter-grey-bg-color;
+    border-radius: $border-radius-s;
+    color: $text-color;
+    font-size: 0.875rem;
+    text-decoration: none;
+    outline: none;
+
+    .icon-close {
+      width: 1em;
+      height: 1em;
+      margin: 0 0 0 8px;
+      fill: $lighter-grey-color;
+    }
+  }
+
+  &.disabled {
+    .selected-item {
+      cursor: not-allowed;
+      color: $lightest-grey-color;
+
+      .icon-close {
+        cursor: not-allowed;
+        fill: $lightest-grey-color;
+      }
+    }
+  }
+}

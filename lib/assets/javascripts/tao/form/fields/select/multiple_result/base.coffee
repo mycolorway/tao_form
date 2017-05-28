@@ -1,16 +1,14 @@
 
-class Tao.Form.MultipleSelect.Result extends TaoComponent
+class Tao.Form.Select.MultipleResultBase extends TaoComponent
 
   @tag 'tao-multiple-select-result'
 
-  @attribute 'active', 'selected', 'clearable', type: 'boolean'
+  @attribute 'selected', type: 'boolean'
 
   @attribute 'disabled', type: 'boolean', observe: true
 
   _connected: ->
     @field = @jq.find 'select'
-    @linkAdd = @jq.find '.link-add'
-    @linkAdd.attr('tabindex', '0') unless @disabled
     @selectedOption = []
     @_bind()
 
@@ -18,9 +16,8 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
     @off()
 
   _bind: ->
-    @on 'click', '.link-add', (e) =>
-      return if @disabled
-      @trigger 'addClick'
+    @on 'click', 'select', =>
+      @trigger 'activeClick'
       false
 
     @on 'click', '.selected-item', (e) =>
@@ -31,38 +28,26 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
       @trigger 'unselectOption', [option]
       false
 
-    @on 'keydown', '.link-add', (e) =>
-      return if @disabled
-      if e.which == 13
-        @trigger 'enterPress'
-        false
-      else if e.which == 38
-        @trigger 'arrowPress', ['up']
-        false
-      else if e.which == 40
-        @trigger 'arrowPress', ['down']
-        false
-
-  _disabledChanged: ->
-    if @disabled
-      @linkAdd.removeAttr 'tabindex'
-    else
-      @linkAdd.attr 'tabindex', '0'
-
   selectOption: (option) ->
     return false unless option && !(option in @selectedOption)
-    @linkAdd.before @_generateItem(option)
-    @selected = true
+
+    $item = @_generateItem(option)
+    if @selectedOption.length > 0
+      @jq.find('.selected-item:last').after $item
+    else
+      @jq.prepend $item
+
     @selectedOption.push option
     @_setSelectedOption option
+    @selected = true
     true
 
   unselectOption: (option) ->
     return false unless option && option in @selectedOption
     @jq.find(".selected-item[data-value='#{option.value}']").remove()
-    @selected = false
     _.remove @selectedOption, (opt) -> opt.value == option.value
     @_setUnselectedOption option
+    @selected = false if @selectedOption.length == 0
     true
 
   _setSelectedOption: (option) ->
@@ -93,9 +78,3 @@ class Tao.Form.MultipleSelect.Result extends TaoComponent
       .data 'option', option
       .find('.name').text option.text
     $item
-
-  focus: ->
-    @linkAdd.focus()
-
-
-TaoComponent.register Tao.Form.MultipleSelect.Result

@@ -1,0 +1,27 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="select-result-delegate">
+    <div class="selected-text"></div>
+    <div class="placeholder"><%= component.placeholder %></div>
+    <div class="icon-wrapper">
+      <%= tao_icon component.options[:icon] %>
+    </div>
+  </div>
+
+  <%= tao_slide_box direction: 'rtl', size: '-40', with_close_button: false, class: 'slide-box' do %>
+    <div class="header">
+      <div class="left">
+        <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>
+          <%= tao_icon :close %>
+        <% end %>
+      </div>
+      <div class="title"><%= component.placeholder %></div>
+      <div class="right">
+        <% if component.multiple %>
+          <%= link_to component.t(:ok), 'javascript:;', class: 'button button-small button-ok' %>
+        <% end %>
+      </div>
+    </div>
+    <%= component.render_result %>
+    <%= component.render_list %>
+  <% end %>
+<% end %>

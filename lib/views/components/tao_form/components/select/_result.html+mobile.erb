@@ -1,0 +1,10 @@
+<%= content_tag component.tag_name, nil, component.html_options do %>
+  <%= yield %>
+  <%= link_to 'javascript:;', tabindex: '-1', class: 'link-clear', title: component.t(:clear_option) do %>
+    <span>
+      <%= component.t :selected %>
+      <span class="selected-text"></span>
+    </span>
+    <%= tao_icon :close %>
+  <% end %>
+<% end %>

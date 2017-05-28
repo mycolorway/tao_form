@@ -1,5 +1,5 @@
 #= require_self
-#= require ./models
+#= require tao/form/fields/select/models
 #= require ./result
 #= require ./multiple_result
 #= require ./list

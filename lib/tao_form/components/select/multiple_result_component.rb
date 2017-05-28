@@ -1,7 +1,7 @@
 module TaoForm
   module Components
-    module MultipleSelect
-      class ResultComponent < TaoForm::Components::Select::ResultComponent
+    module Select
+      class MultipleResultComponent < ResultComponent
 
         def render &block
           if block_given?
