@@ -1,0 +1,22 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="segment-labels">
+    <% component.segments.each do |segment| %>
+      <% if component.separatar_segment? segment %>
+        <div class="separatar"><%= segment[:separatar] %></div>
+      <% else %>
+        <%= link_to 'javascript:;', class: 'segment-label', data: {segment: segment} do %>
+          <span class="placeholder"><%= component.t segment %></span>
+          <span class="value"></span>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="segments">
+    <% component.segments.each do |segment| %>
+      <% unless component.separatar_segment? segment %>
+        <%= component.render_segment segment %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

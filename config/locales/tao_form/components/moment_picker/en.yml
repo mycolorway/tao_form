@@ -1,0 +1,18 @@
+zh-CN:
+  tao_form:
+    components:
+      moment_picker:
+        result:
+          clear_option: Clear Selected
+        segments:
+          year_segment:
+            label: '%{year}'
+            prev_years: Previous couple of years
+            next_years: Next couple of years
+          month_segment:
+            prev_year: Previous year
+            next_year: Next year
+          date_segment:
+            prev_month: Previous month
+            next_month: Next month
+            label: '%{date}'

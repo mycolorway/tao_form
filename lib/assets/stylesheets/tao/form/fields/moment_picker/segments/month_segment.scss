@@ -1,0 +1,35 @@
+@import 'tao/form/globals';
+
+tao-moment-picker-month-segment {
+  .month-list {
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 0 0;
+
+    .month {
+      display: block;
+      width: 3rem;
+      line-height: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: $text-color;
+      margin: 0.25rem;
+
+      &:hover {
+        background: $lighter-grey-bg-color;
+      }
+
+      &.current {
+        color: $orange-color;
+      }
+
+      &.selected {
+        background: $green-bg-color;
+        color: $green-color;
+      }
+    }
+  }
+}

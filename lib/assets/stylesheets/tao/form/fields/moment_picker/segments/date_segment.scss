@@ -1,0 +1,59 @@
+@import 'tao/form/globals';
+
+tao-moment-picker-date-segment {
+  .calendar {
+    width: 15rem;
+
+    .weekdays {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      border-bottom: 1px dotted $border-color;
+
+      .weekday {
+        display: block;
+        width: 1.75rem;
+        line-height: 1.75rem;
+        margin: 0.125rem;
+        text-align: center;
+        font-size: 0.875rem;
+      }
+    }
+
+    .days {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      margin: 0.5rem 0 0 0;
+
+      .day {
+        display: block;
+        width: 1.75rem;
+        line-height: 1.75rem;
+        margin: 0.125rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: $text-color;
+
+        &:hover {
+          background: $lighter-grey-bg-color;
+        }
+
+        &.outside {
+          color: $lightest-grey-color;
+        }
+
+        &.today {
+          color: $orange-color;
+        }
+
+        &.selected {
+          background: $green-bg-color;
+          color: $green-color;
+        }
+      }
+    }
+  }
+}

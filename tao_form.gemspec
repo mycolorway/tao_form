@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "tao_on_rails", "~> 0.9.0"
   spec.add_dependency "tao_ui", "~> 0.2.0"
   spec.add_dependency "simple_form", "~> 3.4.0"
+  spec.add_dependency "momentjs-rails", "~> 2.17.1"
 
   spec.add_development_dependency "blade", "~> 0.7.0"
   spec.add_development_dependency "blade-sauce_labs_plugin", "~> 0.6.2"

@@ -31,11 +31,12 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
   selectOption: (option) ->
     return false unless option && !(option in @selectedOption)
 
-    $item = @_generateItem(option)
-    if @selectedOption.length > 0
-      @jq.find('.selected-item:last').after $item
-    else
-      @jq.prepend $item
+    unless @jq.find(".selected-item[data-value='#{option.value}']").length > 0
+      $item = @_generateItem(option)
+      if @selectedOption.length > 0
+        @jq.find('.selected-item:last').after $item
+      else
+        @jq.prepend $item
 
     @selectedOption.push option
     @_setSelectedOption option

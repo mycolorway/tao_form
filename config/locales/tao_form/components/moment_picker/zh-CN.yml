@@ -1,0 +1,22 @@
+zh-CN:
+  tao_form:
+    components:
+      moment_picker:
+        result:
+          clear_option: 清除当前选择
+        segment_list:
+          year: 年
+          month: 月
+          date: 日
+        segments:
+          year_segment:
+            label: '%{year}年'
+            prev_years: 前几年
+            next_years: 后几年
+          month_segment:
+            prev_year: 上一年
+            next_year: 下一年
+          date_segment:
+            prev_month: 上个月
+            next_month: 下个月
+            label: '%{date}日'

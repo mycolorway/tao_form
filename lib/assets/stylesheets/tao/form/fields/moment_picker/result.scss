@@ -1,6 +1,6 @@
 @import 'tao/form/globals';
 
-tao-select-result {
+tao-moment-picker-result {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,22 +27,23 @@ tao-select-result {
     background: $lighter-grey-bg-color;
     border-color: #e6e6e6;
 
-    &[selected][clearable] .link-clear {
+    &[selected] .link-clear {
       display: none;
     }
 
-    .selected-text {
+    .result-text {
       color: $lightest-grey-color;
     }
   }
 
-  select {
+  input {
     display: none;
   }
 
   .placeholder,
-  .selected-text {
-    padding: $form-field-padding-v $form-field-padding-h;
+  .result-text {
+    flex: 1 1 auto;
+    padding: $form-field-padding-v 0;
     font-size: $form-field-font-size;
     line-height: $form-field-line-height;
     min-height: $form-field-height - 0.125rem;
@@ -52,7 +53,7 @@ tao-select-result {
     color: $lightest-grey-color;
   }
 
-  .selected-text {
+  .result-text {
     color: $form-field-text-color;
     display: none;
   }
@@ -83,18 +84,12 @@ tao-select-result {
       display: none;
     }
 
-    .selected-text {
+    .result-text {
       display: block;
     }
 
-    &[clearable] {
-      .link-clear {
-        display: flex;
-      }
-
-      .icon-arrow-down {
-        display: none;
-      }
+    .link-clear {
+      display: flex;
     }
   }
 }

@@ -1,0 +1,14 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <%= link_to 'javascript:;', class: 'link-prev link-prev-month', title: component.t(:prev_month) do %>
+    <%= tao_icon :arrow_left %>
+  <% end %>
+  <%= link_to 'javascript:;', class: 'link-next link-next-month', title: component.t(:next_month) do %>
+    <%= tao_icon :arrow_right %>
+  <% end %>
+
+  <div class="calendar">
+    <div class="weekdays"></div>
+    <div class="days"></div>
+  </div>
+
+<% end %>
