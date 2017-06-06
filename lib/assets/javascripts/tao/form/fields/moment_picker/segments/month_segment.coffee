@@ -42,4 +42,4 @@ class MomentPicker.MonthSegment extends MomentPicker.SegmentBase
   label: ->
     moment.monthsShort()[@value() * 1]
 
-TaoComponent.register Tao.Form.MomentPicker.MonthSegment
+TaoComponent.register MomentPicker.MonthSegment

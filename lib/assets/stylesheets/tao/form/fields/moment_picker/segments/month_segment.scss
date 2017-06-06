@@ -7,7 +7,6 @@ tao-moment-picker-month-segment {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0.5rem 0 0 0;
 
     .month {
       display: block;
@@ -17,7 +16,9 @@ tao-moment-picker-month-segment {
       font-size: 0.875rem;
       color: $text-color;
       margin: 0.25rem;
+      outline: none;
 
+      &:focus,
       &:hover {
         background: $lighter-grey-bg-color;
       }

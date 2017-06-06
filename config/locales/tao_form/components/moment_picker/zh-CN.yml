@@ -8,6 +8,9 @@ zh-CN:
           year: 年
           month: 月
           date: 日
+          hour: 时
+          minute: 分
+          confirm: 确定
         segments:
           year_segment:
             label: '%{year}年'
@@ -20,3 +23,7 @@ zh-CN:
             prev_month: 上个月
             next_month: 下个月
             label: '%{date}日'
+          hour_segment:
+            label: '%{hour}点'
+          minute_segment:
+            label: '%{minute}分'

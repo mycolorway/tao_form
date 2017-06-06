@@ -8,6 +8,7 @@ class Tao.Form.MomentPicker.SegmentBase extends TaoComponent
   segmentName: ''
 
   _connected: ->
+    @momentData = {}
     @_bind()
 
   _bind: ->
@@ -16,7 +17,7 @@ class Tao.Form.MomentPicker.SegmentBase extends TaoComponent
     @momentData = momentData
 
   value: ->
-    @momentData?[@segmentName]
+    @momentData[@segmentName]
 
   label: ->
     format = @labelFormat || "{{ #{@segmentName} }}"

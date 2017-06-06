@@ -1,0 +1,5 @@
+zh-CN:
+  tao_form:
+    components:
+      datetime_picker:
+        placeholder: 选择日期时间

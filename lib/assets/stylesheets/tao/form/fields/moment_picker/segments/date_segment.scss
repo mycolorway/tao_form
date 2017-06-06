@@ -3,6 +3,7 @@
 tao-moment-picker-date-segment {
   .calendar {
     width: 15rem;
+    margin-top: -0.5rem;
 
     .weekdays {
       display: flex;
@@ -36,7 +37,9 @@ tao-moment-picker-date-segment {
         text-align: center;
         font-size: 0.875rem;
         color: $text-color;
+        outline: none;
 
+        &:focus,
         &:hover {
           background: $lighter-grey-bg-color;
         }

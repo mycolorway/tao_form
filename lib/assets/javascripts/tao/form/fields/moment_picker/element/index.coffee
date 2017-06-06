@@ -2,6 +2,8 @@
 
 class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
 
+  @attribute 'needConfirm', type: 'boolean'
+
   _bind: ->
     super
 
@@ -9,13 +11,14 @@ class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
       @_positionList()
 
   _activeChanged: ->
-    @result.active = @active
-    @segmentList.active = @active
-
     @_unbindDocumentMousedown()
     if @active
       @segmentList.setMoment(@moment)
+      @segmentList.needConfirm = !!@moment if @needConfirm
       @_bindDocumentMousedown()
+
+    @result.active = @active
+    @segmentList.active = @active
 
   _unbindDocumentMousedown: ->
     $(document).off "mousedown.tao-moment-picker-#{@taoId}"

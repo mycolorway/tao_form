@@ -7,11 +7,12 @@ module TaoForm
     module MomentPicker
       class Base < TaoForm::Components::FieldComponent
 
-        attr_reader :placeholder, :disabled
+        attr_reader :placeholder, :disabled, :html_options
 
-        def initialize view, builder, attribute_name, options = {}
+        def initialize view, builder, attribute_name, options = {}, html_options = {}
           super view, builder, attribute_name, options
           @disabled = html_options[:disabled].presence || false
+          @html_options = transform_html_options merge_options default_html_options, html_options
         end
 
         def input_type
@@ -53,7 +54,7 @@ module TaoForm
 
         private
 
-        def default_options
+        def default_html_options
           {class: 'moment-picker'}
         end
 

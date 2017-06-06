@@ -42,6 +42,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       momentData.month = now.month()
       momentData.date = null
       @trigger 'dataRefresh', [momentData]
+      return false
     else if @momentData && momentData &&
         momentData['year'] == @momentData['year'] &&
         momentData['month'] == @momentData['month']
@@ -89,4 +90,4 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
         .appendTo $head
 
 
-TaoComponent.register Tao.Form.MomentPicker.DateSegment
+TaoComponent.register MomentPicker.DateSegment

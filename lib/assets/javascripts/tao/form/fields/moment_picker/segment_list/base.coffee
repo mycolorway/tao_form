@@ -48,8 +48,8 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
     _.find @segments, (segment) -> segment.segmentName == segmentName
 
   _setMomentData: (momentData) ->
-    @segments.forEach (segment) =>
-      segment.setMomentData _.clone(momentData)
+    for segment in @segments
+      break if segment.setMomentData(_.clone(momentData)) == false
       $label = @_findSegmentLabel(segment)
       if !_.isNil segment.value()
         $label.addClass 'selected'
@@ -77,8 +77,8 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
     if segment
       @_setActiveSegment segment
     else if @activeSegment
-      if (segment = @activeSegment.jq.next('.segment')).length > 0
-        @_setActiveSegment segment
+      if ($segment = @activeSegment.jq.next('.segment')).length > 0
+        @_setActiveSegment $segment.get(0)
       else
         @trigger 'momentSelect', [moment @momentData]
     else

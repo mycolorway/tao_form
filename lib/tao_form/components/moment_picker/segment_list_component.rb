@@ -10,8 +10,8 @@ module TaoForm
           super view, options
         end
 
-        def separatar_segment? segment
-          segment.is_a?(Hash) && segment[:separatar].present?
+        def separator_segment? segment
+          segment.is_a?(Hash) && segment[:separator].present?
         end
 
         def render_segment segment

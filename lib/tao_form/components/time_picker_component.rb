@@ -2,16 +2,20 @@ module TaoForm
   module Components
     class TimePickerComponent < MomentPicker::Base
 
-      def self.component_name
-        :time_picker
-      end
-
       def input_type
-        :time
+        @input_type ||= :time
       end
 
       def segments
-        [:hour, {separatar: ':'}, :minute]
+        @segments ||= [:hour, {separator: ':'}, {name: :minute, step: options[:minute_step]}]
+      end
+
+      def default_segment
+        @default_segment ||= :hour
+      end
+
+      def self.component_name
+        :time_picker
       end
 
     end

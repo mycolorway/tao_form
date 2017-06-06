@@ -1,0 +1,9 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="minutes">
+    <% minute = 0 %>
+    <% while minute < 60 %>
+      <%= link_to minute, 'javascript:;', class: 'minute', data: {minute: minute} %>
+      <% minute += component.step %>
+    <% end %>
+  </div>
+<% end %>

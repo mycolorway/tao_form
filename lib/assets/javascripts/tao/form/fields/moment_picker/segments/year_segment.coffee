@@ -27,6 +27,12 @@ class MomentPicker.YearSegment extends MomentPicker.SegmentBase
 
   setMomentData: (momentData) ->
     super
+
+    if _.isNil @value()
+      momentData.year = moment().year()
+      @trigger 'dataRefresh', [momentData]
+      return false
+
     @_render()
 
   _render: ->
@@ -46,4 +52,4 @@ class MomentPicker.YearSegment extends MomentPicker.SegmentBase
       $year.addClass('selected') if year == @value()
       $year.appendTo $yearList
 
-TaoComponent.register Tao.Form.MomentPicker.YearSegment
+TaoComponent.register MomentPicker.YearSegment

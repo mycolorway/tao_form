@@ -4,6 +4,13 @@ zh-CN:
       moment_picker:
         result:
           clear_option: Clear Selected
+        segment_list:
+          year: Year
+          month: Month
+          date: Date
+          hour: Hour
+          minute: Minute
+          confirm: Confirm
         segments:
           year_segment:
             label: '%{year}'
@@ -16,3 +23,7 @@ zh-CN:
             prev_month: Previous month
             next_month: Next month
             label: '%{date}'
+          hour_segment:
+            label: '%{hour}'
+          minute_segment:
+            label: '%{minute}'

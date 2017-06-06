@@ -1,0 +1,5 @@
+zh-CN:
+  tao_form:
+    components:
+      time_picker:
+        placeholder: Select Time

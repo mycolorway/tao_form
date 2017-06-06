@@ -1,0 +1,45 @@
+@import 'tao/form/globals';
+
+tao-moment-picker-hour-segment {
+  .hours {
+    width: 12rem;
+
+    .morning-hours,
+    .afternoon-hours {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .morning-hours {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dotted $border-color;
+    }
+
+    .afternoon-hours {
+      padding-top: 0.5rem;
+    }
+
+    .hour {
+      display: block;
+      width: 1.75rem;
+      line-height: 1.75rem;
+      margin: 0.125rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: $text-color;
+      outline: none;
+
+      &:focus,
+      &:hover {
+        background: $lighter-grey-bg-color;
+      }
+
+      &.selected {
+        background: $green-bg-color;
+        color: $green-color;
+      }
+    }
+  }
+}

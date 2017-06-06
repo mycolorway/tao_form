@@ -19,29 +19,10 @@ tao-moment-picker-segment-list {
   }
 
   &[direction='up'] {
-    flex-direction: column-reverse;
     top: auto;
     bottom: 100%;
     margin-top: 0;
     margin-bottom: $select-list-offset;
-
-    .search-input {
-      border-top: 1px solid $border-color;
-      border-bottom: none;
-    }
-
-    .options-list {
-      flex-direction: column-reverse;
-
-      .option {
-        border-bottom: none;
-        border-top: 1px solid $border-color;
-
-        &:last-child {
-          border-top: none;
-        }
-      }
-    }
   }
 
   .segment-labels {
@@ -59,6 +40,8 @@ tao-moment-picker-segment-list {
       padding: 0.125rem 0.5rem;
       margin: 0 0.25rem;
       border-radius: $border-radius-s;
+      white-space: nowrap;
+      outline: none;
 
       .placeholder {
 
@@ -68,6 +51,7 @@ tao-moment-picker-segment-list {
         display: none;
       }
 
+      &:focus,
       &:hover {
         background: $white-color;
         border-color: $border-color;
@@ -91,6 +75,11 @@ tao-moment-picker-segment-list {
       }
     }
 
+    .separator {
+      font-size: 0.75rem;
+      color: $lighter-grey-color;
+      margin: 0 0.125rem;
+    }
   }
 
   .segments {
@@ -101,7 +90,8 @@ tao-moment-picker-segment-list {
       align-items: center;
       position: relative;
       border-top: 1px solid $border-color;
-      margin: 0 0.5rem 0.5rem;
+      margin: 0 0.5rem;
+      padding: 0.5rem 0;
 
       &[active] {
         display: flex;
@@ -118,12 +108,14 @@ tao-moment-picker-segment-list {
         fill: $light-grey-color;
         position: absolute;
         top: -2.5rem;
+        outline: none;
 
         .icon {
           width: 0.875rem;
           height: 0.875rem;
         }
 
+        &:focus,
         &:hover {
           fill: $grey-color;
         }
@@ -137,5 +129,16 @@ tao-moment-picker-segment-list {
         left: -0.5rem;
       }
     }
+  }
+
+  .buttons {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0.75rem;
+  }
+
+  &[need-confirm] .buttons {
+    display: flex;
   }
 }

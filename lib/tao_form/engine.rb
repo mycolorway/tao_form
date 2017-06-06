@@ -1,4 +1,3 @@
-require 'momentjs-rails'
 require 'simple_form'
 require 'tao_on_rails'
 require 'tao_form/inputs'

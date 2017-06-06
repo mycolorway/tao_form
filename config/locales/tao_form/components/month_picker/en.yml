@@ -1,0 +1,6 @@
+zh-CN:
+  tao_form:
+    components:
+      month_picker:
+        placeholder: Select Month
+        display_format: MMMM YYYY
