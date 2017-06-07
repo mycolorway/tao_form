@@ -12,7 +12,6 @@ zh-CN:
           loading: 正在加载...
           tips: 有 <span class="size"></span> 个选项没有显示，请使用更精确的搜索条件
         result:
-          clear_option: 清除选项
-          selected: '已选择：'
+          clear_selected: 清除已选择
         multiple_result:
           add: 添加

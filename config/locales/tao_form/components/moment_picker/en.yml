@@ -2,6 +2,8 @@ zh-CN:
   tao_form:
     components:
       moment_picker:
+        close: Close
+
         result:
           clear_option: Clear Selected
         segment_list:
@@ -10,7 +12,7 @@ zh-CN:
           date: Date
           hour: Hour
           minute: Minute
-          confirm: Confirm
+          clear_value: Clear value
         segments:
           year_segment:
             label: '%{year}'

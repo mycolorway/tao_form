@@ -2,6 +2,7 @@
 #= require ./switch
 #= require ./radio
 #= require ./select
+#= require ./moment_picker
 #= require ./date_picker
 #= require ./time_picker
 #= require ./datetime_picker

@@ -1,0 +1,62 @@
+@import 'tao/form/mobile/globals';
+
+tao-moment-picker-result {
+  display: flex;
+  align-items: center;
+
+  input[type=date],
+  input[type=time],
+  input[type=datetime-local],
+  input[type=month] {
+    display: none;
+  }
+
+  .placeholder,
+  .result-text {
+    flex: 1 1 auto;
+    padding: $form-field-padding-v 0;
+    font-size: $form-field-font-size;
+    line-height: $form-field-line-height;
+    min-height: $form-field-height - 0.125rem;
+  }
+
+  .placeholder {
+    color: $lightest-grey-color;
+  }
+
+  .result-text {
+    color: $form-field-text-color;
+    display: none;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2em;
+    height: $form-field-height;
+    fill: $lightest-grey-color;
+
+    .icon {
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  &[disabled] {
+    .result-text {
+      color: $lightest-grey-color;
+    }
+  }
+
+  &[selected] {
+    .placeholder {
+      display: none;
+    }
+
+    .result-text {
+      display: block;
+    }
+  }
+}

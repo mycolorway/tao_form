@@ -18,12 +18,6 @@ module TaoForm
         :month_picker
       end
 
-      private
-
-      def default_html_options
-        super.merge({display_format: t(:display_format)})
-      end
-
     end
   end
 end

@@ -1,4 +1,3 @@
-#= require ./moment_picker
 
 class Tao.Form.MonthPicker extends Tao.Form.MomentPicker.Element
 

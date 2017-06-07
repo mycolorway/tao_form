@@ -11,10 +11,6 @@ class Tao.Form.MomentPicker.Result extends Tao.Form.MomentPicker.ResultBase
   _bind: ->
     super
 
-    @on 'click', (e) =>
-      return if @disabled
-      @trigger 'activeClick'
-
     @on 'click', '.link-clear', (e) =>
       return if @disabled
       @clear() && @trigger('clear')

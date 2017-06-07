@@ -56,7 +56,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
     @jq.find('.day.selected').removeClass('selected')
 
     date = moment(momentData)
-    return if _.isNil(@value()) || !date.isValid()
+    return if _.isNil(momentData[@segmentName]) || !date.isValid()
     @jq.find(".day[data-date='#{date.format(@dateFormat)}']")
       .addClass('selected')
 

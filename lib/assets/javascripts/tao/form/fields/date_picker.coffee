@@ -1,4 +1,3 @@
-#= require ./moment_picker
 
 class Tao.Form.DatePicker extends Tao.Form.MomentPicker.Element
 
@@ -6,6 +5,6 @@ class Tao.Form.DatePicker extends Tao.Form.MomentPicker.Element
 
   @attribute 'valueFormat', default: 'YYYY-MM-DD'
 
-  @attribute 'displayFormat', default: 'LL'
+  @attribute 'displayFormat', default: 'YYYY-MM-DD'
 
 TaoComponent.register Tao.Form.DatePicker

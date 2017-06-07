@@ -7,12 +7,12 @@ module TaoForm
     module MomentPicker
       class Base < TaoForm::Components::FieldComponent
 
-        attr_reader :placeholder, :disabled, :html_options
+        attr_reader :placeholder, :disabled, :html_options, :block_for_render
 
         def initialize view, builder, attribute_name, options = {}, html_options = {}
           super view, builder, attribute_name, options
-          @disabled = html_options[:disabled].presence || false
-          @html_options = transform_html_options merge_options default_html_options, html_options
+          @html_options = transform_html_options default_html_options, html_options
+          @disabled = @html_options[:disabled].presence || false
         end
 
         def input_type
@@ -28,20 +28,20 @@ module TaoForm
         end
 
         def render &block
-          view.content_tag tag_name, html_options do
-            render_result(&block) + render_segment_list
-          end
+          @block_for_render = block
+          render_template 'moment_picker', &block
         end
 
-        def render_result &block
+        def render_result
           view.tao_moment_picker_result(
-            builder, attribute_name, input_type: input_type,
-            placeholder: placeholder, disabled: disabled, &block
+            builder, attribute_name, input_type: input_type, icon: options[:icon],
+            placeholder: placeholder, disabled: disabled, &block_for_render
           )
         end
 
         def render_segment_list
-          view.tao_moment_picker_segment_list segments: segments, default_segment: default_segment
+          view.tao_moment_picker_segment_list segments: segments,
+            default_segment: default_segment
         end
 
         def placeholder
@@ -55,7 +55,7 @@ module TaoForm
         private
 
         def default_html_options
-          {class: 'moment-picker'}
+          {class: 'moment-picker', icon: :arrow_down}
         end
 
       end

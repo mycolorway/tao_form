@@ -1,4 +1,3 @@
-#= require ./moment_picker
 
 class Tao.Form.TimePicker extends Tao.Form.MomentPicker.Element
 
@@ -6,6 +5,6 @@ class Tao.Form.TimePicker extends Tao.Form.MomentPicker.Element
 
   @attribute 'valueFormat', default: 'HH:mm:ss'
 
-  @attribute 'displayFormat', default: 'LT'
+  @attribute 'displayFormat', default: 'HH:mm'
 
 TaoComponent.register Tao.Form.TimePicker

@@ -47,6 +47,7 @@ tao-select-list {
   .list-wrapper {
     overflow-y: auto;
     flex: 0 0 auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .options-list {
@@ -108,7 +109,7 @@ tao-select-list {
     .list-wrapper {
       display: none;
     }
-    
+
     &:not([hidden-size='0']) .remote-no-option {
       display: block;
     }

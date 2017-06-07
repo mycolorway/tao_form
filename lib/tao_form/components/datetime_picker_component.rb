@@ -1,20 +1,46 @@
 module TaoForm
   module Components
-    class DatetimePickerComponent < MomentPicker::Base
+    class DatetimePickerComponent < FieldComponent
 
-      def input_type
-        @input_type ||= :datetime
+      attr_reader :html_options, :disabled
+
+      def initialize view, builder, attribute_name, options = {}, html_options = {}
+        super view, builder, attribute_name, options
+        @html_options = transform_html_options default_html_options, html_options
+        @disabled = @html_options[:disabled].presence || false
       end
 
-      def segments
-        @segments ||= [
-          :year, :month, :date,
-          :hour, {separator: ':'}, {name: :minute, step: options[:minute_step]}
-        ]
+      def render &block
+        if block_given?
+          super
+        else
+          super {
+            builder.send :datetime_field, attribute_name, {disabled: disabled}
+          }
+        end
       end
 
-      def default_segment
-        @default_segment ||= :date
+      def render_date_picker
+        date_options = {
+          icon: options[:icon],
+          placeholder: options[:date_placeholder]
+        }
+        date_html_options = {disabled: disabled}
+        view.tao_date_picker nil, nil, date_options, date_html_options do
+          view.date_field_tag nil, nil, class: 'date-field', disabled: disabled
+        end
+      end
+
+      def render_time_picker
+        time_options = {
+          icon: options[:icon],
+          placeholder: options[:time_placeholder],
+          minute_step: options[:minute_step]
+        }
+        time_html_options = {disabled: disabled}
+        view.tao_time_picker nil, nil, time_options, time_html_options do
+          view.time_field_tag nil, nil, class: 'time-field', disabled: disabled
+        end
       end
 
       def self.component_name
@@ -24,7 +50,7 @@ module TaoForm
       private
 
       def default_html_options
-        super.merge({need_confirm: true})
+        {icon: :arrow_down}
       end
 
     end

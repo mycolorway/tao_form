@@ -34,4 +34,4 @@ class Tao.Form.Select.Option extends TaoModule
 
   match: (value) ->
     filterKey = @data.searchKey || @text
-    String(filterKey).indexOf(value) > -1
+    String(filterKey).toLowerCase().indexOf(value.toLowerCase()) > -1

@@ -14,7 +14,7 @@ module TaoForm
         @max_list_size = html_options.delete(:max_list_size)
         @disabled = html_options[:disabled].presence || false
         @multiple = @options.delete(:multiple) || html_options.delete(:multiple) || false
-        
+
         html_options[:multiple] = @multiple
         html_options[:remote] = @options.delete(:remote)
 
@@ -23,10 +23,6 @@ module TaoForm
         end
 
         @html_options = transform_html_options html_options
-
-        unless @options[:icon].present?
-          @options[:icon] = :arrow_down
-        end
       end
 
       def render &block
@@ -69,6 +65,12 @@ module TaoForm
 
       def self.component_name
         :select
+      end
+
+      private
+
+      def default_options
+        {icon: :arrow_down}
       end
 
     end

@@ -74,7 +74,8 @@ tao-form {
           text-align: right;
         }
 
-        tao-select .select-result-delegate {
+        tao-select .select-result-delegate,
+        .moment-picker tao-moment-picker-result {
           text-align: right;
         }
 

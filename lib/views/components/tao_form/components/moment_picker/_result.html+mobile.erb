@@ -1,0 +1,11 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <%= yield %>
+  <div class="result-text">
+  </div>
+  <div class="placeholder">
+    <%= component.html_options[:placeholder].presence %>
+  </div>
+  <div class="icon-wrapper">
+    <%= tao_icon component.options[:icon] %>
+  </div>
+<% end %>

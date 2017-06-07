@@ -1,0 +1,7 @@
+<div class="segments">
+  <% component.segments.each do |segment| %>
+    <% unless component.separator_segment? segment %>
+      <%= component.render_segment segment %>
+    <% end %>
+  <% end %>
+</div>

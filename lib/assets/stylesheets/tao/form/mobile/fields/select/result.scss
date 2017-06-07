@@ -10,14 +10,14 @@ tao-select-result {
     align-items: center;
     justify-content: space-between;
     padding: $form-field-padding-v $form-field-padding-h;
-    color: $green-color;
-    background: $green-bg-color;
+    color: $red-color;
+    background: $red-bg-color;
     border-bottom: 1px solid $border-color;
     font-size: 0.875rem;
     outline: none;
 
     .icon-close {
-      fill: $green-color;
+      fill: $red-color;
     }
   }
 

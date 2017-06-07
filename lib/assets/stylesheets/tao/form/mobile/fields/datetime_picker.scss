@@ -1,0 +1,18 @@
+@import 'tao/form/mobile/globals';
+
+tao-datetime-picker {
+  display: inline-block;
+
+  & > input[type='datetime-local'] {
+    display: none;
+  }
+
+  tao-date-picker.moment-picker {
+    display: block;
+  }
+
+  tao-time-picker.moment-picker {
+    display: block;
+  }
+
+}

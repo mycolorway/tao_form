@@ -3,4 +3,3 @@ zh-CN:
     components:
       month_picker:
         placeholder: 选择月份
-        display_format: YYYY年MMM

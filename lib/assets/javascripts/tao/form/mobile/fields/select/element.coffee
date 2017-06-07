@@ -22,6 +22,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
       null
 
     @on 'change', =>
+      @list.refreshHeight() if @active
       @_refreshSelectedText()
 
   _bindListEvents: ->

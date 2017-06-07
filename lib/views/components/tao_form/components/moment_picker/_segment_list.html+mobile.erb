@@ -1,0 +1,8 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <%= link_to 'javascript:;', class: 'link-clear' do %>
+    <%= component.t :clear_value %>
+    <%= tao_icon :close %>
+  <% end %>
+  <%= component.render_template 'segment_list/labels' %>
+  <%= component.render_template 'segment_list/segments' %>
+<% end %>

@@ -1,25 +1,6 @@
 <%= content_tag component.tag_name, component.html_options do %>
-  <div class="segment-labels">
-    <% component.segments.each do |segment| %>
-      <% if component.separator_segment? segment %>
-        <div class="separator"><%= segment[:separator] %></div>
-      <% else %>
-        <% segment_name = segment.is_a?(Hash) ? segment[:name] : segment %>
-        <%= link_to 'javascript:;', class: 'segment-label', data: {segment: segment_name} do %>
-          <span class="placeholder"><%= component.t segment_name %></span>
-          <span class="value"></span>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="segments">
-    <% component.segments.each do |segment| %>
-      <% unless component.separator_segment? segment %>
-        <%= component.render_segment segment %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= component.render_template 'segment_list/labels' %>
+  <%= component.render_template 'segment_list/segments' %>
 
   <div class="buttons">
     <%= link_to component.t(:confirm), 'javascript:;',

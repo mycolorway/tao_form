@@ -15,7 +15,7 @@ tao-moment-picker-segment-list {
   margin-top: $select-list-offset;
 
   &[active] {
-    display: flex;
+    display: block;
   }
 
   &[direction='up'] {
@@ -94,7 +94,7 @@ tao-moment-picker-segment-list {
       padding: 0.5rem 0;
 
       &[active] {
-        display: flex;
+        display: block;
       }
 
       .link-prev,
@@ -136,9 +136,5 @@ tao-moment-picker-segment-list {
     align-items: center;
     justify-content: center;
     padding: 0 0 0.75rem;
-  }
-
-  &[need-confirm] .buttons {
-    display: flex;
   }
 }

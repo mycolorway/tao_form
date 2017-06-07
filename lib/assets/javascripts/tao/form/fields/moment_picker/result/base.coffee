@@ -10,7 +10,7 @@ class Tao.Form.MomentPicker.ResultBase extends TaoComponent
   @attribute 'format'
 
   _connected: ->
-    @field = @jq.find 'input'
+    @field = @jq.find '> input'
     @_bind()
 
   _disconnected: ->
@@ -21,10 +21,9 @@ class Tao.Form.MomentPicker.ResultBase extends TaoComponent
       @trigger 'activeClick'
       false
 
-    @on 'click', '.link-clear', (e) =>
+    @on 'click', (e) =>
       return if @disabled
-      @clear() && @trigger('clear')
-      false
+      @trigger 'activeClick'
 
   clear: ->
     @moment = null
