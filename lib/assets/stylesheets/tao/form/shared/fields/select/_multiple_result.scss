@@ -1,0 +1,46 @@
+tao-multiple-select-result {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+  select {
+    display: none;
+  }
+
+  .selected-item {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 0 0 auto;
+    padding: $select-item-padding;
+    margin: $select-item-margin;
+    height: $select-item-height;
+    border: 1px solid $grey-bg-color;
+    background: $grey-bg-color;
+    border-radius: $border-radius-s;
+    color: $text-color;
+    font-size: $select-item-font-size;
+    text-decoration: none;
+    outline: none;
+
+    .icon-close {
+      width: 1em;
+      height: 1em;
+      margin: 0 0 0 0.5rem;
+      fill: $lighter-grey-color;
+    }
+  }
+
+  &.disabled {
+    .selected-item {
+      cursor: not-allowed;
+      color: $lightest-grey-color;
+
+      .icon-close {
+        cursor: not-allowed;
+        fill: $lightest-grey-color;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 #= require ./radio
 #= require ./select
 #= require ./moment_picker
-#= require tao/form/fields/date_picker
-#= require tao/form/fields/time_picker
-#= require tao/form/fields/datetime_picker
-#= require tao/form/fields/month_picker
+#= require tao/form/shared/fields/date_picker
+#= require tao/form/shared/fields/time_picker
+#= require tao/form/shared/fields/datetime_picker
+#= require tao/form/shared/fields/month_picker

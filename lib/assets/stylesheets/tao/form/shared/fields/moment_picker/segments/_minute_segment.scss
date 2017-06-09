@@ -1,0 +1,23 @@
+tao-moment-picker-minute-segment {
+  .minutes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .minute {
+      display: block;
+      width: percentage(1/6);
+      line-height: $moment-picker-segment-item-height;
+      text-align: center;
+      font-size: 0.875rem;
+      color: $text-color;
+      outline: none;
+
+      &.selected {
+        background: $green-bg-color;
+        color: $green-color;
+      }
+    }
+  }
+}

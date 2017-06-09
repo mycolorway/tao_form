@@ -6,7 +6,8 @@
 #= require ./element
 #= require ./fields
 
-Tao.Form = {}
+Tao.Form =
+  Mixins: {}
 
 Tao.Application.initializer 'moment', (app) ->
   if moment? && app.locale

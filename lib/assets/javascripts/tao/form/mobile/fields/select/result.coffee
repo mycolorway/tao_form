@@ -1,4 +1,4 @@
-#= require tao/form/fields/select/result/base
+#= require tao/form/shared/fields/select/result/base
 
 class Tao.Form.Select.Result extends Tao.Form.Select.ResultBase
 

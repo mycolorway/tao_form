@@ -6,7 +6,7 @@ module TaoForm
 
       def initialize view, builder, attribute_name, options = {}, html_options = {}
         super view, builder, attribute_name, options
-        @html_options = transform_html_options default_html_options, html_options
+        @html_options = transform_html_options html_options
         @disabled = @html_options[:disabled].presence || false
       end
 
@@ -22,7 +22,6 @@ module TaoForm
 
       def render_date_picker
         date_options = {
-          icon: options[:icon],
           placeholder: options[:date_placeholder]
         }
         date_html_options = {disabled: disabled}
@@ -33,7 +32,6 @@ module TaoForm
 
       def render_time_picker
         time_options = {
-          icon: options[:icon],
           placeholder: options[:time_placeholder],
           minute_step: options[:minute_step]
         }
@@ -45,12 +43,6 @@ module TaoForm
 
       def self.component_name
         :datetime_picker
-      end
-
-      private
-
-      def default_html_options
-        {icon: :arrow_down}
       end
 
     end

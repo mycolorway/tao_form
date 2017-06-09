@@ -1,33 +1,16 @@
 @import 'tao/form/globals';
+@import 'tao/form/shared/fields/moment_picker/segments/minute_segment';
 
 tao-moment-picker-minute-segment {
   .minutes {
     width: 12rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     max-height: 12rem;
     overflow: auto;
 
     .minute {
-      display: block;
-      width: 1.75rem;
-      line-height: 1.75rem;
-      margin: 0.125rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: $text-color;
-      outline: none;
-
       &:focus,
       &:hover {
-        background: $lighter-grey-bg-color;
-      }
-
-      &.selected {
-        background: $green-bg-color;
-        color: $green-color;
+        background: $grey-bg-color;
       }
     }
   }

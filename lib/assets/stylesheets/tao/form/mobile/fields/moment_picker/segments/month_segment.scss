@@ -1,33 +1,13 @@
 @import 'tao/form/mobile/globals';
+@import 'tao/form/shared/fields/moment_picker/segments/month_segment';
 
 tao-moment-picker-month-segment {
   .month-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     margin: 1rem 0 0 0;
 
     .month {
-      display: block;
-      width: percentage(1/4);
-      line-height: 3rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: $text-color;
-      outline: none;
-
       &:active {
-        background: $lighter-grey-bg-color;
-      }
-
-      &.current {
-        color: $orange-color;
-      }
-
-      &.selected {
-        background: $green-bg-color;
-        color: $green-color;
+        background: $grey-bg-color;
       }
     }
   }

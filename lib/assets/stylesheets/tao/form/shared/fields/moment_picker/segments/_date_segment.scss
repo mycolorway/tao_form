@@ -1,0 +1,50 @@
+tao-moment-picker-date-segment {
+  .calendar {
+    .weekdays {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      border-bottom: 1px dotted $border-color;
+
+      .weekday {
+        display: block;
+        width: percentage(1/7);
+        line-height: $moment-picker-segment-item-height;
+        text-align: center;
+        font-size: 0.875rem;
+      }
+    }
+
+    .days {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+
+      .day {
+        display: block;
+        width: percentage(1/7);
+        line-height: $moment-picker-segment-item-height;
+        text-align: center;
+        font-size: 0.875rem;
+        border-radius: $border-radius-s;
+        color: $text-color;
+        outline: none;
+
+        &.outside {
+          color: $lightest-grey-color;
+        }
+
+        &.today {
+          color: $orange-color;
+        }
+
+        &.selected {
+          background: $green-bg-color !important;
+          color: $green-color !important;
+        }
+      }
+    }
+  }
+}

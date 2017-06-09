@@ -7,24 +7,23 @@ tao-select-result {
   background: $white-color;
   border: 1px solid $border-color;
   border-radius: $border-radius-s;
-  transition: border-color 300ms, box-shadow 300ms;
+  transition: border-color 300ms;
   cursor: pointer;
 
   &:hover {
-    border-color: #cccccc;
+    border-color: $form-field-active-border-color;
   }
 
   &[active],
   &:focus {
-    border-color: #cccccc;
+    border-color: $form-field-active-border-color;
     outline: none;
-    box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
   }
 
   &[disabled] {
     cursor: not-allowed;
-    background: $lighter-grey-bg-color;
-    border-color: #e6e6e6;
+    background: $grey-bg-color;
+    border-color: $light-border-color;
 
     &[selected][clearable] .link-clear {
       display: none;
@@ -87,12 +86,15 @@ tao-select-result {
     }
 
     &[clearable] {
-      .link-clear {
-        display: flex;
-      }
+      &[active],
+      &:hover {
+        .link-clear {
+          display: flex;
+        }
 
-      .icon-arrow-down {
-        display: none;
+        .icon-arrow-down {
+          display: none;
+        }
       }
     }
   }

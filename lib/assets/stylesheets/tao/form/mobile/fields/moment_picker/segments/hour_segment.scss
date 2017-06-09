@@ -1,42 +1,13 @@
 @import 'tao/form/mobile/globals';
+@import 'tao/form/shared/fields/moment_picker/segments/hour_segment';
 
 tao-moment-picker-hour-segment {
   .hours {
     margin: 1rem 0 0 0;
 
-    .morning-hours,
-    .afternoon-hours {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .morning-hours {
-      padding-bottom: 1rem;
-      border-bottom: 1px dotted $border-color;
-    }
-
-    .afternoon-hours {
-      padding-top: 1rem;
-    }
-
     .hour {
-      display: block;
-      width: percentage(1/6);
-      line-height: 3rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: $text-color;
-      outline: none;
-
       &:active {
-        background: $lighter-grey-bg-color;
-      }
-
-      &.selected {
-        background: $green-bg-color;
-        color: $green-color;
+        background: $grey-bg-color;
       }
     }
   }

@@ -1,76 +1,72 @@
 @import 'tao/form/globals';
+@import 'tao/form/shared/fields/select/multiple_result';
 
 tao-multiple-select-result {
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
   min-width: $form-field-width;
+  padding-top: 0.125rem;
 
-  select {
-    display: none;
+  .selected-item {
+    &:hover {
+      background: $white-color;
+      border-color: $red-color;
+
+      .icon-close {
+        fill: $red-color;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 2px 0px rgba($border-color, 0.5);
+    }
   }
 
-  .selected-item,
   .link-add {
     display: flex;
     align-items: center;
     align-content: center;
     flex: 0 0 auto;
-    padding: 0 0.75rem;
-    margin: 0 0.25rem 0.25rem 0;
-    height: 2.375rem;
-    background: $lighter-grey-bg-color;
+    padding: 0 0.625rem 0 0.5rem;
+    margin: $select-item-margin;
+    height: $select-item-height;
+    border: 1px dashed $border-color;
+    background: $white-color;
     border-radius: $border-radius-s;
     color: $text-color;
-    font-size: 0.875rem;
+    font-size: $select-item-font-size;
     text-decoration: none;
     outline: none;
 
-    .icon-close {
-      width: 1em;
-      height: 1em;
-      margin: 0 0 0 8px;
+    .icon-add {
+      font-size: 1rem;
       fill: $lighter-grey-color;
-    }
-
-    &:hover {
-      background: $light-grey-bg-color;
-
-      .icon-close {
-        fill: $text-color;
-      }
+      margin: 0 0.25rem 0 0;
     }
 
     &:focus {
-      box-shadow: 0px 0px 2px 0px rgba(#000000, 0.4);
+      box-shadow: 0px 0px 2px 0px rgba($border-color, 0.5);
     }
   }
 
-  .link-add {
-    padding: 0 0.625rem 0 0.5rem;
+  &[active] .link-add,
+  .link-add:hover {
+    color: $link-color;
+    border-color: $form-field-active-border-color;
 
     .icon-add {
-      font-size: 1rem;
-      margin: 0 0.25rem 0 0;
+      fill: $link-color;
     }
   }
 
   &.disabled {
-    .link-add,
     .selected-item {
-      cursor: not-allowed;
-      color: $lightest-grey-color;
-
       &:hover {
-        background-color: $lighter-grey-bg-color;
+        background-color: $grey-bg-color;
+        border-color: $grey-bg-color;
       }
+    }
 
-      .icon-add,
-      .icon-close {
-        cursor: not-allowed;
-        fill: $lightest-grey-color;
-      }
+    .link-add {
+      display: none;
     }
   }
 }

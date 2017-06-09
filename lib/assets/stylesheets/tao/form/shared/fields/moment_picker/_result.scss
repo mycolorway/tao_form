@@ -1,0 +1,46 @@
+tao-moment-picker-result {
+  display: flex;
+  align-items: center;
+
+  &[disabled] {
+    .result-text {
+      color: $lightest-grey-color;
+    }
+  }
+
+  input[type=text],
+  input[type=date],
+  input[type=time],
+  input[type=datetime-local],
+  input[type=month] {
+    display: none;
+  }
+
+  .placeholder,
+  .result-text {
+    flex: 1 1 auto;
+    padding: $form-field-padding-v 0;
+    font-size: $form-field-font-size;
+    line-height: $form-field-line-height;
+    min-height: $form-field-height - 0.125rem;
+  }
+
+  .placeholder {
+    color: $lightest-grey-color;
+  }
+
+  .result-text {
+    color: $form-field-text-color;
+    display: none;
+  }
+
+  &[selected] {
+    .placeholder {
+      display: none;
+    }
+
+    .result-text {
+      display: block;
+    }
+  }
+}

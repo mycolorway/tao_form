@@ -1,7 +1,7 @@
 <%= content_tag component.tag_name, component.html_options do %>
   <%= yield %>
   <div class="icon-wrapper">
-    <%= tao_icon :calendar %>
+    <%= tao_icon component.options[:icon] %>
   </div>
   <div class="result-text">
   </div>

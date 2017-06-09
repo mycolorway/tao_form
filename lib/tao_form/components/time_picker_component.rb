@@ -18,6 +18,12 @@ module TaoForm
         :time_picker
       end
 
+      private
+
+      def default_options
+        super.merge({icon: :clock})
+      end
+
     end
   end
 end

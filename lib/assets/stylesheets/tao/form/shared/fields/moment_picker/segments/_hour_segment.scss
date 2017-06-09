@@ -1,0 +1,35 @@
+tao-moment-picker-hour-segment {
+  .hours {
+    .morning-hours,
+    .afternoon-hours {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .morning-hours {
+      padding-bottom: $moment-picker-segment-item-height / 3;
+      border-bottom: 1px dotted $border-color;
+    }
+
+    .afternoon-hours {
+      padding-top: $moment-picker-segment-item-height / 3;
+    }
+
+    .hour {
+      display: block;
+      width: percentage(1/6);
+      line-height: $moment-picker-segment-item-height;
+      text-align: center;
+      font-size: 0.875rem;
+      color: $text-color;
+      outline: none;
+
+      &.selected {
+        background: $green-bg-color;
+        color: $green-color;
+      }
+    }
+  }
+}

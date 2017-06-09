@@ -1,61 +1,16 @@
 @import 'tao/form/globals';
+@import 'tao/form/shared/fields/moment_picker/segments/date_segment';
 
 tao-moment-picker-date-segment {
   .calendar {
     width: 15rem;
     margin-top: -0.5rem;
 
-    .weekdays {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      flex-wrap: wrap;
-      border-bottom: 1px dotted $border-color;
-
-      .weekday {
-        display: block;
-        width: 1.75rem;
-        line-height: 1.75rem;
-        margin: 0.125rem;
-        text-align: center;
-        font-size: 0.875rem;
-      }
-    }
-
     .days {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      flex-wrap: wrap;
       margin: 0.5rem 0 0 0;
 
-      .day {
-        display: block;
-        width: 1.75rem;
-        line-height: 1.75rem;
-        margin: 0.125rem;
-        text-align: center;
-        font-size: 0.875rem;
-        color: $text-color;
-        outline: none;
-
-        &:focus,
-        &:hover {
-          background: $lighter-grey-bg-color;
-        }
-
-        &.outside {
-          color: $lightest-grey-color;
-        }
-
-        &.today {
-          color: $orange-color;
-        }
-
-        &.selected {
-          background: $green-bg-color;
-          color: $green-color;
-        }
+      .day:hover {
+        background: $grey-bg-color;
       }
     }
   }

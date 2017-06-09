@@ -1,0 +1,27 @@
+tao-moment-picker-month-segment {
+  .month-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .month {
+      display: block;
+      width: percentage(1/4);
+      line-height: $moment-picker-segment-item-height;
+      text-align: center;
+      font-size: 0.875rem;
+      color: $text-color;
+      outline: none;
+
+      &.current {
+        color: $orange-color;
+      }
+
+      &.selected {
+        background: $green-bg-color !important;
+        color: $green-color !important;
+      }
+    }
+  }
+}

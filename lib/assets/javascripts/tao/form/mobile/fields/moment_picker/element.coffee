@@ -1,4 +1,4 @@
-#= require tao/form/fields/moment_picker/element/base
+#= require tao/form/shared/fields/moment_picker/element/base
 
 class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
 

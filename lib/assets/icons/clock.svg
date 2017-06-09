@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Clock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="zhiren_icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main" transform="translate(1.000000, 1.000000)" fill="#9B9B9B">
+            <path d="M11,22 C17.0751322,22 22,17.0751322 22,11 C22,4.92486775 17.0751322,0 11,0 C4.92486775,0 0,4.92486775 0,11 C0,17.0751322 4.92486775,22 11,22 Z M11,21 C16.5228475,21 21,16.5228475 21,11 C21,5.4771525 16.5228475,1 11,1 C5.4771525,1 1,5.4771525 1,11 C1,16.5228475 5.4771525,21 11,21 Z M10.5,3.00966585 C10.5,2.72818517 10.7319336,2.5 11,2.5 C11.2761424,2.5 11.5,2.73079681 11.5,3.00043583 L11.5,10.5 L16.0023012,10.5 C16.2771727,10.5 16.5,10.7319336 16.5,11 C16.5,11.2761424 16.2721195,11.5 16.0089948,11.5 L10.9910052,11.5 C10.7198305,11.5 10.5,11.2775269 10.5,10.9903342 L10.5,3.00966585 Z" id="Clock"></path>
+        </g>
+    </g>
+</svg>

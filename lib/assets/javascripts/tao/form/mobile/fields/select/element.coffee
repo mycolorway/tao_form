@@ -1,4 +1,4 @@
-#= require tao/form/fields/select/element/base
+#= require tao/form/shared/fields/select/element/base
 
 class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
 

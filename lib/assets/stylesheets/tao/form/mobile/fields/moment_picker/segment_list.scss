@@ -1,4 +1,5 @@
 @import 'tao/form/mobile/globals';
+@import 'tao/form/shared/fields/moment_picker/segment_list';
 
 tao-moment-picker-segment-list {
   display: block;
@@ -25,105 +26,25 @@ tao-moment-picker-segment-list {
   }
 
   .segment-labels {
-    padding: 0.75rem 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     .segment-label {
-      display: inline-block;
-      border: 1px solid $light-grey-bg-color;
-      background: $light-grey-bg-color;
-      color: $grey-color;
-      font-size: 0.875rem;
-      padding: 0.25rem 0.75rem;
-      margin: 0 0.25rem;
-      border-radius: $border-radius-s;
-      white-space: nowrap;
-      outline: none;
-
-      .placeholder {
-      }
-
-      .value {
-        display: none;
-      }
-
       &:active {
         background: $white-color;
         border-color: $border-color;
       }
-
-      &.active {
-        border-color: $ui-color;
-        background: $white-color;
-        color: $ui-color;
-        cursor: default;
-      }
-
-      &.selected {
-        .placeholder {
-          display: none;
-        }
-
-        .value {
-          display: inline;
-        }
-      }
-    }
-
-    .separator {
-      font-size: 0.875rem;
-      color: $lighter-grey-color;
-      margin: 0 0.125rem;
     }
   }
 
   .segments {
-
     .segment {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      border-top: 1px solid $border-color;
       overflow: auto;
       -webkit-overflow-scrolling: touch;
-
-      &[active] {
-        display: block;
-      }
+      border-color: $light-line-color;
 
       .link-prev,
       .link-next {
-        display: block;
-        width: 2.5rem;
-        height: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        fill: $light-grey-color;
-        position: absolute;
-        top: -3rem;
-        outline: none;
-
-        .icon {
-          width: 0.875rem;
-          height: 0.875rem;
-        }
-
-        &:focus,
-        &:hover {
+        &:active {
           fill: $grey-color;
         }
-      }
-
-      .link-next {
-        right: 0;
-      }
-
-      .link-prev {
-        left: 0;
       }
     }
   }

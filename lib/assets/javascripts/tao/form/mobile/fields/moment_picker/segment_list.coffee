@@ -1,4 +1,4 @@
-#= require tao/form/fields/moment_picker/segment_list/base
+#= require tao/form/shared/fields/moment_picker/segment_list/base
 
 MomentPicker = Tao.Form.MomentPicker
 

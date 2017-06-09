@@ -1,60 +1,32 @@
 @import 'tao/form/globals';
+@import 'tao/form/shared/fields/moment_picker/result';
 
 tao-moment-picker-result {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   background: $white-color;
   border: 1px solid $border-color;
   border-radius: $border-radius-s;
-  transition: border-color 300ms, box-shadow 300ms;
+  transition: border-color 300ms;
   cursor: pointer;
 
   &:hover {
-    border-color: #cccccc;
+    border-color: $form-field-active-border-color;
   }
 
   &[active],
   &:focus {
-    border-color: #cccccc;
+    border-color: $form-field-active-border-color;
     outline: none;
-    box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
   }
 
   &[disabled] {
     cursor: not-allowed;
-    background: $lighter-grey-bg-color;
-    border-color: #e6e6e6;
+    background: $grey-bg-color;
+    border-color: $light-border-color;
 
     &[selected]:hover .link-clear {
       display: none;
     }
-
-    .result-text {
-      color: $lightest-grey-color;
-    }
-  }
-
-  & > input {
-    display: none;
-  }
-
-  .placeholder,
-  .result-text {
-    flex: 1 1 auto;
-    padding: $form-field-padding-v 0;
-    font-size: $form-field-font-size;
-    line-height: $form-field-line-height;
-    min-height: $form-field-height - 0.125rem;
-  }
-
-  .placeholder {
-    color: $lightest-grey-color;
-  }
-
-  .result-text {
-    color: $form-field-text-color;
-    display: none;
   }
 
   .icon-wrapper,
@@ -79,16 +51,11 @@ tao-moment-picker-result {
   }
 
   &[selected] {
-    .placeholder {
-      display: none;
-    }
-
-    .result-text {
-      display: block;
-    }
-
-    &:hover .link-clear {
-      display: flex;
+    &:hover,
+    &[active] {
+      .link-clear {
+        display: flex;
+      }
     }
   }
 }

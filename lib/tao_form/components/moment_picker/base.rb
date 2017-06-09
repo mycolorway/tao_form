@@ -54,8 +54,12 @@ module TaoForm
 
         private
 
+        def default_options
+          {icon: :calendar}
+        end
+
         def default_html_options
-          {class: 'moment-picker', icon: :arrow_down}
+          {class: 'moment-picker'}
         end
 
       end

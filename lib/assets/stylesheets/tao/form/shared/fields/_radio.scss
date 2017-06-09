@@ -1,0 +1,53 @@
+tao-radio-button {
+  display: inline-block;
+  vertical-align: middle;
+  user-select: none;
+
+  .radio-wrapper {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    padding: 2px;
+    border: 1px #9B9B9B solid;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: 200ms border-color, 200ms background-color;
+
+    .icon-radio {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-color: #55BB33;
+      display: none;
+      transition: 200ms border-color, 200ms background-color;
+    }
+  }
+
+  input[type=radio] {
+    display: none;
+
+    &:disabled + .radio-wrapper {
+      cursor: not-allowed;
+      border-color: #DDDDDD;
+      background-color: #F6F6F6;
+    }
+
+    &:checked + .radio-wrapper {
+      border-color: #55BB33;
+
+      .icon-radio {
+        display: block;
+      }
+    }
+
+    &:checked:disabled + .radio-wrapper {
+      border-color: #DDDDDD;
+      background-color: #F6F6F6;
+
+      .icon-radio {
+        background-color: #DDDDDD;
+      }
+    }
+  }
+
+}

@@ -1,34 +1,14 @@
-class Tao.Form.Radio extends TaoComponent
+#= require tao/form/shared/fields/radio
 
-  @tag 'tao-radio-button'
-
-  @get 'checked', ->
-    @field?.prop 'checked'
-
-  @set 'checked', (value) ->
-    @field?.prop 'checked', value
-
-  _connected: ->
-    @field = @jq.find('input:radio')
-    @_bind()
+class Tao.Form.Radio extends Tao.Form.RadioBase
 
   _bind: ->
-    @on 'click', '.radio-wrapper', (e) =>
-      if @field.is(':enabled')
-        @_toggleChecked()
-        @trigger 'change'
-      false
+    super
 
     @on 'keydown', '.radio-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
       @trigger 'change'
       false
-
-  _disconnected: ->
-    @off()
-
-  _toggleChecked: ->
-    @checked = !@checked
 
 TaoComponent.register Tao.Form.Radio

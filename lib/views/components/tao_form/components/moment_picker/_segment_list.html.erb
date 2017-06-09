@@ -1,9 +1,4 @@
 <%= content_tag component.tag_name, component.html_options do %>
   <%= component.render_template 'segment_list/labels' %>
   <%= component.render_template 'segment_list/segments' %>
-
-  <div class="buttons">
-    <%= link_to component.t(:confirm), 'javascript:;',
-      class: 'button button-small button-confirm' %>
-  </div>
 <% end %>

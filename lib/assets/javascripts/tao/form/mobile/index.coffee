@@ -6,4 +6,5 @@
 #= require ./element
 #= require ./fields
 
-Tao.Form = {}
+Tao.Form =
+  Mixins: {}

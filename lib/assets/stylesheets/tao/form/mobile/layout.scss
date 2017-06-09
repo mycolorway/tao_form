@@ -14,7 +14,7 @@ tao-form {
         width: 100%;
         line-height: 1;
         padding: 0.5rem 1rem;
-        background: $lighter-grey-bg-color;
+        background: $grey-bg-color;
         font-size: $font-size-s;
         color: $lighter-grey-color;
         border-bottom: 1px solid $border-color;
@@ -66,14 +66,7 @@ tao-form {
         }
 
         & > textarea,
-        & > input[type=text],
-        & > input[type=tel],
-        & > input[type=email],
-        & > input[type=number],
-        & > input[type=password] {
-          text-align: right;
-        }
-
+        .text-field input,
         tao-select .select-result-delegate,
         .moment-picker tao-moment-picker-result {
           text-align: right;
@@ -117,7 +110,6 @@ tao-form {
       margin: 2rem 1rem;
 
       .button {
-        display: flex;
         width: 100%;
       }
 

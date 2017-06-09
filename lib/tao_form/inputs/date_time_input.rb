@@ -4,7 +4,6 @@ module TaoForm
 
       def input(wrapper_options = nil)
         merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
-        input_options[:icon] = :arrow_right
 
         template.send(
           :"tao_#{input_type}_picker", @builder, attribute_name,

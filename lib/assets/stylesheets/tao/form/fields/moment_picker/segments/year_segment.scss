@@ -1,35 +1,14 @@
 @import 'tao/form/globals';
+@import 'tao/form/shared/fields/moment_picker/segments/year_segment';
 
 tao-moment-picker-year-segment {
   .year-list {
     width: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 
     .year {
-      display: block;
-      width: 4rem;
-      line-height: 2rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: $text-color;
-      margin: 0.25rem;
-      outline: none;
-
       &:focus,
       &:hover {
-        background: $lighter-grey-bg-color;
-      }
-
-      &.current {
-        color: $orange-color;
-      }
-
-      &.selected {
-        background: $green-bg-color;
-        color: $green-color;
+        background: $grey-bg-color;
       }
     }
   }

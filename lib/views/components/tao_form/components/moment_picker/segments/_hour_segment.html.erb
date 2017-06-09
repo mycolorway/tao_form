@@ -2,7 +2,7 @@
   <div class="hours">
     <div class="morning-hours">
       <% (0..11).each do |hour| %>
-        <%= link_to hour, 'javascript:;', class: 'hour', data: {hour: hour} %>
+        <%= link_to hour.to_s.rjust(2, '0'), 'javascript:;', class: 'hour', data: {hour: hour} %>
       <% end %>
     </div>
     <div class="afternoon-hours">
