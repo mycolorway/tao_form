@@ -19,14 +19,12 @@ tao-form {
 
     & > .error {
       display: block;
-      width: 80%;
-      margin: 0 auto;
       margin-bottom: 2em;
       font-size: $font-size-s;
-      padding: 1rem;
+      padding: 1em;
       color: $red-color;
       border: 1px solid $red-color;
-      border-radius: $border-radius;
+      border-radius: $border-radius-s;
       text-align: center;
     }
 
