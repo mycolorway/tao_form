@@ -19,6 +19,12 @@ module TaoForm
         :form
       end
 
+      private
+
+      def default_options
+        {defaults: {tao_form: true}}
+      end
+
     end
   end
 end
