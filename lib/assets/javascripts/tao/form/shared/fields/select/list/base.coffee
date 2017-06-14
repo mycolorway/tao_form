@@ -36,7 +36,7 @@ class Tao.Form.Select.ListBase extends TaoComponent
     @jq.find('.tips .size').text(@hiddenSize)
 
   _refreshScrollPosition: ->
-    @_reflow()
+    @reflow()
     @jq.find('.list-wrapper').scrollTop 0
 
   setOptions: (options, totalSize) ->

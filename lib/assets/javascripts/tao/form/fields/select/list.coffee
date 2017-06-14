@@ -39,7 +39,7 @@ class Tao.Form.Select.List extends Tao.Form.Select.ListBase
   _refreshScrollPosition: ->
     return unless @active
 
-    @_reflow()
+    @reflow()
 
     $list = @jq.find('.list-wrapper')
     if @direction == 'up'

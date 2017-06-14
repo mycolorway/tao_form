@@ -1,5 +1,4 @@
 require 'simple_form'
-require 'tao_form/simple_form_extensions/form_builder'
 require 'tao_on_rails'
 require 'tao_form/inputs'
 require 'tao_form/components'

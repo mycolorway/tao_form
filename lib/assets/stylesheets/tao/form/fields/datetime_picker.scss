@@ -2,7 +2,7 @@
 
 tao-datetime-picker {
   display: inline-flex;
-  width: 20rem;
+  width: $form-field-width;
 
   & > input[type='datetime-local'] {
     display: none;

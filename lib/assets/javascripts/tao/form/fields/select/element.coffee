@@ -66,7 +66,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
     offsetToWindowBottom = $(window).height() - rect.bottom
 
     @list.setMaxHeight false
-    @_reflow()
+    @reflow()
     listHeight = @list.jq.outerHeight()
 
     if offsetToWindowBottom < listHeight && offsetToWindowTop > offsetToWindowBottom
