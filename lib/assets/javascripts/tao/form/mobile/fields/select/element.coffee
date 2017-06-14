@@ -21,14 +21,14 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
       @active = false
       null
 
-    @on 'change', =>
+    @on 'tao:change', =>
       @list.refreshHeight() if @active
       @_refreshSelectedText()
 
   _bindListEvents: ->
     super
 
-    @on 'selectOption', '.select-list', (e, option) =>
+    @on 'tao:select', '.select-list', (e, option) =>
       if @multiple
         @list.reset()
       else

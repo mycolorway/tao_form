@@ -8,7 +8,7 @@ class Tao.Form.Switch extends Tao.Form.SwitchBase
     @on 'keydown', '.switch-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
-      @trigger 'change'
+      @trigger 'tao:change'
       false
 
 TaoComponent.register Tao.Form.Switch

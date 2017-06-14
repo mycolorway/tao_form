@@ -16,12 +16,12 @@ class Tao.Form.Select.ResultBase extends TaoComponent
 
   _bind: ->
     @on 'click', 'select', =>
-      @trigger 'activeClick'
+      @trigger 'tao:activeClick'
       false
 
     @on 'click', '.link-clear', (e) =>
       return if @disabled
-      @clear() && @trigger('clear')
+      @clear() && @trigger('tao:clear')
       false
 
   selectOption: (option) ->
@@ -50,7 +50,7 @@ class Tao.Form.Select.ResultBase extends TaoComponent
 
   _generateOption: (option) ->
     $option = $('<option>', test: option.text, value: option.value).appendTo(@field)
-    @field.trigger 'addOption', option, $option
+    @field.trigger 'tao:addOption', option, $option
     $option
 
   clear: ->

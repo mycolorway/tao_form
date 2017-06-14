@@ -13,7 +13,7 @@ class Tao.Form.MomentPicker.Result extends Tao.Form.MomentPicker.ResultBase
 
     @on 'click', '.link-clear', (e) =>
       return if @disabled
-      @clear() && @trigger('clear')
+      @clear() && @trigger('tao:clear')
       false
 
   _disabledChanged: ->

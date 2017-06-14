@@ -14,7 +14,7 @@ class MomentPicker.MonthSegment extends MomentPicker.SegmentBase
       momentData = _.clone @momentData
       momentData.month = $month.data 'month'
       momentData.date = null
-      @trigger 'dataSelect', [momentData]
+      @trigger 'tao:dataSelect', [momentData]
 
     @on 'click', '.link-prev-year, .link-next-year', (e) =>
       momentData = _.clone @momentData
@@ -23,7 +23,7 @@ class MomentPicker.MonthSegment extends MomentPicker.SegmentBase
       else
         momentData['year'] += 1
       momentData.date = null
-      @trigger 'dataRefresh', [momentData]
+      @trigger 'tao:dataRefresh', [momentData]
 
   setMomentData: (momentData) ->
     super

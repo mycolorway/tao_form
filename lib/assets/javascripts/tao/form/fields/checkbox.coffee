@@ -8,7 +8,7 @@ class Tao.Form.Checkbox extends Tao.Form.CheckboxBase
     @on 'keydown', '.checkbox-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
-      @trigger 'change'
+      @trigger 'tao:change'
       false
 
 TaoComponent.register Tao.Form.Checkbox

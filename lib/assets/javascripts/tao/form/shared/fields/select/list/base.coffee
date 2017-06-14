@@ -23,13 +23,13 @@ class Tao.Form.Select.ListBase extends TaoComponent
     @on 'input', '.search-field', _.debounce (e) =>
       val = @searchField.val()
       @searching = !!val
-      @trigger 'search', [val]
+      @trigger 'tao:search', [val]
     , 200
 
     @on 'click', '.option', (e) =>
       $option = $ e.currentTarget
       option = $option.data('option')
-      @trigger('selectOption', [option]) if option
+      @trigger('tao:select', [option]) if option
       null
 
   _hiddenSizeChanged: ->
@@ -76,4 +76,4 @@ class Tao.Form.Select.ListBase extends TaoComponent
   reset: ->
     @searchField.val ''
     @searching = false
-    @trigger 'search', ['']
+    @trigger 'tao:search', ['']

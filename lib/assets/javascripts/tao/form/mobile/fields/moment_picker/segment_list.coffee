@@ -10,7 +10,7 @@ class MomentPicker.SegmentList extends MomentPicker.SegmentListBase
     super
 
     @on 'click', '.link-clear', (e) =>
-      @trigger 'clear'
+      @trigger 'tao:clear'
       null
 
   refreshHeight: ->

@@ -12,7 +12,7 @@ class Tao.Form.Select.DataProvider extends TaoModule
       Option.fromElement optionEl
     .get()
 
-    @field.on 'addOption', (e, option) =>
+    @field.on 'tao:addOption', (e, option) =>
       if option.data?.group
         index = _.findIndex @options, (opt) -> opt.data?.group == option.data?.group
         @options.splice index, 0, option

@@ -54,33 +54,33 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     @_bindListEvents()
 
   _bindResultEvents: ->
-    @on 'activeClick', '.select-result', (e) =>
+    @on 'tao:activeClick', '.select-result', (e) =>
       @_toggleActive()
       null
 
     if @multiple
-      @on 'unselectOption', '.select-result', (e, option) =>
+      @on 'tao:unselect', '.select-result', (e, option) =>
         _.remove @selectedOption, (opt) -> opt.value == option.value
         @selected = false if @selectedOption.length == 0
         @_filterList ''
-        @trigger 'change', @selectedOption
+        @trigger 'tao:change', @selectedOption
         null
     else
-      @on 'clear', '.select-result', (e) =>
+      @on 'tao:clear', '.select-result', (e) =>
         @active = false
         @selectedOption = null
         @selected = false
         @_filterList ''
-        @trigger 'change', @selectedOption
+        @trigger 'tao:change', @selectedOption
         null
 
   _bindListEvents: ->
-    @on 'selectOption', '.select-list', (e, option) =>
+    @on 'tao:select', '.select-list', (e, option) =>
       @selectOption option
-      @trigger 'change', @selectedOption
+      @trigger 'tao:change', @selectedOption
       null
 
-    @on 'search', '.select-list', (e, value) =>
+    @on 'tao:search', '.select-list', (e, value) =>
       @_filterList value
 
   _disconnected: ->

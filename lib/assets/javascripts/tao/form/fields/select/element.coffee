@@ -9,15 +9,15 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
   _bindResultEvents: ->
     super
 
-    @on 'enterPress', '.select-result', (e) =>
+    @on 'tao:enterPress', '.select-result', (e) =>
       if @active
         if @selectOption @list.highlightedOption
-          @trigger 'change', @selectedOption
+          @trigger 'tao:change', @selectedOption
       else
         @active = true
       null
 
-    @on 'arrowPress', '.select-result', (e, direction) =>
+    @on 'tao:arrowPress', '.select-result', (e, direction) =>
       if @active
         if direction == 'up'
           @list.highlightPrevOption()
@@ -30,14 +30,14 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
   _bindListEvents: ->
     super
 
-    @on 'selectOption', '.select-list', (e, option) =>
+    @on 'tao:select', '.select-list', (e, option) =>
       @active = false
       null
 
-    @on 'show', '.select-list', (e) =>
+    @on 'tao:show', '.select-list', (e) =>
       @_positionList()
 
-    @on 'searchEscapePress', '.select-list', (e) =>
+    @on 'tao:searchEscapePress', '.select-list', (e) =>
       @active = false
       null
 

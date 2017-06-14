@@ -5,7 +5,7 @@ class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
   _bind: ->
     super
 
-    @on 'show', 'tao-moment-picker-segment-list', (e) =>
+    @on 'tao:show', 'tao-moment-picker-segment-list', (e) =>
       @_positionList()
 
   _activeChanged: ->
