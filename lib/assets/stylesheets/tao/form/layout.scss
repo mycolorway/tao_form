@@ -139,12 +139,9 @@ tao-form {
         }
       }
     }
+  }
 
-    &.form-without-label {
-      .form-buttons {
-        margin-left: 0;
-      }
-    }
-
+  &.form-without-label form .form-buttons {
+    margin-left: 0;
   }
 }
