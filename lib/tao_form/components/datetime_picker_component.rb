@@ -2,11 +2,12 @@ module TaoForm
   module Components
     class DatetimePickerComponent < FieldComponent
 
-      attr_reader :html_options, :disabled
+      attr_reader :html_options, :disabled, :value
 
       def initialize view, builder, attribute_name, options = {}, html_options = {}
         super view, builder, attribute_name, options
         @html_options = transform_html_options html_options
+        @value = @html_options.delete(:value)
         @disabled = @html_options[:disabled].presence || false
       end
 
@@ -15,7 +16,7 @@ module TaoForm
           super
         else
           super {
-            builder.send :datetime_field, attribute_name, {disabled: disabled}
+            builder.send :datetime_field, attribute_name, {disabled: disabled, value: value}
           }
         end
       end

@@ -7,11 +7,12 @@ module TaoForm
     module MomentPicker
       class Base < TaoForm::Components::FieldComponent
 
-        attr_reader :placeholder, :disabled, :html_options, :block_for_render
+        attr_reader :placeholder, :disabled, :html_options, :block_for_render, :value
 
         def initialize view, builder, attribute_name, options = {}, html_options = {}
           super view, builder, attribute_name, options
           @html_options = transform_html_options default_html_options, html_options
+          @value = @html_options.delete(:value)
           @disabled = @html_options[:disabled].presence || false
         end
 
@@ -35,7 +36,7 @@ module TaoForm
         def render_result
           view.tao_moment_picker_result(
             builder, attribute_name, input_type: input_type, icon: options[:icon],
-            placeholder: placeholder, disabled: disabled, &block_for_render
+            placeholder: placeholder, disabled: disabled, value: value, &block_for_render
           )
         end
 

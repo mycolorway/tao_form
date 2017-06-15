@@ -10,6 +10,7 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
       @field = @result.field
       @result.format = @displayFormat
       @setMoment @field.val()
+      @trigger 'tao:ready'
     @segmentList = @findComponent 'tao-moment-picker-segment-list'
 
     @_bind()

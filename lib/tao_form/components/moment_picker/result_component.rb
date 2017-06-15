@@ -3,10 +3,11 @@ module TaoForm
     module MomentPicker
       class ResultComponent < TaoForm::Components::FieldComponent
 
-        attr_reader :input_type
+        attr_reader :input_type, :value
 
         def initialize view, builder, attribute_name, options = {}
           @input_type = options.delete(:input_type)
+          @value = options.delete(:value)
           super view, builder, attribute_name, options
         end
 
@@ -16,7 +17,7 @@ module TaoForm
           else
             super {
               builder.send :"#{input_type}_field", attribute_name,
-                {disabled: options[:disabled]}
+                {disabled: options[:disabled], value: value}
             }
           end
         end
