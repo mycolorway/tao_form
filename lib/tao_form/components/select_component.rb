@@ -67,7 +67,7 @@ module TaoForm
       end
 
       def placeholder
-        @placeholder ||= if options.key?(:placeholder)
+        @placeholder ||= if options[:placeholder].present?
           options[:placeholder]
         elsif options[:include_blank].present? && options[:include_blank].is_a?(String)
           options[:include_blank]
