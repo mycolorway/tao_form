@@ -6,7 +6,7 @@ module TaoForm
         def render &block
           if block_given?
             super
-          else
+          elsif builder && attribute_name
             super {
               builder.select attribute_name, choices, options, {multiple: true}
             }

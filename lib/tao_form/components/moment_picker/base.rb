@@ -9,9 +9,18 @@ module TaoForm
 
         attr_reader :placeholder, :disabled, :html_options, :block_for_render, :value
 
-        def initialize view, builder, attribute_name, options = {}, html_options = {}
+        def initialize view, builder = nil, attribute_name = nil, options = {}, html_options = {}
+          if builder.is_a? Hash
+            options = builder
+            html_options = attribute_name if attribute_name.is_a?(Hash)
+            builder = nil
+            attribute_name = nil
+          end
+
           super view, builder, attribute_name, options
           @html_options = transform_html_options default_html_options, html_options
+          @html_options[:value_format] ||= @options.delete(:value_format)
+          @html_options[:display_format] ||= @options.delete(:display_format)
           @value = @html_options.delete(:value)
           @disabled = @html_options[:disabled].presence || false
         end

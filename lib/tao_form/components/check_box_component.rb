@@ -18,7 +18,7 @@ module TaoForm
       def render &block
         if block_given?
           super
-        else
+        elsif builder && attribute_name
           super {
             builder.check_box attribute_name, {checked: checked}, checked_value, unchecked_value
           }

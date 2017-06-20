@@ -30,6 +30,10 @@ tao-multiple-select-result {
       margin: 0 0 0 0.5rem;
       fill: $lighter-grey-color;
     }
+
+    .name {
+      line-height: 1.5rem;
+    }
   }
 
   &.disabled {

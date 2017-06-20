@@ -14,7 +14,7 @@ module TaoForm
         def render &block
           if block_given?
             super
-          else
+          elsif builder && attribute_name
             super {
               builder.send :"#{input_type}_field", attribute_name,
                 {disabled: options[:disabled], value: value}
