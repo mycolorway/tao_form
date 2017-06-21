@@ -3,11 +3,11 @@
     <div class="selected-text"></div>
     <div class="placeholder"><%= component.placeholder %></div>
     <div class="icon-wrapper">
-      <%= tao_icon component.options[:icon] %>
+      <%= tao_icon :arrow_right %>
     </div>
   </div>
 
-  <%= tao_slide_box direction: 'rtl', size: '-40', with_close_button: false, class: 'slide-box' do %>
+  <%= tao_slide_box direction: 'rtl', size: '-40', without_padding: true, modal: true, class: 'slide-box' do %>
     <div class="header">
       <div class="left">
         <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>

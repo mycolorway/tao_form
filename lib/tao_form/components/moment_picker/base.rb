@@ -7,23 +7,13 @@ module TaoForm
     module MomentPicker
       class Base < TaoForm::Components::FieldComponent
 
-        attr_reader :placeholder, :disabled, :html_options, :block_for_render, :value
+        attr_reader :block_for_render, :result_options
 
-        def initialize view, builder = nil, attribute_name = nil, options = {}, html_options = {}
-          if builder.is_a? Hash
-            options = builder
-            html_options = attribute_name if attribute_name.is_a?(Hash)
-            builder = nil
-            attribute_name = nil
-          end
-
+        def initialize view, builder = nil, attribute_name = nil, options = {}
           super view, builder, attribute_name, options
-          @html_options = transform_html_options default_html_options, html_options
-          @html_options[:value_format] ||= @options.delete(:value_format)
-          @html_options[:display_format] ||= @options.delete(:display_format)
-          @value = @html_options.delete(:value)
-          @disabled = @html_options[:disabled].presence || false
+          init_result_options
         end
+
 
         def input_type
           # to be implemented
@@ -44,8 +34,7 @@ module TaoForm
 
         def render_result
           view.tao_moment_picker_result(
-            builder, attribute_name, input_type: input_type, icon: options[:icon],
-            placeholder: placeholder, disabled: disabled, value: value, &block_for_render
+            builder, attribute_name, result_options, &block_for_render
           )
         end
 
@@ -55,21 +44,23 @@ module TaoForm
         end
 
         def placeholder
-          @placeholder ||= if options[:placeholder].present?
-            options[:placeholder]
-          else
-            t :placeholder
-          end
+          @placeholder ||= options.delete(:placeholder) || t(:placeholder)
         end
 
         private
 
-        def default_options
-          {icon: :calendar}
+        def init_result_options
+          @result_options = {
+            input_type: input_type,
+            placeholder: placeholder,
+            icon: options.delete(:icon),
+            disabled: options[:disabled],
+            value: options.delete(:value)
+          }
         end
 
-        def default_html_options
-          {class: 'moment-picker'}
+        def default_options
+          {icon: :calendar, class: 'moment-picker'}
         end
 
       end

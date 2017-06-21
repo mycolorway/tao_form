@@ -3,12 +3,14 @@ module TaoForm
     module MomentPicker
       class ResultComponent < TaoForm::Components::FieldComponent
 
-        attr_reader :input_type, :value
+        attr_reader :input_type, :value, :icon, :placeholder
 
-        def initialize view, builder, attribute_name, options = {}
+        def initialize view, builder = nil, attribute_name = nil, options = {}
+          super view, builder, attribute_name, options
           @input_type = options.delete(:input_type)
           @value = options.delete(:value)
-          super view, builder, attribute_name, options
+          @icon = options.delete(:icon)
+          @placeholder = options.delete(:placeholder)
         end
 
         def render &block

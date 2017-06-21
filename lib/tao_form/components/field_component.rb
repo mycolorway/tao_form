@@ -4,7 +4,7 @@ module TaoForm
 
       attr_reader :builder, :attribute_name
 
-      def initialize view, builder, attribute_name, options = {}
+      def initialize view, builder = nil, attribute_name = nil, options = {}
         if builder.is_a? Hash
           options = builder
           builder = nil

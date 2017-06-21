@@ -8,7 +8,7 @@ module TaoForm
 
           def initialize view, options = {}
             super view, options
-            @step = options[:step].presence || 5
+            @step = options.delete(:step)
           end
 
           def self.component_name

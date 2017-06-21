@@ -21,7 +21,7 @@ module TaoForm
       private
 
       def default_options
-        super.merge({icon: :clock})
+        super.merge({icon: :clock, minute_step: 5})
       end
 
     end

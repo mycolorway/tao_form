@@ -1,12 +1,12 @@
 <%= content_tag component.tag_name, component.html_options do %>
   <%= yield %>
   <div class="icon-wrapper">
-    <%= tao_icon component.options[:icon] %>
+    <%= tao_icon component.icon %>
   </div>
   <div class="result-text">
   </div>
   <div class="placeholder">
-    <%= component.html_options[:placeholder].presence %>
+    <%= component.placeholder %>
   </div>
   <%= link_to 'javascript:;', tabindex: '-1', class: 'link-clear', title: component.t(:clear_option) do %>
     <%= tao_icon :close %>

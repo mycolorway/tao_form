@@ -2,13 +2,14 @@ module TaoForm
   module Components
     class CheckBoxComponent < FieldComponent
 
-      attr_reader :checked_value, :unchecked_value, :checked
+      attr_reader :checked_value, :unchecked_value, :checked, :disabled
 
-      def initialize view, builder = nil, attribute_name = nil, options = {}, checked_value = '1', unchecked_value = '0'
+      def initialize view, builder = nil, attribute_name = nil, options = {}
         super view, builder, attribute_name, options
+        @checked_value = @options.delete(:checked_value)
+        @unchecked_value = @options.delete(:unchecked_value)
         @checked = @options.delete(:checked)
-        @checked_value = checked_value
-        @unchecked_value = unchecked_value
+        @disabled = @options.delete(:disabled)
       end
 
       def self.component_name
@@ -20,7 +21,10 @@ module TaoForm
           super
         elsif builder && attribute_name
           super {
-            builder.check_box attribute_name, {checked: checked}, checked_value, unchecked_value
+            builder.check_box attribute_name, {
+              checked: checked,
+              disabled: disabled
+            }, checked_value, unchecked_value
           }
         end
       end

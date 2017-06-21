@@ -1,7 +1,7 @@
 <%= content_tag component.tag_name, component.html_options do %>
   <%= component.render_result %>
 
-  <%= tao_slide_box direction: 'rtl', size: '-40', with_close_button: false, class: 'slide-box' do %>
+  <%= tao_slide_box direction: 'rtl', size: '-40', without_padding: true, modal: true, class: 'slide-box' do %>
     <div class="header">
       <div class="left">
         <%= link_to 'javascript:;', class: 'link-close', title: I18n.t('tao_form.components.moment_picker.close') do %>
