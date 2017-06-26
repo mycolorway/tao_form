@@ -11,6 +11,9 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
 
     @_bind()
 
+  _disconnected: ->
+    @off()
+
   _bind: ->
     @on 'click', '.segment-label', (e) =>
       segment = $(e.currentTarget).data('segment')

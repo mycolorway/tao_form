@@ -11,6 +11,9 @@ class Tao.Form.MomentPicker.SegmentBase extends TaoComponent
     @momentData = {}
     @_bind()
 
+  _disconnected: ->
+    @off()
+
   _bind: ->
 
   setMomentData: (momentData) ->

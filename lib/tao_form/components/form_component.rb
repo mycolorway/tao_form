@@ -7,7 +7,7 @@ module TaoForm
       def initialize view, record, options
         super view, options
         @record = record
-        @html_options = transform_html_options(@options.delete(:html) || {})
+        @html_options = transform_html_options(@options.delete(:html) || {}, default_html_options)
       end
 
       def render &block
@@ -25,6 +25,10 @@ module TaoForm
           wrapper: view.request.variant.mobile? ? :tao_mobile : :tao_desktop,
           defaults: {tao_form: true}
         }
+      end
+
+      def default_html_options
+        {class: 'tao-form'}
       end
 
     end

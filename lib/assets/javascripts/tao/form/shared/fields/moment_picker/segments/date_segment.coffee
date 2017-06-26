@@ -10,10 +10,13 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
 
   dateFormat: 'YYYY-MM-DD'
 
+  _init: ->
+    super
+    @_renderWeekdays()
+
   _connected: ->
     super
     @momentData = {}
-    @_renderWeekdays()
 
   _bind: ->
     @on 'click', '.day', (e) =>
@@ -86,7 +89,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       startDate.add 1, 'days'
 
   _renderWeekdays: ->
-    $head = @jq.find('.weekdays')
+    $head = @jq.find('.weekdays').empty()
     $.each moment.weekdaysMin(true), (i, weekdayName) ->
       $('<span>', class: 'weekday', text: weekdayName)
         .appendTo $head

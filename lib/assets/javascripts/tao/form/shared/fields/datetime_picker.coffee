@@ -19,6 +19,9 @@ class Tao.Form.DatetimePicker extends TaoComponent
     @timePicker = @findComponent 'tao-time-picker'
     @_bind()
 
+  _disconnected: ->
+    @off()
+
   _bind: ->
     @on 'tao:change', '.moment-picker', (e, m) =>
       @_syncMoment()
