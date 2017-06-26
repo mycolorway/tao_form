@@ -6,6 +6,7 @@ class Tao.Form.ElementBase extends TaoComponent
 
   _connected: ->
     @_bind()
+    @jq.find('.input-field[autofocus]').focus()
 
   _bind: ->
     @on 'ajax:beforeSend', '> form', (e) =>
