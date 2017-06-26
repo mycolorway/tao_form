@@ -11,7 +11,11 @@ module TaoForm
       end
 
       def render &block
-        view.content_tag tag_name, view.simple_form_for(record, options, &block), html_options
+        if block_given?
+          view.content_tag tag_name, view.simple_form_for(record, options, &block), html_options
+        else
+          super
+        end
       end
 
       def self.component_name
