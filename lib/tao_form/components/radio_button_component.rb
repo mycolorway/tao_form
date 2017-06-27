@@ -25,6 +25,10 @@ module TaoForm
           super {
             builder.radio_button attribute_name, field_options, checked_value, unchecked_value
           }
+        else
+          super {
+            view.radio_button_tag nil
+          }
         end
       end
 

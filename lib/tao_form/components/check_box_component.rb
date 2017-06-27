@@ -25,6 +25,10 @@ module TaoForm
           super {
             builder.check_box attribute_name, field_options, checked_value, unchecked_value
           }
+        else
+          super {
+            view.check_box_tag nil
+          }
         end
       end
 
