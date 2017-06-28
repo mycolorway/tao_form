@@ -9,6 +9,10 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
   _bind: ->
     super
 
+    @slideBox.on 'tao:hide', (e) =>
+      @active = false if @active
+      null
+
     @on 'click', '.select-result-delegate', (e) =>
       @_toggleActive()
       null

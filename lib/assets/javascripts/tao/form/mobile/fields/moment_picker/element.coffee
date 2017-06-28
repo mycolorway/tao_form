@@ -9,6 +9,10 @@ class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
   _bind: ->
     super
 
+    @slideBox.on 'tao:hide', (e) =>
+      @active = false if @active
+      null
+
     @on 'click', '.header .link-close', (e) =>
       @active = false
       null
