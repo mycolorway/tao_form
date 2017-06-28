@@ -67,6 +67,10 @@ module TaoForm
         end
       end
 
+      def default_options
+        {class: 'tao-datetime-picker'}
+      end
+
     end
   end
 end

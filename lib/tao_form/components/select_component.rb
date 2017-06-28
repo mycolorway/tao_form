@@ -82,6 +82,10 @@ module TaoForm
         end
       end
 
+      def default_options
+        {class: 'tao-select'}
+      end
+
     end
   end
 end
