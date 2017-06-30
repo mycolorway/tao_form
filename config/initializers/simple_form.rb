@@ -128,7 +128,7 @@ SimpleForm.setup do |config|
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.
-  # config.custom_inputs_namespaces << TaoForm.inputs_namespace
+  config.custom_inputs_namespaces << TaoForm.inputs_namespace
 
   # Default priority for time_zone inputs.
   # config.time_zone_priority = nil
