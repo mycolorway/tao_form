@@ -1,4 +1,4 @@
-@import './globals';
+@import 'tao/form/globals';
 
 .tao-form {
   display: block;
@@ -50,7 +50,7 @@
         margin: 0 $form-field-margin-h 0 0;
         line-height: $form-label-line-height;
         font-size: $form-label-font-size;
-        color: $light-grey-color;
+        color: $lighter-grey-color;
 
         &.required abbr {
           text-decoration: none;
@@ -116,7 +116,7 @@
     }
 
     .form-buttons {
-      margin: 2em 0 0 $form-label-width + $form-field-margin-h;
+      margin: 2rem 0 0 $form-label-width + $form-field-margin-h;
 
       .success-message {
         display: inline-flex;
