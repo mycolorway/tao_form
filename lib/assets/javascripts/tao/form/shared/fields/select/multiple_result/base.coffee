@@ -63,7 +63,7 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
     $option.prop 'selected', false
 
   _generateOption: (option) ->
-    $option = $('<option>', test: option.text, value: option.value).appendTo(@field)
+    $option = $('<option>', text: option.text, value: option.value).appendTo(@field)
     @field.trigger 'tao:addOption', option, $option
     $option
 

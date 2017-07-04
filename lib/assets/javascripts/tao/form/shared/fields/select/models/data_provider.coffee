@@ -8,13 +8,14 @@ class Tao.Form.Select.DataProvider extends TaoModule
   @option 'field'
 
   _init: ->
-    @options = @field.find('option').map (i, optionEl) =>
+    @options = @field.find('option').map (i, optionEl) ->
       Option.fromElement optionEl
     .get()
 
     @field.on 'tao:addOption', (e, option) =>
       if option.data?.group
-        index = _.findIndex @options, (opt) -> opt.data?.group == option.data?.group
+        index = _.findIndex @options, (opt) ->
+          opt.data?.group == option.data?.group
         @options.splice index, 0, option
       else
         @options.unshift option
@@ -47,9 +48,11 @@ class Tao.Form.Select.DataProvider extends TaoModule
         "#{@remote.searchKey}": value
       dataType: 'json'
     .done (result) ->
-      options = if _.isArray(result.options) && result.options.length > 0 && _.isArray(result.options[0])
+      options = if _.isArray(result.options) && result.options.length > 0 &&\
+          _.isArray(result.options[0]) && _.isArray(result.options[0][1])
         result.options.reduce (opts, group) ->
-          return unless _.isArray(group) && group.length > 1 && _.isArray(group[1])
+          unless _.isArray(group) && group.length > 1 && _.isArray(group[1])
+            return
           group[1].forEach (opt) ->
             opts.push Option.fromJson(opt, group[0])
           opts
