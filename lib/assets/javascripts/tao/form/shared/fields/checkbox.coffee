@@ -6,6 +6,12 @@ class Tao.Form.CheckboxBase extends TaoComponent
 
   @tag 'tao-check-box'
 
+  @get 'indeterminate', ->
+    @field?.prop 'indeterminate'
+
+  @set 'indeterminate', (value) ->
+    @field?.prop 'indeterminate', value
+
   _connected: ->
     @field = @jq.find('input:checkbox')
     @_bind()
