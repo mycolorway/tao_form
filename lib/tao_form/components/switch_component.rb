@@ -6,6 +6,12 @@ module TaoForm
         :switch
       end
 
+      private
+
+      def default_options
+        {class: 'tao-switch'}
+      end
+
     end
   end
 end

@@ -11,7 +11,10 @@ module TaoForm
           private
 
           def default_options
-            super.merge({label_format: t(:label, hour: '{{ hour }}')})
+            merge_options(super, {
+              class: 'tao-moment-picker-hour-segment',
+              label_format: t(:label, hour: '{{ hour }}')
+            })
           end
 
         end

@@ -3,7 +3,7 @@
 
 $select-list-offset: 0.375rem;
 
-tao-moment-picker-segment-list {
+.tao-moment-picker-segment-list {
   display: none;
   flex-direction: column;
   position: absolute;
@@ -37,7 +37,7 @@ tao-moment-picker-segment-list {
   }
 
   .segments {
-    .segment {
+    .tao-moment-picker-segment {
       margin: 0 0.5rem;
       padding: 0.5rem 0;
 

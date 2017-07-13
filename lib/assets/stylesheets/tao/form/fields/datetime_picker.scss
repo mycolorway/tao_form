@@ -1,6 +1,6 @@
 @import 'tao/form/globals';
 
-tao-datetime-picker {
+.tao-datetime-picker {
   display: inline-flex;
   width: $form-field-width;
 
@@ -8,13 +8,13 @@ tao-datetime-picker {
     display: none;
   }
 
-  tao-date-picker.moment-picker {
+  .tao-date-picker.tao-moment-picker {
     flex: 0 0 auto;
     width: 11rem;
     margin-right: 0.5rem;
   }
 
-  tao-time-picker.moment-picker {
+  .tao-time-picker.tao-moment-picker {
     flex: 1 1 auto;
     width: auto;
   }

@@ -11,7 +11,10 @@ module TaoForm
           private
 
           def default_options
-            super.merge({label_format: t(:label, date: '{{ date }}')})
+            merge_options(super, {
+              class: 'tao-moment-picker-date-segment',
+              label_format: t(:label, date: '{{ date }}')
+            })
           end
 
         end

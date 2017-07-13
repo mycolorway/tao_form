@@ -20,6 +20,12 @@ module TaoForm
         :date_picker
       end
 
+      private
+
+      def default_options
+        merge_options(super, {class: 'tao-date-picker'})
+      end
+
     end
   end
 end

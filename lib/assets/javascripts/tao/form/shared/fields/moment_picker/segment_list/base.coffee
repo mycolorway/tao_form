@@ -6,7 +6,7 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
   @attribute 'defaultSegment'
 
   _connected: ->
-    @segments = @jq.find('.segment').get()
+    @segments = @jq.find('.tao-moment-picker-segment').get()
     @momentData = null
 
     @_bind()
@@ -20,11 +20,11 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
       @_setActiveSegment segment
       null
 
-    @on 'tao:dataSelect', '.segment', (e, momentData) =>
+    @on 'tao:dataSelect', '.tao-moment-picker-segment', (e, momentData) =>
       @_setMomentData momentData
       @_activateNextSegment()
 
-    @on 'tao:dataRefresh', '.segment', (e, momentData) =>
+    @on 'tao:dataRefresh', '.tao-moment-picker-segment', (e, momentData) =>
       @_setMomentData momentData
 
   setMoment: (m) ->
@@ -80,7 +80,7 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
     if segment
       @_setActiveSegment segment
     else if @activeSegment
-      if ($segment = @activeSegment.jq.next('.segment')).length > 0
+      if ($segment = @activeSegment.jq.next('.tao-moment-picker-segment')).length > 0
         @_setActiveSegment $segment.get(0)
       else
         @trigger 'tao:select', [moment @momentData]

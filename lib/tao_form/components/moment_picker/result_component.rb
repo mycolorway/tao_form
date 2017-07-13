@@ -28,6 +28,12 @@ module TaoForm
           :moment_picker_result
         end
 
+        private
+
+        def default_options
+          {class: 'tao-moment-picker-result'}
+        end
+
       end
     end
   end

@@ -40,7 +40,7 @@ module TaoForm
         end
 
         def default_options
-          {class: 'select-result'}
+          {class: 'tao-multiple-select-result select-result'}
         end
 
       end

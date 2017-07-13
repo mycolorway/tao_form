@@ -34,6 +34,10 @@ module TaoForm
 
       private
 
+      def default_options
+        {class: 'tao-check-box'}
+      end
+
       def init_field_options
         @field_options = {
           disabled: disabled

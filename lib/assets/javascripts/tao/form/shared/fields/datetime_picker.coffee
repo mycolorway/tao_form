@@ -23,7 +23,7 @@ class Tao.Form.DatetimePicker extends TaoComponent
     @off()
 
   _bind: ->
-    @on 'tao:change', '.moment-picker', (e, m) =>
+    @on 'tao:change', '.tao-moment-picker', (e, m) =>
       @_syncMoment()
       @trigger 'tao:change', [@moment]
 

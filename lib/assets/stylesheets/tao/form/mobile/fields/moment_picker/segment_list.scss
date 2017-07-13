@@ -1,7 +1,7 @@
 @import 'tao/form/mobile/globals';
 @import 'tao/form/shared/fields/moment_picker/segment_list';
 
-tao-moment-picker-segment-list {
+.tao-moment-picker-segment-list {
   display: block;
 
   .link-clear {
@@ -35,7 +35,7 @@ tao-moment-picker-segment-list {
   }
 
   .segments {
-    .segment {
+    .tao-moment-picker-segment {
       overflow: auto;
       -webkit-overflow-scrolling: touch;
       border-color: $light-line-color;

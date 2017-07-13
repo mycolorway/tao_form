@@ -21,7 +21,11 @@ module TaoForm
       private
 
       def default_options
-        super.merge({icon: :clock, minute_step: 5})
+        merge_options(super, {
+          class: 'tao-time-picker',
+          icon: :clock,
+          minute_step: 5
+        })
       end
 
     end

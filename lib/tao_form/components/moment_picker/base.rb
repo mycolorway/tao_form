@@ -60,7 +60,7 @@ module TaoForm
         end
 
         def default_options
-          {icon: :calendar, class: 'moment-picker'}
+          {icon: :calendar, class: 'tao-moment-picker'}
         end
 
       end

@@ -1,7 +1,7 @@
 @import 'tao/form/mobile/globals';
 @import 'tao/form/shared/fields/select/list';
 
-tao-select-list {
+.tao-select-list {
   display: block;
 
   &[empty] .list-wrapper {

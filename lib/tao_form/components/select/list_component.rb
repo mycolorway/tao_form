@@ -10,7 +10,7 @@ module TaoForm
         private
 
         def default_options
-          {class: 'select-list'}
+          {class: 'tao-select-list select-list'}
         end
 
       end

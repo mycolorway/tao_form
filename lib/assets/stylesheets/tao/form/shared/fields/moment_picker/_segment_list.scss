@@ -1,4 +1,4 @@
-tao-moment-picker-segment-list {
+.tao-moment-picker-segment-list {
 
   .segment-labels {
     padding: $moment-picker-segment-labels-padding;
@@ -51,7 +51,7 @@ tao-moment-picker-segment-list {
   }
 
   .segments {
-    .segment {
+    .tao-moment-picker-segment {
       display: none;
       justify-content: center;
       align-items: center;

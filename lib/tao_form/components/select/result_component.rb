@@ -38,7 +38,7 @@ module TaoForm
         end
 
         def default_options
-          {class: 'select-result'}
+          {class: 'tao-select-result select-result'}
         end
 
       end

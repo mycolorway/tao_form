@@ -8,6 +8,14 @@ module TaoForm
             :moment_picker_month_segment
           end
 
+          private
+
+          def default_options
+            merge_options(super, {
+              class: 'tao-moment-picker-month-segment'
+            })
+          end
+
         end
       end
     end

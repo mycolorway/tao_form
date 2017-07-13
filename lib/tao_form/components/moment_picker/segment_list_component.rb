@@ -30,6 +30,12 @@ module TaoForm
           :moment_picker_segment_list
         end
 
+        private
+
+        def default_options
+          {class: 'tao-moment-picker-segment-list'}
+        end
+
       end
     end
   end

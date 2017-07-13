@@ -34,6 +34,10 @@ module TaoForm
 
       private
 
+      def default_options
+        {class: 'tao-radio-button'}
+      end
+
       def init_field_options
         @field_options = {
           disabled: disabled

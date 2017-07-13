@@ -18,6 +18,12 @@ module TaoForm
         :month_picker
       end
 
+      private
+
+      def default_options
+        merge_options(super, {class: 'tao-month-picker'})
+      end
+
     end
   end
 end

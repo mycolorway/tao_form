@@ -7,7 +7,7 @@ module TaoForm
           private
 
           def default_options
-            {class: 'segment'}
+            {class: 'tao-moment-picker-segment'}
           end
 
         end
