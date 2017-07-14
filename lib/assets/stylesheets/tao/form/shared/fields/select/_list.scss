@@ -61,6 +61,10 @@
         border-bottom: none;
       }
 
+      &.selected .name {
+        color: $ui-color;
+      }
+
       .hint {
         font-size: $font-size-xs;
         color: $lightest-grey-color;

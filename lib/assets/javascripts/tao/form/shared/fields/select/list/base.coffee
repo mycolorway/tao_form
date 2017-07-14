@@ -14,9 +14,11 @@ class Tao.Form.Select.ListBase extends TaoComponent
 
   _connected: ->
     @searchField = @jq.find('.search-field')
+    @selectedOption = []
     @_bind()
 
   _disconnected: ->
+    @selectedOption.length = 0
     @off()
 
   _bind: ->
@@ -71,9 +73,24 @@ class Tao.Form.Select.ListBase extends TaoComponent
     $option.find('.name').text(option.data.label || option.text)
     $option.find('.hint').text(option.data.hint) if option.data.hint
     $option.attr 'data-value', option.value
+    if _.findIndex(@selectedOption, (opt) -> opt.value == option.value) > -1
+      $option.addClass('selected')
     $option
 
   reset: ->
     @searchField.val ''
     @searching = false
     @trigger 'tao:search', ['']
+
+  selectOption: (option) ->
+    return false unless option && !(option in @selectedOption)
+    @selectedOption.push option
+    true
+
+  unselectOption: (option) ->
+    return false unless option && option in @selectedOption
+    _.remove @selectedOption, (opt) -> opt.value == option.value
+    true
+
+  clearSelected: ->
+    @selectedOption.length = 0

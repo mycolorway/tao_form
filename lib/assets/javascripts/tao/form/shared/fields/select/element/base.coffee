@@ -25,15 +25,25 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       remote: @remote
       field: @field
 
+    resultDeferred = $.Deferred()
+    listDeferred = $.Deferred()
     @result = @findComponent '.select-result', =>
       @_resultReady()
-
+      resultDeferred.resolve()
     @list = @findComponent '.select-list', =>
       @_listReady()
+      listDeferred.resolve()
+
+    $.when(resultDeferred, listDeferred).then =>
+      @_childComponentsReady()
 
     @_bind()
 
   _resultReady: ->
+
+  _listReady: ->
+
+  _childComponentsReady: ->
     if @multiple
       values = @field.val()
       if values && _.isArray(values)
@@ -41,9 +51,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     else
       @selectOption @field.val()
 
-  _listReady: ->
-    options = @dataProvider.unselectedOptions()
-    @list.setOptions options, @remote?.totalOptionSize
+    @list.setOptions @dataProvider.options, @remote?.totalOptionSize
     @list.searchable = if @remote
       @dataProvider.options.length < @remote.totalOptionSize
     else
@@ -62,6 +70,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       @on 'tao:unselect', '.select-result', (e, option) =>
         _.remove @selectedOption, (opt) -> opt.value == option.value
         @selected = false if @selectedOption.length == 0
+        @list.unselectOption(option)
         @_filterList ''
         @trigger 'tao:change', @selectedOption
         null
@@ -70,6 +79,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
         @active = false
         @selectedOption = null
         @selected = false
+        @list.clearSelected()
         @_filterList ''
         @trigger 'tao:change', @selectedOption
         null
@@ -94,13 +104,14 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     @list.loading = true
     @dataProvider.filter value, (options, totalSize) =>
       @list.loading = false
-      options = @dataProvider.unselectedOptions options
       @list.setOptions options, totalSize
 
   selectOption: (option) ->
     option = @dataProvider.getOption option
     return false unless option && option != @selectedOption
     @result.selectOption option
+    @list.clearSelected() unless @multiple
+    @list.selectOption option
     if @multiple
       @selectedOption.push option
     else
@@ -113,10 +124,12 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       option = @dataProvider.getOption option
       return false unless option && (option in @selectedOption)
       @result.unselectOption option
+      @list.unselectOption option
       _.remove @selectedOption, (opt) -> opt.value == option.value
       @selected = false if @selectedOption.length == 0
     else
       @result.unselectOption()
+      @list.clearSelected()
       @selectedOption = null
       @selected = false
     true

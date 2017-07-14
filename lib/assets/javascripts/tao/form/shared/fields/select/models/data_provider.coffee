@@ -68,11 +68,3 @@ class Tao.Form.Select.DataProvider extends TaoModule
         []
 
       callback? options, result.totalSize
-
-  unselectedOptions: (options = @options) ->
-    options.filter (option) =>
-      value = @field.val()
-      if _.isArray(value)
-        !(option.value in value)
-      else
-        option.value != value

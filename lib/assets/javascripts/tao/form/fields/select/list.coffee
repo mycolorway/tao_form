@@ -28,6 +28,11 @@ class Tao.Form.Select.List extends Tao.Form.Select.ListBase
         @highlightNextOption()
         false
 
+    @on 'mouseenter', '.option', (e) =>
+      $option = $ e.currentTarget
+      @highlightOption $option
+      null
+
   _activeChanged: ->
     if @active
       @trigger 'tao:show'
