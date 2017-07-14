@@ -37,7 +37,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
     @on 'tao:show', '.select-list', (e) =>
       @_positionList()
 
-    @on 'tao:searchEscapePress', '.select-list', (e) =>
+    @on 'tao:cancel', '.select-list', (e) =>
       @active = false
       null
 

@@ -19,7 +19,7 @@ class Tao.Form.Select.List extends Tao.Form.Select.ListBase
         @trigger('tao:select', [@highlightedOption]) if @highlightedOption
         false
       else if e.which == 27
-        @trigger 'tao:searchEscapePress'
+        @trigger 'tao:cancel'
         false
       else if e.which == 38
         @highlightPrevOption()
