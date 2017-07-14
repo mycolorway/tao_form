@@ -73,7 +73,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
       @list.setMaxHeight offsetToWindowTop - 20
       @list.direction = 'up'
     else
-      @list.setMaxHeight(offsetToWindowBottom - 20) if offsetToWindowBottom < listHeight
+      @list.setMaxHeight offsetToWindowBottom - 20
       @list.direction = 'down'
 
 TaoComponent.register Tao.Form.Select.Element
