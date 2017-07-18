@@ -21,12 +21,12 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
       @active = false
       null
 
-    @on 'click', '.header .button-ok', (e) =>
+    @on 'click', '.button-ok', (e) =>
       @active = false
       null
 
     @on 'tao:change', =>
-      @list.refreshHeight() if @active
+      @_refreshListHeight() if @active
       @_refreshSelectedText()
 
   _bindListEvents: ->
@@ -39,7 +39,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
         @active = false
       null
 
-  _resultReady: ->
+  _childComponentsReady: ->
     super
     @_refreshSelectedText()
 
@@ -55,10 +55,19 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
 
     @jq.find('.select-result-delegate .selected-text').text text
 
+  _refreshListHeight: ->
+    $listWrapper = @list.jq.find('.list-wrapper')
+    winHeight = $(window).height()
+    offsetTop = $listWrapper[0].getBoundingClientRect().top
+    buttonsHeight = @slideBox.jq.find('.slide-box-content > .buttons').outerHeight()
+
+    $listWrapper.css
+      height: winHeight - offsetTop - buttonsHeight
+
   _activeChanged: ->
     @slideBox.active = @active
     if @active
-      @list.refreshHeight()
+      @_refreshListHeight()
     else
       @list.reset()
 

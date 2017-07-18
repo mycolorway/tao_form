@@ -3,13 +3,13 @@
 
   <%= tao_slide_box direction: 'rtl', size: '-40', without_padding: true, modal: true, class: 'slide-box' do %>
     <div class="header">
-      <div class="left">
+      <div class="left"></div>
+      <div class="title"><%= component.placeholder %></div>
+      <div class="right">
         <%= link_to 'javascript:;', class: 'link-close', title: I18n.t('tao_form.components.moment_picker.close') do %>
           <%= tao_icon :close %>
         <% end %>
       </div>
-      <div class="title"><%= component.placeholder %></div>
-      <div class="right"></div>
     </div>
 
     <%= component.render_segment_list %>

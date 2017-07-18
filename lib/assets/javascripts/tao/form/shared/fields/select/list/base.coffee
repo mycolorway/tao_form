@@ -30,6 +30,7 @@ class Tao.Form.Select.ListBase extends TaoComponent
 
     @on 'click', '.option', (e) =>
       $option = $ e.currentTarget
+      return if $option.hasClass('selected')
       option = $option.data('option')
       @trigger('tao:select', [option]) if option
       null

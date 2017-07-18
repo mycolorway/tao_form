@@ -9,19 +9,20 @@
 
   <%= tao_slide_box direction: 'rtl', size: '-40', without_padding: true, modal: true, class: 'slide-box' do %>
     <div class="header">
-      <div class="left">
-        <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>
-          <%= tao_icon :close %>
-        <% end %>
-      </div>
+      <div class="left"></div>
       <div class="title"><%= component.placeholder %></div>
       <div class="right">
-        <% if component.multiple %>
-          <%= link_to component.t(:ok), 'javascript:;', class: 'button button-small button-ok' %>
+        <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>
+          <%= tao_icon :close %>
         <% end %>
       </div>
     </div>
     <%= component.render_result %>
     <%= component.render_list %>
+    <% if component.multiple %>
+      <div class="buttons">
+        <%= link_to component.t(:ok), 'javascript:;', class: 'button button-block button-ok' %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
