@@ -18,8 +18,7 @@ module TaoForm
             super
           elsif builder && attribute_name
             super {
-              builder.send :"#{input_type}_field", attribute_name,
-                {disabled: options[:disabled], value: value}
+              builder.send :"#{input_type}_field", attribute_name, field_options
             }
           end
         end
@@ -32,6 +31,12 @@ module TaoForm
 
         def default_options
           {class: 'tao-moment-picker-result'}
+        end
+
+        def field_options
+          opts = {disabled: options[:disabled]}
+          opts[:value] = value if value.present?
+          opts
         end
 
       end
