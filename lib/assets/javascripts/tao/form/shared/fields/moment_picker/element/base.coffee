@@ -6,12 +6,12 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
   @attribute 'active', 'disabled', type: 'boolean', observe: true
 
   _connected: ->
-    @result = @findComponent 'tao-moment-picker-result', =>
+    @result = @findComponent '.tao-moment-picker-result', =>
       @field = @result.field
       @result.format = @displayFormat
       @setMoment @field.val()
       @trigger 'tao:ready'
-    @segmentList = @findComponent 'tao-moment-picker-segment-list'
+    @segmentList = @findComponent '.tao-moment-picker-segment-list'
 
     @_bind()
 
@@ -19,19 +19,19 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
     @off()
 
   _bind: ->
-    @on 'tao:activeClick', 'tao-moment-picker-result', (e) =>
+    @on 'tao:activeClick', '.tao-moment-picker-result', (e) =>
       return if @disabled
       @_toggleActive()
       null
 
-    @on 'tao:clear', 'tao-moment-picker-result', (e) =>
+    @on 'tao:clear', '.tao-moment-picker-result', (e) =>
       return if @disabled
       @active = false
       @setMoment null
       @trigger 'tao:change', [@moment]
       null
 
-    @on 'tao:select', 'tao-moment-picker-segment-list', (e, m) =>
+    @on 'tao:select', '.tao-moment-picker-segment-list', (e, m) =>
       @active = false
       @setMoment m
       @trigger 'tao:change', [@moment]

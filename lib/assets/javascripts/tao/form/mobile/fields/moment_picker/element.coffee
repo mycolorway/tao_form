@@ -22,7 +22,7 @@ class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
       @setMoment moment(@segmentList.momentData)
       null
 
-    @on 'tao:clear', 'tao-moment-picker-segment-list', (e) =>
+    @on 'tao:clear', '.tao-moment-picker-segment-list', (e) =>
       return if @disabled
       @active = false
       @setMoment null
