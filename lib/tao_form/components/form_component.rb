@@ -4,10 +4,10 @@ module TaoForm
 
       attr_reader :record, :html_options
 
-      def initialize view, record, options
+      def initialize view, record, options = {}
         super view, options
         @record = record
-        @html_options = transform_html_options(@options.delete(:html) || {}, default_html_options)
+        @html_options = transform_html_options(default_html_options, @options.delete(:html) || {})
       end
 
       def render &block

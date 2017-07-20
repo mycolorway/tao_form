@@ -21,7 +21,7 @@ class Tao.Form.Select.Result extends Tao.Form.Select.ResultBase
         @trigger 'tao:enterPress'
         false
       else if e.which == 8 || e.which == 46
-        @clear() && @trigger('tao:clear')
+        @clearSelected() && @trigger('tao:clear')
         false
       else if e.which == 38
         @trigger 'tao:arrowPress', ['up']

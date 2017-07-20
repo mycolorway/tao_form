@@ -7,7 +7,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: $form-field-width;
+  min-width: 100%;
   border: 1px solid $border-color;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.2);
   z-index: $z-index-popover;

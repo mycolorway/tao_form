@@ -76,6 +76,10 @@
           color: $text-color;
         }
 
+        .input-field {
+          font-size: $form-field-font-size;
+        }
+
         & > .bottom-hint {
           display: block;
           color: $lighter-grey-color;

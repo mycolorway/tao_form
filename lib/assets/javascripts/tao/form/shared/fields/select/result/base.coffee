@@ -21,7 +21,7 @@ class Tao.Form.Select.ResultBase extends TaoComponent
 
     @on 'click', '.link-clear', (e) =>
       return if @disabled
-      @clear() && @trigger('tao:clear')
+      @clearSelected() && @trigger('tao:clear')
       false
 
   selectOption: (option) ->
@@ -40,6 +40,9 @@ class Tao.Form.Select.ResultBase extends TaoComponent
     @jq.find('.selected-text').text ''
     true
 
+  clearSelected: ->
+    @unselectOption()
+
   _setSelectedOption: (option) ->
     @field.find('option:selected').prop 'selected', false
     return unless option
@@ -52,6 +55,3 @@ class Tao.Form.Select.ResultBase extends TaoComponent
     $option = $('<option>', test: option.text, value: option.value).appendTo(@field)
     @field.trigger 'tao:addOption', option, $option
     $option
-
-  clear: ->
-    @unselectOption()

@@ -24,10 +24,10 @@
   }
 
   &.text-field-with-prefix .input-field {
-    padding-left: $form-field-height;
+    padding-left: $form-field-line-height + $form-field-padding-v * 2;
   }
 
   &.text-field-with-suffix .input-field {
-    padding-right: $form-field-height;
+    padding-left: $form-field-line-height + $form-field-padding-v * 2;
   }
 }

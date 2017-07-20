@@ -4,14 +4,54 @@ module TaoForm
 
       def input(wrapper_options = nil)
         origin_input = super
-        prefix = options[:prefix].present? ? @builder.label(@attribute_name, options[:prefix], class: 'prefix') : ''
-        suffix = options[:suffix].present? ? @builder.label(@attribute_name, options[:suffix], class: 'suffix') : ''
 
-        field_class = ['text-field']
-        field_class << 'text-field-with-prefix' if prefix.present?
-        field_class << 'text-field-with-suffix' if suffix.present?
+        template.content_tag :div, class: field_class do
+          template.concat field_prefix
+          template.concat origin_input
+          template.concat field_suffix
+          template.concat(clear_link) if search_input?
+        end
+      end
 
-        template.content_tag(:div, "#{prefix}#{origin_input}#{suffix}".html_safe, class: field_class)
+      private
+
+      def field_prefix
+        @field_prefix ||= begin
+          prefix = search_input? ? template.tao_icon(:search) : options[:prefix]
+          if prefix.present?
+            @builder.label(@attribute_name, prefix, class: 'prefix')
+          else
+            ''
+          end
+        end
+      end
+
+      def field_suffix
+        @field_suffix ||= if options[:suffix].present?
+          @builder.label(@attribute_name, options[:suffix], class: 'suffix')
+        else
+          ''
+        end
+      end
+
+      def field_class
+        @field_class ||= begin
+          classes = ['text-field']
+          classes << 'text-field-with-prefix' if field_prefix.present?
+          classes << 'text-field-with-suffix' if field_suffix.present?
+          classes << 'not-empty' if @builder.object.send(attribute_name).present?
+          classes
+        end
+      end
+
+      def clear_link
+        @clear_link ||= template.link_to 'javascript:;', class: 'link-clear' do
+          template.concat template.tao_icon(:close)
+        end
+      end
+
+      def search_input?
+        input_type == :search
       end
 
     end

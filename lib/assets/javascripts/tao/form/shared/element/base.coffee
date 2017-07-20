@@ -47,3 +47,7 @@ class Tao.Form.ElementBase extends TaoComponent
     clearTimeout @_successTimer
     @jq.find('.success-message').remove()
     @jq.find('button[data-disable-with]:hidden, input[data-disable-with]:hidden').show()
+
+  submit: ->
+    @jq.find('> form').submit()
+    @

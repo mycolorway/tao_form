@@ -51,6 +51,13 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
     @selected = false if @selectedOption.length == 0
     true
 
+  clearSelected: ->
+    @jq.find('.selected-item').remove()
+    @selectedOption.length = 0
+    @field.find('option').prop 'selected', false
+    @selected = false
+    true
+
   _setSelectedOption: (option) ->
     return unless option
     $option = @field.find("option[value='#{option.value}']")

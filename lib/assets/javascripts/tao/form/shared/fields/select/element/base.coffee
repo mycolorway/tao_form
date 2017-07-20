@@ -36,6 +36,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
 
     $.when(resultDeferred, listDeferred).then =>
       @_childComponentsReady()
+      @trigger 'tao:ready'
 
     @_bind()
 
@@ -68,18 +69,14 @@ class Tao.Form.Select.ElementBase extends TaoComponent
 
     if @multiple
       @on 'tao:unselect', '.select-result', (e, option) =>
-        _.remove @selectedOption, (opt) -> opt.value == option.value
-        @selected = false if @selectedOption.length == 0
-        @list.unselectOption(option)
+        @unselectOption option
         @_filterList ''
         @trigger 'tao:change', @selectedOption
         null
     else
       @on 'tao:clear', '.select-result', (e) =>
         @active = false
-        @selectedOption = null
-        @selected = false
-        @list.clearSelected()
+        @clearSelected()
         @_filterList ''
         @trigger 'tao:change', @selectedOption
         null
@@ -128,8 +125,15 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       _.remove @selectedOption, (opt) -> opt.value == option.value
       @selected = false if @selectedOption.length == 0
     else
-      @result.unselectOption()
-      @list.clearSelected()
+      @clearSelected()
+    true
+
+  clearSelected: ->
+    @result.clearSelected()
+    @list.clearSelected()
+    @selected = false
+    if @multiple
+      @selectedOption.length = 0
+    else
       @selectedOption = null
-      @selected = false
     true

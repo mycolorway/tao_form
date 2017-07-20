@@ -36,8 +36,9 @@ class Tao.Form.DatetimePicker extends TaoComponent
     @on 'tao:ready', 'tao-time-picker', ->
       timePickerDeferred.resolve()
 
-    $.when datePickerDeferred, timePickerDeferred
-      .done => @_initMoment()
+    $.when(datePickerDeferred, timePickerDeferred).done =>
+      @_initMoment()
+      @trigger 'tao:ready'
 
   _initMoment: ->
     m = moment @field.val(), @valueFormat
