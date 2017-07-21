@@ -25,16 +25,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       remote: @remote
       field: @field
 
-    resultDeferred = $.Deferred()
-    listDeferred = $.Deferred()
-    @result = @findComponent '.select-result', =>
-      @_resultReady()
-      resultDeferred.resolve()
-    @list = @findComponent '.select-list', =>
-      @_listReady()
-      listDeferred.resolve()
-
-    $.when(resultDeferred, listDeferred).then =>
+    [@result, @list] = @findComponent '.select-result', '.select-list', =>
       @_childComponentsReady()
       @trigger 'tao:ready'
 
