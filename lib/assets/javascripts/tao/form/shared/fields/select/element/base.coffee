@@ -31,10 +31,6 @@ class Tao.Form.Select.ElementBase extends TaoComponent
 
     @_bind()
 
-  _resultReady: ->
-
-  _listReady: ->
-
   _childComponentsReady: ->
     if @multiple
       values = @field.val()
