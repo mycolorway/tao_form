@@ -20,7 +20,14 @@ module TaoForm
 
       def render &block
         @block_for_render = block
-        super
+        if view.request.variant.mobile?
+          super
+        else
+          view.content_tag tag_name, html_options do
+            view.concat render_result
+            view.concat render_list
+          end
+        end
       end
 
       def render_result

@@ -19,7 +19,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
 
   _connected: ->
     @field = @jq.find 'select'
-    @selectedOption = if @multiple then [] else null
+    @selectedOption ||= if @multiple then [] else null
 
     @dataProvider = new DataProvider
       remote: @remote

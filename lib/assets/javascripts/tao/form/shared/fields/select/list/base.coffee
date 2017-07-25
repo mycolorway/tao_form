@@ -14,11 +14,10 @@ class Tao.Form.Select.ListBase extends TaoComponent
 
   _connected: ->
     @searchField = @jq.find('.search-field')
-    @selectedOption = []
+    @selectedOption ||= []
     @_bind()
 
   _disconnected: ->
-    @selectedOption.length = 0
     @off()
 
   _bind: ->

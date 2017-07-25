@@ -9,7 +9,7 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
 
   _connected: ->
     @field = @jq.find 'select'
-    @selectedOption = []
+    @selectedOption ||= []
     @_bind()
 
   _disconnected: ->
