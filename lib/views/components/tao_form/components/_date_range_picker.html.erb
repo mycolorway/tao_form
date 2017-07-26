@@ -1,0 +1,7 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <%= yield %>
+
+  <%= component.render_date_picker 'start' %>
+  <span class="to"><%= component.t :to %></span>
+  <%= component.render_date_picker 'end' %>
+<% end %>

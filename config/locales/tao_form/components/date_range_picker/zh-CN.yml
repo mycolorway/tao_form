@@ -1,0 +1,7 @@
+zh-CN:
+  tao_form:
+    components:
+      date_range_picker:
+        to: 至
+        start_placeholder: 开始日期
+        end_placeholder: 结束日期

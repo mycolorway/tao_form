@@ -21,6 +21,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
   _bind: ->
     @on 'click', '.day', (e) =>
       $day = $ e.currentTarget
+      return if $day.hasClass('disabled')
       date = moment $day.data('date'), @dateFormat
       momentData = _.clone @momentData
       momentData.year = date.year()
@@ -82,6 +83,9 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       if startDate.date() == momentData['date'] &&
           startDate.month() == momentData['month']
         $day.addClass('selected')
+      if (@disableBefore && startDate.isSameOrBefore(@disableBefore)) ||
+          (@disableAfter && startDate.isSameOrAfter(@disableAfter))
+        $day.addClass('disabled')
 
       weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
       $day.addClass weekdays[startDate.day()]
@@ -94,5 +98,10 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       $('<span>', class: 'weekday', text: weekdayName)
         .appendTo $head
 
+  _disableBeforeChanged: ->
+    @_renderCalendar()
+
+  _disableAfterChanged: ->
+    @_renderCalendar()
 
 TaoComponent.register MomentPicker.DateSegment

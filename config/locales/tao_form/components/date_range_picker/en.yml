@@ -1,0 +1,5 @@
+en:
+  tao_form:
+    components:
+      date_range_picker:
+        to: to

@@ -1,0 +1,20 @@
+@import 'tao/form/globals';
+
+.tao-date-range-picker {
+  display: inline-flex;
+  width: 23rem;
+  align-items: center;
+
+  .start-date-picker.tao-moment-picker,
+  .end-date-picker.tao-moment-picker {
+    flex: 1 1 auto;
+    width: 50%;
+  }
+
+  .to {
+    font-size: 0.875rem;
+    color: $lightest-grey-color;
+    margin: 0 0.5rem;
+  }
+
+}

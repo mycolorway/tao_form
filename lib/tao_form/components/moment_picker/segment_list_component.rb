@@ -3,11 +3,12 @@ module TaoForm
     module MomentPicker
       class SegmentListComponent < TaoOnRails::Components::Base
 
-        attr_reader :segments
+        attr_reader :segments, :segment_options
 
         def initialize view, options = {}
-          @segments = options.delete(:segments)
           super view, options
+          @segments = @options.delete(:segments)
+          init_segment_options
         end
 
         def separator_segment? segment
@@ -16,11 +17,11 @@ module TaoForm
 
         def render_segment segment
           if segment.is_a? Hash
-            options = segment
             name = segment.delete(:name)
+            options = segment_options.merge segment
           else
-            options = {}
             name = segment
+            options = segment_options
           end
 
           view.send :"tao_moment_picker_#{name}_segment", options
@@ -34,6 +35,13 @@ module TaoForm
 
         def default_options
           {class: 'tao-moment-picker-segment-list'}
+        end
+
+        def init_segment_options
+          @segment_options = {
+            disable_before: options.delete(:disable_before),
+            disable_after: options.delete(:disable_after)
+          }
         end
 
       end

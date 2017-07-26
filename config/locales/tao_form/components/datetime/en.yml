@@ -1,5 +1,0 @@
-en:
-  tao_form:
-    components:
-      datetime_picker:
-        placeholder: Select Date and Time

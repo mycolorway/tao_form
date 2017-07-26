@@ -7,3 +7,4 @@
 #= require tao/form/shared/fields/time_picker
 #= require tao/form/shared/fields/datetime_picker
 #= require tao/form/shared/fields/month_picker
+#= require tao/form/shared/fields/date_range_picker

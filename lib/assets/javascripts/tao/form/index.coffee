@@ -3,15 +3,9 @@
 #= require tao/ui
 #= require tao/ui/icons/form
 #= require_self
+#= require tao/form/shared/init
 #= require ./element
 #= require ./fields
 
 Tao.Form =
   Mixins: {}
-
-Tao.Application.initializer 'moment', (app) ->
-  if moment? && app.locale
-    moment.locale(app.locale.toLowerCase())
-
-  if moment?.tz? && app.timeZone
-    moment.tz.setDefault(app.timeZone)

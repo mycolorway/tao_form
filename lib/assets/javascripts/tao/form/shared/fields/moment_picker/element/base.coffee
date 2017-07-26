@@ -5,6 +5,9 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
 
   @attribute 'active', 'disabled', type: 'boolean', observe: true
 
+  @get 'value', ->
+    @field?.val()
+
   _connected: ->
     [@result, @segmentList] = @findComponent(
       '.tao-moment-picker-result',
@@ -55,3 +58,11 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
       @field.val ''
       @moment = null
     @moment
+
+  disableBefore: (m) ->
+    @segmentList.segments.forEach (segment) ->
+      segment.disableBefore = m
+
+  disableAfter: (m) ->
+    @segmentList.segments.forEach (segment) ->
+      segment.disableAfter = m

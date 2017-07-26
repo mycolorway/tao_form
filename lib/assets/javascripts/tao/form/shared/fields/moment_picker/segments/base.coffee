@@ -5,6 +5,8 @@ class Tao.Form.MomentPicker.SegmentBase extends TaoComponent
 
   @attribute 'active', type: 'boolean'
 
+  @attribute 'disableBefore', 'disableAfter', type: 'moment', observe: true
+
   segmentName: ''
 
   _connected: ->

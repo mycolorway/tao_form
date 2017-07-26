@@ -7,11 +7,12 @@ module TaoForm
     module MomentPicker
       class Base < TaoForm::Components::FieldComponent
 
-        attr_reader :block_for_render, :result_options
+        attr_reader :block_for_render, :result_options, :list_options
 
         def initialize view, builder = nil, attribute_name = nil, options = {}
           super view, builder, attribute_name, options
           init_result_options
+          init_list_options
         end
 
 
@@ -39,8 +40,7 @@ module TaoForm
         end
 
         def render_segment_list
-          view.tao_moment_picker_segment_list segments: segments,
-            default_segment: default_segment
+          view.tao_moment_picker_segment_list list_options
         end
 
         def placeholder
@@ -56,6 +56,15 @@ module TaoForm
             icon: options.delete(:icon),
             disabled: options[:disabled],
             value: options.delete(:value)
+          }
+        end
+
+        def init_list_options
+          @list_options = {
+            segments: segments,
+            default_segment: default_segment,
+            disable_before: options.delete(:disable_before),
+            disable_after: options.delete(:disable_after)
           }
         end
 

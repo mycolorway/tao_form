@@ -13,6 +13,9 @@ class Tao.Form.DatetimePicker extends TaoComponent
 
   @attribute 'timeDisplayFormat', default: 'HH:mm'
 
+  @get 'value', ->
+    @field?.val()
+
   _connected: ->
     @field = @jq.find '> input'
     @datePicker = @findComponent 'tao-date-picker'
