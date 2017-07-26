@@ -18,7 +18,7 @@ module TaoForm
           super
         else
           super {
-            builder.send :datetime_field, attribute_name, {disabled: disabled, value: value}
+            builder.send :datetime_field, attribute_name, field_options
           }
         end
       end
@@ -69,6 +69,12 @@ module TaoForm
 
       def default_options
         {class: 'tao-datetime-picker'}
+      end
+
+      def field_options
+        opts = {disabled: disabled}
+        opts[:value] = value if value.present?
+        opts
       end
 
     end

@@ -23,27 +23,27 @@ class Tao.Form.DateRangePicker extends TaoComponent
     @off()
 
   _bind: ->
-    @on 'tao:change', '.tao-moment-picker', (e, m) =>
+    @on 'tao-moment-picker:change', '.tao-moment-picker', (e, m) =>
       datePicker = e.currentTarget
       if datePicker == @startDatePicker
         @endDatePicker.disableBefore datePicker.moment
       else
         @startDatePicker.disableAfter datePicker.moment
       @_syncMoment()
-      @trigger 'tao:change', [@field.val()]
+      @trigger('tao-date-range-picker:change', [@value]) if @value
 
     startDatePickerDeferred = $.Deferred()
     endDatePickerDeferred = $.Deferred()
 
-    @on 'tao:ready', '.start-date-picker', ->
+    @on 'tao-moment-picker:ready', '.start-date-picker', ->
       startDatePickerDeferred.resolve()
 
-    @on 'tao:ready', '.end-date-picker', ->
+    @on 'tao-moment-picker:ready', '.end-date-picker', ->
       endDatePickerDeferred.resolve()
 
     $.when(startDatePickerDeferred, endDatePickerDeferred).done =>
       @_initMoment()
-      @trigger 'tao:ready'
+      @trigger 'tao-date-range-picker:ready'
 
   _initMoment: ->
     dates = @field.val().split(',')

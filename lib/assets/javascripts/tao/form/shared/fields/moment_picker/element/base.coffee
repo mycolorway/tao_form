@@ -31,20 +31,20 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
       return if @disabled
       @active = false
       @setMoment null
-      @trigger 'tao:change', [@moment]
+      @trigger 'tao-moment-picker:change', [@moment]
       null
 
     @on 'tao:select', '.tao-moment-picker-segment-list', (e, m) =>
       @active = false
       @setMoment m
-      @trigger 'tao:change', [@moment]
+      @trigger 'tao-moment-picker:change', [@moment]
       null
 
   _childComponentsReady: ->
     @field = @result.field
     @result.format = @displayFormat
     @setMoment @field.val()
-    @trigger 'tao:ready'
+    @trigger 'tao-moment-picker:ready'
 
   _toggleActive: ->
     @active = !@active

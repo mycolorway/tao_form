@@ -30,22 +30,22 @@ class Tao.Form.DatetimePicker extends TaoComponent
     @off()
 
   _bind: ->
-    @on 'tao:change', '.tao-moment-picker', (e, m) =>
+    @on 'tao-moment-picker:change', '.tao-moment-picker', (e, m) =>
       @_syncMoment()
-      @trigger 'tao:change', [@moment]
+      @trigger 'tao-datetime-picker:change', [@moment]
 
     datePickerDeferred = $.Deferred()
     timePickerDeferred = $.Deferred()
 
-    @on 'tao:ready', 'tao-date-picker', ->
+    @on 'tao-moment-picker:ready', 'tao-date-picker', ->
       datePickerDeferred.resolve()
 
-    @on 'tao:ready', 'tao-time-picker', ->
+    @on 'tao-moment-picker:ready', 'tao-time-picker', ->
       timePickerDeferred.resolve()
 
     $.when(datePickerDeferred, timePickerDeferred).done =>
       @_initMoment()
-      @trigger 'tao:ready'
+      @trigger 'tao-datetime-picker:ready'
 
   _initMoment: ->
     m = moment @field.val(), @valueFormat
