@@ -1,4 +1,3 @@
-
 class Tao.Form.MomentPicker.ElementBase extends TaoComponent
 
   @attribute 'valueFormat', 'displayFormat'
@@ -7,6 +6,9 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
 
   @get 'value', ->
     @field?.val()
+
+  @set 'value', (val) ->
+    @setMoment val
 
   _connected: ->
     [@result, @segmentList] = @findComponent(

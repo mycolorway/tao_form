@@ -9,6 +9,10 @@ class Tao.Form.DateRangePicker extends TaoComponent
   @get 'value', ->
     @field?.val()
 
+  @set 'value', (val) ->
+    @field.val val
+    @_initMoment()
+
   _connected: ->
     @field = @jq.find '> input'
     @startDatePicker = @findComponent '.start-date-picker'
@@ -50,6 +54,8 @@ class Tao.Form.DateRangePicker extends TaoComponent
       @startDatePicker.setMoment @startDate.clone()
       @endDatePicker.setMoment @endDate.clone()
     else
+      @startDatePicker.setMoment ''
+      @endDatePicker.setMoment ''
       @startDate = null
       @endDate = null
 

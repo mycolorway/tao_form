@@ -14,7 +14,11 @@ class Tao.Form.DatetimePicker extends TaoComponent
   @attribute 'timeDisplayFormat', default: 'HH:mm'
 
   @get 'value', ->
-    @field?.val()
+    @field.val()
+
+  @set 'value', (val) ->
+    @field.val val
+    @_initMoment()
 
   _connected: ->
     @field = @jq.find '> input'
@@ -51,6 +55,8 @@ class Tao.Form.DatetimePicker extends TaoComponent
       @timePicker.setMoment m.format(@timeValueFormat)
       @moment = m
     else
+      @datePicker.setMoment ''
+      @timePicker.setMoment ''
       @moment = null
 
   _syncMoment: ->
