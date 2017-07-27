@@ -12,7 +12,7 @@ class Tao.Form.SwitchBase extends TaoComponent
     @on 'click', '.switch-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()
-        @trigger 'tao-switch:change'
+        @namespacedTrigger 'change'
       false
 
   _disconnected: ->

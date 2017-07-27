@@ -16,10 +16,10 @@ class Tao.Form.Select.List extends Tao.Form.Select.ListBase
 
     @on 'keydown', '.search-field', (e) =>
       if e.which == 13
-        @trigger('tao:select', [@highlightedOption]) if @highlightedOption
+        @namespacedTrigger('select', [@highlightedOption]) if @highlightedOption
         false
       else if e.which == 27
-        @trigger 'tao:cancel'
+        @namespacedTrigger 'cancel'
         false
       else if e.which == 38
         @highlightPrevOption()
@@ -35,7 +35,7 @@ class Tao.Form.Select.List extends Tao.Form.Select.ListBase
 
   _activeChanged: ->
     if @active
-      @trigger 'tao:show'
+      @namespacedTrigger 'show'
       @searchField.focus() if @searchable
       @_refreshScrollPosition()
     else

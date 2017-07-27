@@ -27,7 +27,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       momentData.year = date.year()
       momentData.month = date.month()
       momentData.date = date.date()
-      @trigger 'tao:dataSelect', [momentData]
+      @namespacedTrigger 'dataSelect', [momentData]
 
     @on 'click', '.link-prev-month, .link-next-month', (e) =>
       month = if $(e.currentTarget).is('.link-prev-month')
@@ -39,7 +39,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       momentData.year = month.year()
       momentData.month = month.month()
       momentData.date = null
-      @trigger 'tao:dataRefresh', [momentData]
+      @namespacedTrigger 'dataRefresh', [momentData]
 
   setMomentData: (momentData) ->
     if @active && (_.isNil(momentData['year']) || _.isNil(momentData['month']))
@@ -47,7 +47,7 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
       momentData.year = now.year()
       momentData.month = now.month()
       momentData.date = null
-      @trigger 'tao:dataRefresh', [momentData]
+      @namespacedTrigger 'dataRefresh', [momentData]
       return false
     else if @momentData && momentData &&
         momentData['year'] == @momentData['year'] &&

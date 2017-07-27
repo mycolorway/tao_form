@@ -13,21 +13,21 @@ class Tao.Form.Select.Result extends Tao.Form.Select.ResultBase
 
     @on 'click', (e) =>
       return if @disabled
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
 
     @on 'keydown', (e) =>
       return if @disabled
       if e.which == 13
-        @trigger 'tao:enterPress'
+        @namespacedTrigger 'enterPress'
         false
       else if e.which == 8 || e.which == 46
-        @clearSelected() && @trigger('tao:clear')
+        @clearSelected() && @namespacedTrigger('clear')
         false
       else if e.which == 38
-        @trigger 'tao:arrowPress', ['up']
+        @namespacedTrigger 'arrowPress', ['up']
         false
       else if e.which == 40
-        @trigger 'tao:arrowPress', ['down']
+        @namespacedTrigger 'arrowPress', ['down']
         false
 
   _disabledChanged: ->

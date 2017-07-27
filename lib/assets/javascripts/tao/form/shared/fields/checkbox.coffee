@@ -20,7 +20,7 @@ class Tao.Form.CheckboxBase extends TaoComponent
     @on 'click', '.checkbox-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()
-        @trigger 'tao-check-box:change'
+        @namespacedTrigger 'change'
       false
 
   _disconnected: ->

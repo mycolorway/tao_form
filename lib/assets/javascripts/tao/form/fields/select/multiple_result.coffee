@@ -14,19 +14,19 @@ class Tao.Form.Select.MultipleResult extends Tao.Form.Select.MultipleResultBase
 
     @on 'click', '.link-add', (e) =>
       return if @disabled
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
       false
 
     @on 'keydown', '.link-add', (e) =>
       return if @disabled
       if e.which == 13
-        @trigger 'tao:enterPress'
+        @namespacedTrigger 'enterPress'
         false
       else if e.which == 38
-        @trigger 'tao:arrowPress', ['up']
+        @namespacedTrigger 'arrowPress', ['up']
         false
       else if e.which == 40
-        @trigger 'tao:arrowPress', ['down']
+        @namespacedTrigger 'arrowPress', ['down']
         false
 
   _disabledChanged: ->

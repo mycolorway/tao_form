@@ -8,7 +8,7 @@ class Tao.Form.Radio extends Tao.Form.RadioBase
     @on 'keydown', '.radio-wrapper', (e) =>
       return unless e.which == 13 && @field.is(':enabled')
       @_toggleChecked()
-      @trigger 'tao:change'
+      @namespacedTrigger 'change'
       false
 
 TaoComponent.register Tao.Form.Radio

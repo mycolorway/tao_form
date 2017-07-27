@@ -27,7 +27,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
 
     [@result, @list] = @findComponent '.select-result', '.select-list', =>
       @_childComponentsReady()
-      @trigger 'tao-select:ready'
+      @namespacedTrigger 'ready'
 
     @_bind()
 
@@ -58,20 +58,20 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       @on 'tao:unselect', '.select-result', (e, option) =>
         @unselectOption option
         @_filterList ''
-        @trigger 'tao-select:change', @selectedOption
+        @namespacedTrigger 'change', @selectedOption
         null
     else
       @on 'tao:clear', '.select-result', (e) =>
         @active = false
         @clearSelected()
         @_filterList ''
-        @trigger 'tao-select:change', @selectedOption
+        @namespacedTrigger 'change', @selectedOption
         null
 
   _bindListEvents: ->
     @on 'tao:select', '.select-list', (e, option) =>
       @selectOption option
-      @trigger 'tao-select:change', @selectedOption
+      @namespacedTrigger 'change', @selectedOption
       null
 
     @on 'tao:search', '.select-list', (e, value) =>

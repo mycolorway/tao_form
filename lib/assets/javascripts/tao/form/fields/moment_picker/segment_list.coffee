@@ -9,6 +9,6 @@ class MomentPicker.SegmentList extends MomentPicker.SegmentListBase
   @attribute 'direction', default: 'down'
 
   _activeChanged: ->
-    @trigger('tao:show') if @active
+    @namespacedTrigger('show') if @active
 
 TaoComponent.register Tao.Form.MomentPicker.SegmentList

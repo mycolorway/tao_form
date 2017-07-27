@@ -12,7 +12,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
     @on 'tao:enterPress', '.select-result', (e) =>
       if @active
         if @selectOption @list.highlightedOption
-          @trigger 'tao:change', @selectedOption
+          @namespacedTrigger 'change', @selectedOption
       else
         @active = true
       null

@@ -83,6 +83,6 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
       if ($segment = @activeSegment.jq.next('.tao-moment-picker-segment')).length > 0
         @_setActiveSegment $segment.get(0)
       else
-        @trigger 'tao:select', [moment @momentData]
+        @namespacedTrigger 'select', [moment @momentData]
     else
       @_setActiveSegment @segments[0]

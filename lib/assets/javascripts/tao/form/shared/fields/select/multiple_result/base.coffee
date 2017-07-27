@@ -17,7 +17,7 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
 
   _bind: ->
     @on 'click', 'select', =>
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
       false
 
     @on 'click', '.selected-item', (e) =>
@@ -25,7 +25,7 @@ class Tao.Form.Select.MultipleResultBase extends TaoComponent
       $option = $ e.currentTarget
       option = $option.data 'option'
       @unselectOption option
-      @trigger 'tao:unselect', [option]
+      @namespacedTrigger 'unselect', [option]
       false
 
   selectOption: (option) ->

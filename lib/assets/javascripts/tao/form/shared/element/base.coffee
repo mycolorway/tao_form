@@ -11,11 +11,11 @@ class Tao.Form.ElementBase extends TaoComponent
   _bind: ->
     @on 'ajax:beforeSend', '> form', (e) =>
       @_clearErrors()
-      @trigger 'tao:beforeSubmit'
+      @namespacedTrigger 'beforeSubmit'
 
     @on 'ajax:success', '> form', (e) =>
       @_showSuccessMessage()
-      @trigger 'tao:success'
+      @namespacedTrigger 'success'
 
   _disconnected: ->
     @off()

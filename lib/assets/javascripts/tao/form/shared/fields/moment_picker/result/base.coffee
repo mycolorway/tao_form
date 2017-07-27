@@ -18,12 +18,12 @@ class Tao.Form.MomentPicker.ResultBase extends TaoComponent
 
   _bind: ->
     @on 'click', 'input', =>
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
       false
 
     @on 'click', (e) =>
       return if @disabled
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
 
   clear: ->
     @moment = null

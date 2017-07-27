@@ -13,7 +13,7 @@ class MomentPicker.HourSegment extends MomentPicker.SegmentBase
       $hour = $ e.currentTarget
       momentData = _.clone @momentData
       momentData.hour = $hour.data 'hour'
-      @trigger 'tao:dataSelect', [momentData]
+      @namespacedTrigger 'dataSelect', [momentData]
 
   setMomentData: (momentData) ->
     super

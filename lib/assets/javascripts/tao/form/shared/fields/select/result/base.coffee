@@ -16,12 +16,12 @@ class Tao.Form.Select.ResultBase extends TaoComponent
 
   _bind: ->
     @on 'click', 'select', =>
-      @trigger 'tao:activeClick'
+      @namespacedTrigger 'activeClick'
       false
 
     @on 'click', '.link-clear', (e) =>
       return if @disabled
-      @clearSelected() && @trigger('tao:clear')
+      @clearSelected() && @namespacedTrigger('clear')
       false
 
   selectOption: (option) ->

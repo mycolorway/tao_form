@@ -26,7 +26,7 @@ class Tao.Form.MomentPicker.Element extends Tao.Form.MomentPicker.ElementBase
       return if @disabled
       @active = false
       @setMoment null
-      @trigger 'tao:change', [@moment]
+      @namespacedTrigger 'change', [@moment]
       null
 
   _activeChanged: ->
