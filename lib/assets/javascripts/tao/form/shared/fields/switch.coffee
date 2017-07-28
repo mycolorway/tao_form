@@ -9,6 +9,10 @@ class Tao.Form.SwitchBase extends TaoComponent
     @_bind()
 
   _bind: ->
+    @on 'change', 'input[type=checkbox]', (e) =>
+      @namespacedTrigger 'change'
+      null
+
     @on 'click', '.switch-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()

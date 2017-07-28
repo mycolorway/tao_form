@@ -3,10 +3,12 @@
 
 .tao-switch {
   .switch-wrapper {
+    outline: none;
+
     &:focus {
-      border-color: #63D65C;
-      box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
-      outline: none;
+      .switch-toggle {
+        box-shadow: 0px 0px 4px 0px rgba(#4A90E2, 0.5);
+      }
     }
   }
 }

@@ -9,6 +9,10 @@ class Tao.Form.RadioBase extends TaoComponent
     @_bind()
 
   _bind: ->
+    @on 'change', 'input[type=radio]', (e) =>
+      @namespacedTrigger 'change'
+      null
+
     @on 'click', '.radio-wrapper', (e) =>
       if @field.is(':enabled')
         @_toggleChecked()
