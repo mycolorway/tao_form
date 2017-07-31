@@ -23,7 +23,7 @@ module TaoForm
       def component_options
         @component_options ||= input_options.slice(:multiple, :remote, :max_list_size,
           :searchable_size, :clearable, :placeholder, :disabled, :option_disabled,
-          :include_blank, :prompt, :icon)
+          :include_blank, :prompt, :icon, :selected)
       end
 
       def field_options
