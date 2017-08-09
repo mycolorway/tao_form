@@ -1,7 +1,3 @@
-require 'tao_form/components/select/result_component'
-require 'tao_form/components/select/multiple_result_component'
-require 'tao_form/components/select/list_component'
-
 module TaoForm
   module Components
     class SelectComponent < FieldComponent

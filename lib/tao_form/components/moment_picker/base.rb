@@ -1,7 +1,3 @@
-require 'tao_form/components/moment_picker/segments'
-require 'tao_form/components/moment_picker/result_component'
-require 'tao_form/components/moment_picker/segment_list_component'
-
 module TaoForm
   module Components
     module MomentPicker
