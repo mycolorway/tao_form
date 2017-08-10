@@ -1,5 +1,3 @@
-require 'tao_form/components/moment_picker/base'
-
 module TaoForm
   module Components
     class DatePickerComponent < MomentPicker::Base
