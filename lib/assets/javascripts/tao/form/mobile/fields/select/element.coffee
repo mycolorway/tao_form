@@ -59,7 +59,7 @@ class Tao.Form.Select.Element extends Tao.Form.Select.ElementBase
     $listWrapper = @list.jq.find('.list-wrapper')
     winHeight = $(window).height()
     offsetTop = $listWrapper[0].getBoundingClientRect().top
-    buttonsHeight = @slideBox.jq.find('.slide-box-content > .buttons').outerHeight()
+    buttonsHeight = @slideBox.jq.find('.slide-box-content > .buttons').outerHeight() || 0
 
     $listWrapper.css
       height: winHeight - offsetTop - buttonsHeight

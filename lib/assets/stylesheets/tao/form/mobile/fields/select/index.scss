@@ -63,4 +63,18 @@
       display: block;
     }
   }
+
+  .tao-slide-box .slide-box-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .header, .select-result, .buttons {
+      flex: 0 0 auto;
+    }
+
+    .select-list {
+      flex: 1 1 auto;
+    }
+  }
 }
