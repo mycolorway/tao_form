@@ -41,7 +41,7 @@
     }
 
     &:indeterminate + .checkbox-wrapper .icon-indeterminate,
-    &:checked + .checkbox-wrapper .icon-checkbox {
+    &:checked + .checkbox-wrapper .icon-check {
       display: block;
     }
 
