@@ -17,14 +17,16 @@ module TaoForm
 
         def render_segment segment
           if segment.is_a? Hash
+            segment = segment.clone
             name = segment.delete(:name)
-            options = segment_options.merge segment
+            opts = segment_options.merge segment
           else
             name = segment
-            options = segment_options
+            opts = segment_options
           end
 
-          view.send :"tao_moment_picker_#{name}_segment", options
+          segment_class = "TaoForm::Components::MomentPicker::Segments::#{name.camelize}SegmentComponent".constantize
+          segment_class.new(view, opts).render
         end
 
         def self.component_name

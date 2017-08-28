@@ -2,7 +2,7 @@ module TaoForm
   module Components
     module MomentPicker
       module Segments
-        class DateSegmentComponent < Base
+        class DateSegmentComponent < TaoForm::Components::MomentPicker::Segments::Base
 
           def self.component_name
             :moment_picker_date_segment

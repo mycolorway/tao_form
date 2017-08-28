@@ -2,7 +2,7 @@ module TaoForm
   module Components
     module MomentPicker
       module Segments
-        class HourSegmentComponent < Base
+        class HourSegmentComponent < TaoForm::Components::MomentPicker::Segments::Base
 
           def self.component_name
             :moment_picker_hour_segment

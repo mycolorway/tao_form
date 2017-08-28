@@ -2,7 +2,7 @@ module TaoForm
   module Components
     module MomentPicker
       module Segments
-        class MinuteSegmentComponent < Base
+        class MinuteSegmentComponent < TaoForm::Components::MomentPicker::Segments::Base
 
           attr_reader :step
 
