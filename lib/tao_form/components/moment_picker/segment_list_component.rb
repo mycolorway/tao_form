@@ -25,8 +25,7 @@ module TaoForm
             opts = segment_options
           end
 
-          segment_class = "TaoForm::Components::MomentPicker::Segments::#{name.camelize}SegmentComponent".constantize
-          segment_class.new(view, opts).render
+          view.send :"tao_moment_picker_#{name}_segment", opts
         end
 
         def self.component_name
