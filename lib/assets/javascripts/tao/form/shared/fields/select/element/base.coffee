@@ -124,3 +124,9 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     else
       @selectedOption = null
     true
+
+  refreshOptions: ->
+    @active = false
+    @dataProvider.reset()
+    @_filterList ''
+    @

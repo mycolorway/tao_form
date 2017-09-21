@@ -8,9 +8,7 @@ class Tao.Form.Select.DataProvider extends TaoModule
   @option 'field'
 
   _init: ->
-    @options = @field.find('option').map (i, optionEl) ->
-      Option.fromElement optionEl
-    .get()
+    @_initOptions()
 
     @field.on 'tao:addOption', (e, option) =>
       if option.data?.group
@@ -19,6 +17,11 @@ class Tao.Form.Select.DataProvider extends TaoModule
         @options.splice index, 0, option
       else
         @options.unshift option
+
+  _initOptions: ->
+    @options = @field.find('option').map (i, optionEl) ->
+      Option.fromElement optionEl
+    .get()
 
   getOption: (value) ->
     return value if value instanceof Option
@@ -68,3 +71,6 @@ class Tao.Form.Select.DataProvider extends TaoModule
         []
 
       callback? options, result.totalSize
+
+  reset: ->
+    @_initOptions()
