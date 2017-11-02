@@ -13,8 +13,6 @@ class MomentPicker.YearSegment extends MomentPicker.SegmentBase
       $year = $ e.currentTarget
       momentData = _.clone @momentData
       momentData.year = $year.data 'year'
-      momentData.month = null
-      momentData.date = null
       @namespacedTrigger 'dataSelect', [momentData]
 
     @on 'click', '.link-prev-years, .link-next-years', (e) =>
@@ -23,8 +21,6 @@ class MomentPicker.YearSegment extends MomentPicker.SegmentBase
         momentData['year'] -= 9
       else
         momentData['year'] += 9
-      momentData.month = null
-      momentData.date = null
       @namespacedTrigger 'dataRefresh', [momentData]
 
   setMomentData: (momentData) ->

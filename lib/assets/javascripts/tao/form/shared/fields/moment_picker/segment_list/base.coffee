@@ -62,6 +62,7 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
           .find('.value').text ''
 
     @momentData = momentData
+    @namespacedTrigger 'select', [moment(@momentData)]
 
   _setActiveSegment: (segment) ->
     segment = @_findSegment(segment) if typeof segment == 'string'
@@ -83,6 +84,6 @@ class Tao.Form.MomentPicker.SegmentListBase extends TaoComponent
       if ($segment = @activeSegment.jq.next('.tao-moment-picker-segment')).length > 0
         @_setActiveSegment $segment.get(0)
       else
-        @namespacedTrigger 'select', [moment @momentData]
+        @namespacedTrigger 'select', [moment(@momentData), true]
     else
       @_setActiveSegment @segments[0]
