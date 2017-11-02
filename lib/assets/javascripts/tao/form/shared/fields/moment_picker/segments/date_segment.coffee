@@ -68,6 +68,8 @@ class MomentPicker.DateSegment extends MomentPicker.SegmentBase
 
   _renderCalendar: (momentData = @momentData) ->
     $days = @jq.find('.days').empty()
+    if not moment(momentData).isValid()
+      momentData.date = null
     date = moment(momentData).startOf('day')
     startDate = date.clone().startOf('month').startOf('week')
     endDate = date.clone().endOf('month').endOf('week')

@@ -34,8 +34,8 @@ class Tao.Form.MomentPicker.ElementBase extends TaoComponent
       @namespacedTrigger 'change', [@moment]
       null
 
-    @on 'tao:select', '.tao-moment-picker-segment-list', (e, m) =>
-      @active = false
+    @on 'tao:select', '.tao-moment-picker-segment-list', (e, m, done) =>
+      @active = false if done
       @setMoment m
       @namespacedTrigger 'change', [@moment]
       null
