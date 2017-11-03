@@ -47,4 +47,10 @@
       }
     }
   }
+
+  &[all-selected] {
+    .link-add {
+      display: none;
+    }
+  }
 }
