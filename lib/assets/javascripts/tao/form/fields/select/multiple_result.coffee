@@ -4,6 +4,8 @@ class Tao.Form.Select.MultipleResult extends Tao.Form.Select.MultipleResultBase
 
   @attribute 'active', type: 'boolean'
 
+  @attribute 'allSelected', type: 'boolean'
+
   _connected: ->
     super
     @linkAdd = @jq.find '.link-add'

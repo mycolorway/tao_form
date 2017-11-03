@@ -98,6 +98,10 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     @list.selectOption option
     if @multiple
       @selectedOption.push option
+      selectedOptionsSize = @selectedOption.length
+      if (!@dataProvider.remote && selectedOptionsSize == @dataProvider.options.length) ||
+          (@dataProvider.remote && selectedOptionsSize == @dataProvider.remote?.totalOptionSize)
+        @result.allSelected = true
     else
       @selectedOption = option
     @selected = true
@@ -109,6 +113,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
       return false unless option && (option in @selectedOption)
       @result.unselectOption option
       @list.unselectOption option
+      @result.allSelected = false
       _.remove @selectedOption, (opt) -> opt.value == option.value
       @selected = false if @selectedOption.length == 0
     else
@@ -121,6 +126,7 @@ class Tao.Form.Select.ElementBase extends TaoComponent
     @selected = false
     if @multiple
       @selectedOption.length = 0
+      @result.allSelected = false
     else
       @selectedOption = null
     true
