@@ -1,0 +1,52 @@
+@import '../../globals';
+@import '../../../shared/fields/moment_picker/segment_list';
+
+.tao-moment-picker-segment-list {
+  display: block;
+
+  .link-clear {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: $form-field-padding-v $form-field-padding-h;
+    color: $red-color;
+    background: $red-bg-color;
+    border-bottom: 1px solid $border-color;
+    font-size: 0.875rem;
+    outline: none;
+
+    .icon-close {
+      fill: $red-color;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &[clearable] .link-clear {
+    display: flex;
+  }
+
+  .segment-labels {
+    .segment-label {
+      &:active {
+        background: $white-color;
+        border-color: $border-color;
+      }
+    }
+  }
+
+  .segments {
+    .tao-moment-picker-segment {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      border-color: $light-line-color;
+
+      .link-prev,
+      .link-next {
+        &:active {
+          fill: $grey-color;
+        }
+      }
+    }
+  }
+
+}

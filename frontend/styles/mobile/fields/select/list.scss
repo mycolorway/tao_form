@@ -1,0 +1,10 @@
+@import '../../globals';
+@import '../../../shared/fields/select/list';
+
+.tao-select-list {
+  display: block;
+
+  &[empty] .list-wrapper {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../../globals';
+@import '../../../shared/fields/moment_picker/segments/minute_segment';
+
+.tao-moment-picker-minute-segment {
+  .minutes {
+    width: 12rem;
+    max-height: 12rem;
+    overflow: auto;
+
+    .minute {
+      &:focus,
+      &:hover {
+        background: $grey-bg-color;
+      }
+    }
+  }
+}

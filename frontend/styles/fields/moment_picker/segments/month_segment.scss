@@ -1,0 +1,15 @@
+@import '../../../globals';
+@import '../../../shared/fields/moment_picker/segments/month_segment';
+
+.tao-moment-picker-month-segment {
+  .month-list {
+    width: 15rem;
+
+    .month {
+      &:focus,
+      &:hover {
+        background: $grey-bg-color;
+      }
+    }
+  }
+}

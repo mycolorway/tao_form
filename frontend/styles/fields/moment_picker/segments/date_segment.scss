@@ -1,0 +1,17 @@
+@import '../../../globals';
+@import '../../../shared/fields/moment_picker/segments/date_segment';
+
+.tao-moment-picker-date-segment {
+  .calendar {
+    width: 15rem;
+    margin-top: -0.5rem;
+
+    .days {
+      margin: 0.5rem 0 0 0;
+
+      .day:hover {
+        background: $grey-bg-color;
+      }
+    }
+  }
+}

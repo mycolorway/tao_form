@@ -1,0 +1,15 @@
+@import '../../../globals';
+@import 't../../../shared/fields/moment_picker/segments/year_segment';
+
+.tao-moment-picker-year-segment {
+  .year-list {
+    width: 15rem;
+
+    .year {
+      &:focus,
+      &:hover {
+        background: $grey-bg-color;
+      }
+    }
+  }
+}

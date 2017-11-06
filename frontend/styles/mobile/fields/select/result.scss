@@ -1,0 +1,28 @@
+@import '../../globals';
+
+.tao-select-result {
+  select {
+    display: none;
+  }
+
+  .link-clear {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: $form-field-padding-v $form-field-padding-h;
+    color: $red-color;
+    background: $red-bg-color;
+    border-bottom: 1px solid $border-color;
+    font-size: 0.875rem;
+    outline: none;
+
+    .icon-close {
+      fill: $red-color;
+    }
+  }
+
+  &[selected] .link-clear {
+    display: flex;
+  }
+
+}
