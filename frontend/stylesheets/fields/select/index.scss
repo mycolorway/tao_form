@@ -1,0 +1,13 @@
+@import './list';
+@import './result';
+@import './multiple_result';
+
+.tao-select {
+  display: inline-block;
+  width: $form-field-width;
+  position: relative;
+
+  &[multiple] {
+    width: auto;
+  }
+}

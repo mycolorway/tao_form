@@ -1,0 +1,54 @@
+@import '../../shared/fields/select/list';
+
+.tao-select-list {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.2);
+  z-index: $z-index-popover;
+  margin-top: $select-list-offset;
+
+  &[active] {
+    display: flex;
+  }
+
+  &[direction='up'] {
+    flex-direction: column-reverse;
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: $select-list-offset;
+
+    .search-input {
+      border-top: 1px solid $border-color;
+      border-bottom: none;
+    }
+
+    .options-list {
+      flex-direction: column-reverse;
+
+      .option {
+        border-bottom: none;
+        border-top: 1px solid $border-color;
+
+        &:last-child {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  .list-wrapper {
+    max-height: 8 * $select-option-height;
+    flex: 0 0 auto;
+  }
+
+  .options-list {
+    display: flex;
+    flex-direction: column;
+  }
+}

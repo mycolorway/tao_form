@@ -1,0 +1,57 @@
+$switch-width: 3.75rem;
+$switch-height: 1.75rem;
+$switch-slot-height: 1.375rem;
+
+.tao-switch {
+  display: inline-block;
+
+  .switch-wrapper {
+    width: $switch-width;
+    height: $switch-height;
+    position: relative;
+    outline: none;
+
+    .switch-toggle {
+      width: 1.75rem;
+      height: 1.75rem;
+      background-color: $white-color;
+      margin-left: 0;
+      border: 1px solid $border-color;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: margin-left 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .switch-slot {
+      width: $switch-width;
+      height: $switch-slot-height;
+      background-color: $light-line-color;
+      border-radius: 2.25rem;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-$switch-slot-height / 2);
+      transition: background-color 0.2s;
+    }
+  }
+
+  input[type=checkbox] {
+    display: none;
+
+    &:checked + .switch-wrapper {
+      .switch-toggle {
+        margin-left: 2rem;
+      }
+
+      .switch-slot {
+        background-color: $ui-color;
+      }
+    }
+
+    &:disabled + .switch-wrapper {
+      opacity: 0.5;
+    }
+  }
+}

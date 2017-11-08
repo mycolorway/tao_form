@@ -2,7 +2,7 @@
   "name": "@mycolorway/tao_form",
   "version": "1.0.0",
   "description": "UI library based on tao",
-  "main": "src/index.coffee",
+  "main": "javascripts/index.coffee",
   "scripts": {
     "test": "karma start",
     "ci": "karma start --single-run"
@@ -22,17 +22,15 @@
     "url": "https://github.com/mycolorway/tao_form/issues"
   },
   "homepage": "https://github.com/mycolorway/tao_form#readme",
-  "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.4",
+  "dependencies": {},
+  "devDependencies": {
     "@mycolorway/tao": "link:../../tao_on_rails/frontend",
     "@mycolorway/tao_ui": "link:../../tao_ui/frontend",
-    "moment": "^2.19.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0-beta.5",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.4",
-    "@babel/preset-env": "^7.0.0-beta.5",
-    "babel-loader": "8.0.0-beta.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
     "chai": "^4.1.2",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.0.2",
@@ -44,6 +42,13 @@
     "karma-webpack": "^2.0.5",
     "lodash": "^4.17.4",
     "mocha": "^4.0.1",
+    "moment": "^2.19.1",
     "webpack": "^3.8.1"
+  },
+  "peerDependencies": {
+    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "@mycolorway/tao_ui": "link:../../tao_ui/frontend",
+    "babel-runtime": "^6.26.0",
+    "moment": "^2.19.1"
   }
 }

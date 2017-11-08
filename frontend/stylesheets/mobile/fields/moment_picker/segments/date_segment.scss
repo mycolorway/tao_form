@@ -1,0 +1,13 @@
+@import '../../../../shared/fields/moment_picker/segments/date_segment';
+
+.tao-moment-picker-date-segment {
+  .calendar {
+    .days {
+      .day {
+        &:active {
+          background: $grey-bg-color;
+        }
+      }
+    }
+  }
+}

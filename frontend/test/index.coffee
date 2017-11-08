@@ -1,8 +1,8 @@
-import '@mycolorway/tao/src/custom_elements'
+import '@mycolorway/tao/javascripts/custom_elements'
 import { expect } from 'chai'
 import $ from 'jquery'
 import { Component } from '@mycolorway/tao'
-import FormElement from '../src/element'
+import FormElement from '../javascripts/element'
 
 describe 'TaoForm', ->
 

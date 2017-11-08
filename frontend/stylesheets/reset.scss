@@ -1,0 +1,30 @@
+
+::placeholder {
+  color: $lightest-grey-color;
+}
+
+textarea,
+input[type=text],
+input[type=search],
+input[type=tel],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=date],
+input[type=time],
+input[type=month],
+input[type=datetime-local] {
+  @include text-field-style;
+}
+
+textarea {
+  display: block;
+  height: auto;
+  line-height: 1.6;
+  resize: none;
+}
+
+select {
+  @include text-field-style;
+  appearance: none;
+}

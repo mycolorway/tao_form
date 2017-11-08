@@ -1,0 +1,14 @@
+@import '../../../shared/fields/moment_picker/segments/hour_segment';
+
+.tao-moment-picker-hour-segment {
+  .hours {
+    width: 12rem;
+
+    .hour {
+      &:focus,
+      &:hover {
+        background: $grey-bg-color;
+      }
+    }
+  }
+}
