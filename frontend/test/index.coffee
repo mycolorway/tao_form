@@ -1,4 +1,4 @@
-import '@mycolorway/tao/javascripts/custom_elements'
+import '@mycolorway/tao/frontend/javascripts/custom_elements'
 import { expect } from 'chai'
 import $ from 'jquery'
 import { Component } from '@mycolorway/tao'

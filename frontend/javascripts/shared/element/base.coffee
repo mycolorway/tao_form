@@ -1,5 +1,5 @@
 import { Component } from '@mycolorway/tao'
-import createIcon from '@mycolorway/tao_ui/javascripts/icons/create'
+import createIcon from '@mycolorway/tao_ui/frontend/javascripts/icons/create'
 import $ from 'jquery'
 
 class FormElementBase extends Component

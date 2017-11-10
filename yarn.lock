@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@mycolorway/tao@1.0.0-alpha.1":
+"@mycolorway/tao@mycolorway/tao_on_rails#v1.0.0":
   version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao/-/tao-1.0.0-alpha.1.tgz#d1efd9218ea395197eacfbbb3d43ebc962363e62"
+  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/9d9a85c6a10ccf18c7bd3336063bffc9d89664ee"
   dependencies:
     "@webcomponents/custom-elements" "^1.0.4"
 
-"@mycolorway/tao_ui@1.0.0-alpha.1":
+"@mycolorway/tao_ui@mycolorway/tao_ui#v1.0.0":
   version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao_ui/-/tao_ui-1.0.0-alpha.1.tgz#46199887d6cfee7e0de8610b13ca1f4f61362d0d"
+  resolved "https://codeload.github.com/mycolorway/tao_ui/tar.gz/3fb56c43ea00820963ded70ed96c398e5e71bcc3"
   dependencies:
     normalize.css "^7.0.0"
 
@@ -2669,6 +2669,10 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
+rails-ujs@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/rails-ujs/-/rails-ujs-5.1.4.tgz#e2e9f7bcbfe51ee69c5f72f4beb0d88ab81a638e"
+
 randomatic@^1.1.3:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
@@ -3192,6 +3196,10 @@ tunnel-agent@^0.6.0:
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
   dependencies:
     safe-buffer "^5.0.1"
+
+turbolinks@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.0.3.tgz#c8ce128cfc9be1d691a1e41ffa858a5a5ee86a02"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
