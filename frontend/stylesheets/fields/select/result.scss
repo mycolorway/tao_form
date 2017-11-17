@@ -63,6 +63,11 @@
     width: $form-field-height - 0.125rem;
     height: $form-field-height - 0.125rem;
     fill: $lighter-grey-color;
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   .link-clear {

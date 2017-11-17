@@ -16,6 +16,11 @@
       width: $select-option-height;
       height: $select-option-height;
       fill: $lightest-grey-color;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
 
     .search-field {

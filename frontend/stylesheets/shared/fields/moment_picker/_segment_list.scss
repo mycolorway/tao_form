@@ -70,14 +70,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        fill: $light-grey-color;
+        fill: $lighter-grey-color;
         position: absolute;
         top: $moment-picker-segment-arrow-position-v;
         outline: none;
 
         .icon {
-          width: 0.875rem;
-          height: 0.875rem;
+          width: 1.5rem;
+          height: 1.5rem;
         }
       }
 
