@@ -1,15 +1,17 @@
 $form-label-width: 10rem !default;
 $form-label-font-size: 0.875rem !default;
-$form-label-line-height: 1.5rem !default;
+$form-label-line-height: 1.25rem !default;
 
 $form-field-width: 20rem !default;
-$form-field-height: 2.5rem !default;
-$form-field-line-height: 1.375rem !default;
-$form-field-font-size: 1rem !default;
+$form-field-height: 2.25rem !default;
+$form-field-line-height: 1.125rem !default;
+$form-field-font-size: 0.875rem !default;
 $form-field-padding-v: 0.5rem !default;
 $form-field-padding-h: 0.625rem !default;
 $form-field-margin-h: 1.875rem !default;
 $form-field-text-color: $text-color !default;
-$form-field-active-border-color: $link-color !default;
+$form-field-hover-border-color: $link-color !default;
+$form-field-focus-border-color: $link-hover-color !default;
+
 
 $form-hint-font-size: 0.75rem !default;

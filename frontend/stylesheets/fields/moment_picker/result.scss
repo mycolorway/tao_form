@@ -9,12 +9,12 @@
   cursor: pointer;
 
   &:hover {
-    border-color: $form-field-active-border-color;
+    border-color: $form-field-hover-border-color;
   }
 
   &[active],
   &:focus {
-    border-color: $form-field-active-border-color;
+    border-color: $form-field-focus-border-color;
     outline: none;
   }
 

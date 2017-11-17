@@ -10,9 +10,13 @@
   transition: border-color 300ms;
   outline: none;
 
-  &:hover,
+  &:hover {
+    border-color: $form-field-hover-border-color;
+
+  }
+
   &:focus {
-    border-color: $form-field-active-border-color;
+    border-color: $form-field-focus-border-color;
   }
 
   &[readonly] {
