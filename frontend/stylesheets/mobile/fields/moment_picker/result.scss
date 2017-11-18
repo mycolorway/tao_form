@@ -1,0 +1,18 @@
+@import '../../../shared/fields/moment_picker/result';
+
+.tao-moment-picker-result {
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2em;
+    height: $form-field-height;
+    fill: $lightest-grey-color;
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

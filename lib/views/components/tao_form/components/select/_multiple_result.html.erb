@@ -1,7 +1,7 @@
 <%= content_tag component.tag_name, nil, component.html_options do %>
   <%= yield %>
   <%= link_to 'javascript:;', class: 'link-add' do %>
-    <span class="icon-add">&#65291;</span>
+    <%= tao_icon :plus %>
     <span class="text"><%= component.t(:add) %></span>
   <% end %>
 <% end %>

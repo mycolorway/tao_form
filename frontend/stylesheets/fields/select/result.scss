@@ -1,0 +1,105 @@
+
+.tao-select-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $white-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-s;
+  transition: border-color 300ms;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $form-field-hover-border-color;
+  }
+
+  &[active],
+  &:focus {
+    border-color: $form-field-focus-border-color;
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background: $grey-bg-color;
+    border-color: $light-border-color;
+
+    &[selected][clearable] .link-clear {
+      display: none;
+    }
+
+    .selected-text {
+      color: $lightest-grey-color;
+    }
+  }
+
+  select {
+    display: none;
+  }
+
+  .placeholder,
+  .selected-text {
+    padding: $form-field-padding-v $form-field-padding-h;
+    font-size: $form-field-font-size;
+    line-height: $form-field-line-height;
+    min-height: $form-field-height - 0.125rem;
+  }
+
+  .placeholder {
+    color: $lightest-grey-color;
+  }
+
+  .selected-text {
+    color: $form-field-text-color;
+    display: none;
+  }
+
+  .icon-wrapper,
+  .link-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: $form-field-height - 0.125rem;
+    height: $form-field-height - 0.125rem;
+    fill: $lighter-grey-color;
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  .link-clear {
+    display: none;
+    text-decoration: none;
+    outline: none;
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+
+  &[selected] {
+    .placeholder {
+      display: none;
+    }
+
+    .selected-text {
+      display: block;
+    }
+
+    &[clearable] {
+      &[active],
+      &:hover {
+        .link-clear {
+          display: flex;
+        }
+
+        .arrow-icon-wrapper {
+          display: none;
+        }
+      }
+    }
+  }
+}

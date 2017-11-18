@@ -16,12 +16,9 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{lib,vendor,config}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "tao_on_rails", "~> 0.10.0"
-  spec.add_dependency "tao_ui", "~> 0.3.0"
+  # spec.add_dependency "tao_on_rails", "~> 1.0.0"
+  # spec.add_dependency "tao_ui", "~> 1.0.0"
   spec.add_dependency "simple_form", "~> 3.5.0"
 
   spec.add_development_dependency "sqlite3"
-  spec.add_development_dependency "blade", "~> 0.7.0"
-  spec.add_development_dependency "blade-sauce_labs_plugin", "~> 0.7.1"
-  spec.add_development_dependency "selenium-webdriver", '~> 3.2.0'
 end
