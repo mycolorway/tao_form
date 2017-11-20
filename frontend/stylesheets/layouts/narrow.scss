@@ -6,15 +6,18 @@
   form {
     .form-input {
       display: block;
-      margin: 0 0 1.5rem 0;
+      margin: 0 0 1.25rem 0;
 
       .input-label {
         text-align: left;
+        font-size: $font-size-s;
+        padding: 0;
+        margin: 0 0 0.375rem 0;
       }
 
       & > .hint {
         opacity: 1;
-        margin: 0.375rem 0;
+        margin: 0.375rem 0 0 0;
         padding: 0;
         line-height: inherit;
       }

@@ -1,6 +1,6 @@
-$switch-width: 3.75rem;
-$switch-height: 1.75rem;
-$switch-slot-height: 1.375rem;
+$switch-width: 3.375rem;
+$switch-height: 1.625rem;
+$switch-slot-height: 1.25rem;
 
 .tao-switch {
   display: inline-block;
@@ -12,13 +12,13 @@ $switch-slot-height: 1.375rem;
     outline: none;
 
     .switch-toggle {
-      width: 1.75rem;
-      height: 1.75rem;
+      width: $switch-height;
+      height: $switch-height;
       background-color: $white-color;
       margin-left: 0;
       border: 1px solid $border-color;
       border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 2px rgba(0,0,0,0.1);
       transition: margin-left 0.2s;
       position: relative;
       z-index: 1;
@@ -28,7 +28,7 @@ $switch-slot-height: 1.375rem;
       width: $switch-width;
       height: $switch-slot-height;
       background-color: $light-line-color;
-      border-radius: 2.25rem;
+      border-radius: 0.625rem;
       position: absolute;
       top: 50%;
       left: 0;
@@ -42,7 +42,7 @@ $switch-slot-height: 1.375rem;
 
     &:checked + .switch-wrapper {
       .switch-toggle {
-        margin-left: 2rem;
+        margin-left: 1.75rem;
       }
 
       .switch-slot {
