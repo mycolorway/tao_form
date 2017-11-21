@@ -39,7 +39,7 @@
 
   .placeholder,
   .selected-text {
-    padding: $form-field-padding-v $form-field-padding-h;
+    padding: $form-field-padding-v 0 $form-field-padding-v $form-field-padding-h;
     font-size: $form-field-font-size;
     line-height: $form-field-line-height;
     min-height: $form-field-height - 0.125rem;
