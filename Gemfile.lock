@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: 0fea3e90e4a8d87293c8db454ee1f15898692f2d
+  revision: 9181b96ba6dcd2fd1e0acd2653022b353bafa56f
   branch: master
   specs:
     tao_ui (1.0.0)
