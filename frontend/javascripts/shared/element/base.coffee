@@ -9,15 +9,18 @@ class FormElementBase extends Component
   @attribute 'successMessage'
 
   _connected: ->
+    @form = @jq.find('> form')
     @_bind()
     @jq.find('.input-field[autofocus]').focus()
 
   _bind: ->
     @on 'ajax:beforeSend', '> form', (e) =>
+      return unless @form.is(e.target)
       @_clearErrors()
       @namespacedTrigger 'beforeSubmit'
 
     @on 'ajax:success', '> form', (e) =>
+      return unless @form.is(e.target)
       @_showSuccessMessage()
       @namespacedTrigger 'success'
 
@@ -53,7 +56,7 @@ class FormElementBase extends Component
     @jq.find('button[data-disable-with]:hidden, input[data-disable-with]:hidden').show()
 
   submit: ->
-    @jq.find('> form').submit()
+    @form.submit()
     @
 
 export default FormElementBase
