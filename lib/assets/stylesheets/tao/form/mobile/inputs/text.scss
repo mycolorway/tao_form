@@ -1,2 +1,16 @@
 @import 'tao/form/mobile/globals';
 @import 'tao/form/shared/inputs/text';
+
+.tao-form .text-field {
+  display: flex;
+
+  .input-field {
+    padding-right: 0;
+    flex: 1 1 auto;
+  }
+
+  .suffix {
+    flex: 0 0 auto;
+    position: static;
+  }
+}

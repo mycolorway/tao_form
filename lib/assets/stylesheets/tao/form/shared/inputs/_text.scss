@@ -6,7 +6,9 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: $form-field-height;
+    padding: 0 .5em;
+    min-width: $form-field-height;
+    width: auto;
     height: $form-field-height;
     font-size: $form-field-font-size;
     color: $lighter-grey-color;
