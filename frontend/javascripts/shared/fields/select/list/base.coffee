@@ -31,7 +31,7 @@ class SelectListBase extends Component
       $option = $ e.currentTarget
       $option.addClass 'selected'
       option = $option.data('option')
-      @namespacedTrigger('select', [option]) if option
+      @namespacedTrigger('select', [option, $option]) if option
       null
 
   _hiddenSizeChanged: ->
@@ -83,12 +83,11 @@ class SelectListBase extends Component
     @namespacedTrigger 'search', ['']
 
   selectOption: (option) ->
-    return false unless option && !(option in @selectedOption)
+    return if _.find @selectedOption, (opt) -> opt.value == option.value
     @selectedOption.push option
     true
 
   unselectOption: (option) ->
-    return false unless option && option in @selectedOption
     _.remove @selectedOption, (opt) -> opt.value == option.value
     true
 
