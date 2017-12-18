@@ -13,4 +13,8 @@
     flex: 0 0 auto;
     position: static;
   }
+
+  &.text-field-with-suffix .input-field {
+    padding-right: 0;
+  }
 }
