@@ -4,17 +4,15 @@
 .tao-form .text-field {
   display: flex;
 
-  .input-field {
-    padding-right: 0;
-    flex: 1 1 auto;
-  }
-
-  .suffix {
+  .suffix, .prefix {
     flex: 0 0 auto;
     position: static;
   }
 
+  &.text-field-with-prefix .input-field,
   &.text-field-with-suffix .input-field {
+    padding-left: 0;
     padding-right: 0;
+    flex: 1 1 auto;
   }
 }
