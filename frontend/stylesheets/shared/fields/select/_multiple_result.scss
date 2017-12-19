@@ -24,7 +24,7 @@
     text-decoration: none;
     outline: none;
 
-    .icon-close {
+    .icon-close-bold {
       width: 1.5em;
       height: 1.5em;
       margin: 0 0 0 0.5rem;
@@ -41,7 +41,7 @@
       cursor: not-allowed;
       color: $lightest-grey-color;
 
-      .icon-close {
+      .icon-close-bold {
         cursor: not-allowed;
         fill: $lightest-grey-color;
       }

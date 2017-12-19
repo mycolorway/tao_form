@@ -70,11 +70,13 @@ class SelectListBase extends Component
         <span class="hint"></span>
       </div>
     """).data('option', option)
-    $option.find('.name').text(option.data.label || option.text)
+    $name = $option.find('.name').text(option.data.label || option.text)
+    $(option.data.prefix).addClass('prefix').prependTo($name) if option.data.prefix
     $option.find('.hint').text(option.data.hint) if option.data.hint
     $option.attr 'data-value', option.value
     if _.findIndex(@selectedOption, (opt) -> opt.value == option.value) > -1
       $option.addClass('selected')
+    @namespacedTrigger 'optionRender', [$option, option]
     $option
 
   reset: ->
@@ -85,10 +87,14 @@ class SelectListBase extends Component
   selectOption: (option) ->
     return if _.find @selectedOption, (opt) -> opt.value == option.value
     @selectedOption.push option
+    @jq.find(".options-list .option[data-value='#{option.value}']")
+      .addClass('selected')
     true
 
   unselectOption: (option) ->
     _.remove @selectedOption, (opt) -> opt.value == option.value
+    @jq.find(".options-list .option[data-value='#{option.value}']")
+      .removeClass('selected')
     true
 
   clearSelected: ->

@@ -81,7 +81,7 @@ class SelectMultipleResultElementBase extends Component
       </a>
     """)
 
-    $item.append createIcon('close')
+    $item.append createIcon('close-bold')
     $item.attr 'data-value', option.value
       .data 'option', option
       .find('.name').text option.text

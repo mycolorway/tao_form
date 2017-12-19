@@ -66,6 +66,15 @@
         border-bottom: none;
       }
 
+      .name {
+        display: flex;
+        align-items: center;
+
+        .prefix {
+          margin-right: 0.5em;
+        }
+      }
+
       &.selected .name {
         color: $ui-color;
       }
@@ -93,9 +102,9 @@
   .loading-message {
     display: none;
     flex: 0 0 auto;
-    height: $select-option-height;
+    min-height: $select-option-height;
     padding: $select-option-padding;
-    font-size: $select-option-font-size;
+    font-size: $font-size-s;
     line-height: $select-option-line-height;
     color: $lightest-grey-color;
     text-align: center;

@@ -17,7 +17,10 @@ class SelectList extends SelectListBaseElement
 
     @on 'keydown', '.search-field', (e) =>
       if e.which == 13
-        @namespacedTrigger('select', [@highlightedOption]) if @highlightedOption
+        if @highlightedOption
+          $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")
+            .addClass 'selected'
+          @namespacedTrigger('select', [@highlightedOption, $option])
         false
       else if e.which == 27
         @namespacedTrigger 'cancel'
@@ -63,8 +66,7 @@ class SelectList extends SelectListBaseElement
   setMaxHeight: (maxHeight) ->
     maxHeight = if maxHeight
       searchHeight = if @searchable then @jq.find('.search-input').outerHeight() else 0
-      optionHeight = @jq.find('.options-list .option:first').outerHeight()
-      Math.floor((maxHeight - searchHeight) / optionHeight) * optionHeight
+      maxHeight - searchHeight
     else
       ''
 
@@ -73,16 +75,16 @@ class SelectList extends SelectListBaseElement
 
   highlightNextOption: ->
     if @highlightedOption
-      method = if @direction == 'up' then 'prev' else 'next'
-      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option')
+      method = if @direction == 'up' then 'prevAll' else 'nextAll'
+      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option:first')
       @highlightOption($option) if $option.length > 0
     else
       @highlightFirstOption()
 
   highlightPrevOption: ->
     if @highlightedOption
-      method = if @direction == 'up' then 'next' else 'prev'
-      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option')
+      method = if @direction == 'up' then 'nextAll' else 'prevAll'
+      $option = @jq.find(".option[data-value='#{@highlightedOption.value}']")[method]('.option:first')
       @highlightOption($option) if $option.length > 0
     else
       @highlightFirstOption()

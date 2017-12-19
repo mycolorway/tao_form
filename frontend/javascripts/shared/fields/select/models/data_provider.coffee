@@ -12,7 +12,7 @@ class DataProvider extends Module
   _init: ->
     @_initOptions()
 
-    @field.on 'tao:addOption', (e, option) =>
+    @field?.on 'tao:addOption', (e, option) =>
       if option.data?.group
         index = _.findIndex @options, (opt) ->
           opt.data?.group == option.data?.group
@@ -21,9 +21,12 @@ class DataProvider extends Module
         @options.unshift option
 
   _initOptions: ->
-    @options = @field.find('option').map (i, optionEl) ->
-      Option.fromElement optionEl
-    .get()
+    @options = if @field?
+      @field.find('option').map (i, optionEl) ->
+        Option.fromElement optionEl
+      .get()
+    else
+      []
 
   getOption: (value) ->
     return value if value instanceof Option
