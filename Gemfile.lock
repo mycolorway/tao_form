@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tao_form (0.2.2)
+    tao_form (0.2.3)
       simple_form (~> 3.5.0)
       tao_on_rails (~> 0.10.0)
       tao_ui (~> 0.3.0)
