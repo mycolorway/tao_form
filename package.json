@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "@mycolorway/tao_ui": "mycolorway/tao_ui",
-    "@mycolorway/tao": "mycolorway/tao",
+    "@mycolorway/tao": "mycolorway/tao_on_rails",
     "moment": "^2.19.1"
   }
 }
