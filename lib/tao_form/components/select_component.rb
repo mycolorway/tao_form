@@ -58,13 +58,9 @@ module TaoForm
       private
 
       def init_result_options
-        @result_options = {
-          selected: options.delete(:selected),
-          disabled: options.delete(:disabled),
-          option_disabled: options.delete(:option_disabled),
-          include_blank: options.delete(:include_blank),
-          prompt: options.delete(:prompt)
-        }
+        @result_options = options.extract!(
+          :selected, :disabled, :option_disabled, :include_blank, :prompt
+        )
 
         unless multiple
           @result_options.merge!({

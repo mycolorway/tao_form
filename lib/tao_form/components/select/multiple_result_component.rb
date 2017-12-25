@@ -32,12 +32,10 @@ module TaoForm
         private
 
         def init_field_options
-          @field_options = {
-            selected: options.delete(:selected),
-            disabled: options.delete(:option_disabled),
-            include_blank: options.delete(:include_blank),
-            prompt: options.delete(:prompt)
-          }
+          @field_options = options.extract!(
+            :selected, :include_blank, :prompt
+          )
+          @field_options[:disabled] = options.delete(:option_disabled) if options.has_key?(:option_disabled)
         end
 
         def default_options
