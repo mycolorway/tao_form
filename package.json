@@ -46,13 +46,12 @@
     "lodash": "^4.17.4",
     "mocha": "^4.0.1",
     "moment": "^2.19.1",
-    "rails-ujs": "^5.1.4",
     "turbolinks": "^5.0.3",
     "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "@mycolorway/tao_ui": "mycolorway/tao_ui",
     "@mycolorway/tao": "mycolorway/tao_on_rails",
+    "@mycolorway/tao_ui": "mycolorway/tao_ui",
     "moment": "^2.19.1"
   }
 }
