@@ -59,7 +59,7 @@ module TaoForm
 
       def init_result_options
         @result_options = options.extract!(
-          :selected, :disabled, :option_disabled, :include_blank, :prompt
+          :selected, :disabled, :option_disabled, :include_blank, :prompt, :include_hidden
         )
 
         unless multiple

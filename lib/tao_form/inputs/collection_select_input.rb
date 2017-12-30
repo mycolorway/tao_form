@@ -27,7 +27,9 @@ module TaoForm
 
       def field_options
         @field_options ||= begin
-          opts = input_options.slice(:selected, :option_disabled, :include_blank, :prompt)
+          opts = input_options.slice(
+            :selected, :option_disabled, :include_blank, :prompt, :include_hidden
+          )
           opts[:disabled] = opts.delete(:option_disabled)
           opts
         end
