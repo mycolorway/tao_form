@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['your name']
   spec.email         = ['your email']
 
-  spec.homepage      = ''
-  spec.summary       = ''
-  spec.description   = ''
+  spec.homepage      = 'https://github.com/mycolorway/tao_form'
+  spec.summary       = 'Tao Form'
+  spec.description   = 'Form Components based on tao_ui'
   spec.license       = "MIT"
 
   spec.files = Dir["{lib,vendor,config}/**/*", "LICENSE", "Rakefile", "README.md"]
