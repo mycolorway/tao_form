@@ -72,7 +72,8 @@ module TaoForm
 
       def init_list_options
         @list_options = {
-          max_list_size: options.delete(:max_list_size)
+          max_list_size: options.delete(:max_list_size),
+          search_placeholder: options.delete(:search_placeholder)
         }
       end
 

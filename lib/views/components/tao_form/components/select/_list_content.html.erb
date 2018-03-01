@@ -2,7 +2,7 @@
   <div class="icon-wrapper">
     <%= tao_icon :search %>
   </div>
-  <%= text_field_tag nil, '', {tabindex: '-1', class: 'search-field', placeholder: component.t(:search_placeholder)} %>
+  <%= text_field_tag nil, '', {tabindex: '-1', class: 'search-field', placeholder: component.search_placeholder || component.t(:search_placeholder)} %>
 </div>
 <div class="list-wrapper">
 <!-- This wrapper fixes column-reverse and overflow-y not scrollable in Firefox:
