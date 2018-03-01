@@ -17,7 +17,7 @@ module TaoForm
 
       def field_prefix
         @field_prefix ||= begin
-          prefix = search_input? ? template.tao_icon(:search) : options[:prefix]
+          prefix = options[:prefix] || (search_input? ? template.tao_icon(:search) : nil)
           if prefix.present?
             @builder.label(@attribute_name, prefix, class: 'prefix')
           else
