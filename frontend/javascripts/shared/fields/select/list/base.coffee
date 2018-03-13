@@ -99,5 +99,7 @@ class SelectListBase extends Component
 
   clearSelected: ->
     @selectedOption.length = 0
+    @jq.find(".options-list .option.selected").removeClass('selected')
+    true
 
 export default SelectListBase
