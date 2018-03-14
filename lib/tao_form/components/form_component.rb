@@ -8,6 +8,7 @@ module TaoForm
         super view, options
         @record = record
         @html_options = transform_html_options(default_html_options, @options.delete(:html) || {})
+        @options[:html] = @html_options.extract!(:autocomplete, :target)
       end
 
       def render &block
