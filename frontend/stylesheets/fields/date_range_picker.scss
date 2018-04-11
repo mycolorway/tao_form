@@ -1,7 +1,7 @@
 
 .tao-date-range-picker {
   display: inline-flex;
-  width: 23rem;
+  width: $form-field-width;
   align-items: center;
 
   .start-date-picker.tao-moment-picker,
