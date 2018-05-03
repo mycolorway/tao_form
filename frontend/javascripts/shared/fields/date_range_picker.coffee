@@ -58,6 +58,8 @@ class DateRangePickerElement extends Component
       @endDate = moment _.trim(dates[1]), @dateValueFormat
       @startDatePicker.setMoment @startDate.clone()
       @endDatePicker.setMoment @endDate.clone()
+      @startDatePicker.disableAfter @endDate.clone()
+      @endDatePicker.disableBefore @startDate.clone()
     else
       @startDatePicker.setMoment ''
       @endDatePicker.setMoment ''
