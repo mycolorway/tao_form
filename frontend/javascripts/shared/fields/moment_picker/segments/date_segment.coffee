@@ -84,8 +84,8 @@ class DateSegment extends SegmentElementBase
       if startDate.date() == momentData['date'] &&
           startDate.month() == momentData['month']
         $day.addClass('selected')
-      if (@disableBefore && startDate.isSameOrBefore(@disableBefore)) ||
-          (@disableAfter && startDate.isSameOrAfter(@disableAfter))
+      if (@disableBefore && startDate.isBefore(@disableBefore)) ||
+          (@disableAfter && startDate.isAfter(@disableAfter))
         $day.addClass('disabled')
 
       weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
