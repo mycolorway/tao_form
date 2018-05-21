@@ -7,6 +7,8 @@ class DateRangePickerElement extends Component
 
   @tag 'tao-date-range-picker'
 
+  @attribute 'valueFormat', type: 'hash', default: {prefix: '', separator: ',', suffix: ''}
+
   @attribute 'dateValueFormat', default: 'YYYY-MM-DD'
 
   @attribute 'dateDisplayFormat', default: 'YYYY-MM-DD'
@@ -35,7 +37,7 @@ class DateRangePickerElement extends Component
       else
         @startDatePicker.disableAfter datePicker.moment
       @_syncMoment()
-      @namespacedTrigger('change', [@value]) if @value
+      @namespacedTrigger('change', [@value])
 
     startDatePickerDeferred = $.Deferred()
     endDatePickerDeferred = $.Deferred()
@@ -50,33 +52,47 @@ class DateRangePickerElement extends Component
       @_initMoment()
       @namespacedTrigger 'ready'
 
-  _initMoment: ->
-    dates = @field.val().split(',')
+  _parseValue: ->
+    prefix = if @valueFormat.prefix then "\\#{@valueFormat.prefix}" else ''
+    suffix = if @valueFormat.suffix then "\\#{@valueFormat.suffix}" else ''
+    separator = if @valueFormat.separator then "\\#{@valueFormat.separator}" else ''
 
-    if dates.length > 0
-      @startDate = moment _.trim(dates[0]), @dateValueFormat
-      @endDate = moment _.trim(dates[1]), @dateValueFormat
+    regexp = new RegExp "^#{prefix}(.*)#{separator}(.*)#{suffix}$"
+    if matches = @field.val().match(regexp)
+      [matches[1], matches[2]]
+    else
+      []
+
+  _initMoment: ->
+    dates = @_parseValue()
+    @startDate = moment _.trim(dates[0]), @dateValueFormat
+    @endDate = moment _.trim(dates[1]), @dateValueFormat
+
+    if @startDate.isValid()
       @startDatePicker.setMoment @startDate.clone()
-      @endDatePicker.setMoment @endDate.clone()
-      @startDatePicker.disableAfter @endDate.clone()
       @endDatePicker.disableBefore @startDate.clone()
     else
       @startDatePicker.setMoment ''
-      @endDatePicker.setMoment ''
       @startDate = null
+
+    if @endDate.isValid()
+      @endDatePicker.setMoment @endDate.clone()
+      @startDatePicker.disableAfter @endDate.clone()
+    else
+      @endDatePicker.setMoment ''
       @endDate = null
 
   _syncMoment: ->
-    if @startDatePicker.moment && @endDatePicker.moment
-      startDateValue = @startDatePicker.moment.format(@dateValueFormat)
-      endDateValue = @endDatePicker.moment.format(@dateValueFormat)
+    startDateValue = @startDatePicker.moment?.format(@dateValueFormat)
+    endDateValue = @endDatePicker.moment?.format(@dateValueFormat)
 
-      @field.val "#{startDateValue},#{endDateValue}"
-      @startDate = @startDatePicker.moment.clone()
-      @endDate = @endDatePicker.moment.clone()
+    if startDateValue || endDateValue
+      @field.val ["#{@valueFormat.prefix}#{startDateValue || ''}", "#{endDateValue || ''}#{@valueFormat.suffix}"].join(@valueFormat.separator)
     else
       @field.val ''
-      @startDate = null
-      @endDate = null
+
+    @startDate = @startDatePicker.moment?.clone()
+    @endDate = @endDatePicker.moment?.clone()
+
 
 export default DateRangePickerElement.register()

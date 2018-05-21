@@ -4,7 +4,14 @@ module.exports = (config) => {
 
     reporters: ['mocha'],
 
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
 
     files: ['frontend/test/index.coffee'],
 
