@@ -7,9 +7,7 @@ class DateRangePickerElement extends Component
 
   @tag 'tao-date-range-picker'
 
-  @attribute 'prefix'
-  @attribute 'suffix'
-  @attribute 'separator', default: ','
+  @attribute 'valueFormat', type: 'hash', default: {prefix: '', separator: ',', suffix: ''}
 
   @attribute 'dateValueFormat', default: 'YYYY-MM-DD'
 
@@ -55,9 +53,9 @@ class DateRangePickerElement extends Component
       @namespacedTrigger 'ready'
 
   _parseValue: ->
-    prefix = if @prefix then "\\#{@prefix}" else ''
-    suffix = if @suffix then "\\#{@suffix}" else ''
-    separator = if @separator then "\\#{@separator}" else ''
+    prefix = if @valueFormat.prefix then "\\#{@valueFormat.prefix}" else ''
+    suffix = if @valueFormat.suffix then "\\#{@valueFormat.suffix}" else ''
+    separator = if @valueFormat.separator then "\\#{@valueFormat.separator}" else ''
 
     regexp = new RegExp "^#{prefix}(.*)#{separator}(.*)#{suffix}$"
     if matches = @field.val().match(regexp)
@@ -89,7 +87,7 @@ class DateRangePickerElement extends Component
     endDateValue = @endDatePicker.moment?.format(@dateValueFormat)
 
     if startDateValue || endDateValue
-      @field.val ["#{@prefix}#{startDateValue || ''}", "#{endDateValue || ''}#{@suffix}"].join(@separator)
+      @field.val ["#{@valueFormat.prefix}#{startDateValue || ''}", "#{endDateValue || ''}#{@valueFormat.suffix}"].join(@valueFormat.separator)
     else
       @field.val ''
 
