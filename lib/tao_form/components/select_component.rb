@@ -36,7 +36,7 @@ module TaoForm
       end
 
       def clearable
-        @clearable ||= options.delete(:clearable) || result_options[:include_blank].present? || result_options[:prompt].present?
+        @clearable ||= options.delete(:clearable).presence || result_options[:include_blank].present? || result_options[:prompt].present?
       end
 
       def placeholder
