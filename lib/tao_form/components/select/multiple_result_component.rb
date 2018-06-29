@@ -10,6 +10,10 @@ module TaoForm
           @choices = choices
 
           init_field_options
+          if options[:sortable]
+            values = builder.object.send(attribute_name)
+            @choices = choices.sort_by { |c| values.index(c.second) || values.size }
+          end
         end
 
         def render &block
