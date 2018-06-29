@@ -29,6 +29,10 @@ module TaoForm
           :multiple_select_result
         end
 
+        def sortable
+          options[:sortable]
+        end
+
         private
 
         def init_field_options

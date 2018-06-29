@@ -1,7 +1,17 @@
 <%= content_tag component.tag_name, nil, component.html_options do %>
-  <%= yield %>
-  <%= link_to 'javascript:;', class: 'link-add' do %>
-    <%= tao_icon :plus %>
-    <span class="text"><%= component.t(:add) %></span>
+  <% if component.sortable %>
+    <%= tao_sortable item_selector: '.selected-item', class: 'sortable-wrapper' do %>
+      <%= yield %>
+      <%= link_to 'javascript:;', class: 'link-add' do %>
+        <%= tao_icon :plus %>
+        <span class="text"><%= component.t(:add) %></span>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= yield %>
+    <%= link_to 'javascript:;', class: 'link-add' do %>
+      <%= tao_icon :plus %>
+      <span class="text"><%= component.t(:add) %></span>
+    <% end %>
   <% end %>
 <% end %>

@@ -4,6 +4,8 @@ class SelectMultipleResultElement extends SelectMultipleResultBaseElement
 
   @attribute 'active', type: 'boolean'
 
+  @attribute 'sortable', tyoe: 'boolean', default: false
+
   _connected: ->
     super()
     @linkAdd = @jq.find '.link-add'
@@ -29,11 +31,24 @@ class SelectMultipleResultElement extends SelectMultipleResultBaseElement
         @namespacedTrigger 'arrowPress', ['down']
         false
 
+    @on 'tao-sortable:sortEnd', '.tao-sortable', (e, $item) =>
+      $option = @field.find("option[value='#{$item.data('value')}']")
+
+      if $item.next().is('.selected-item')
+        $prevOption = @field.find("option[value='#{$item.next().data('value')}']")
+        $prevOption.before $option
+      else if $item.prev().is('.selected-item')
+        $nextOption = @field.find("option[value='#{$item.prev().data('value')}']")
+        $nextOption.after $option
+
   _disabledChanged: ->
     if @disabled
       @linkAdd.removeAttr 'tabindex'
     else
       @linkAdd.attr 'tabindex', '0'
+
+  _insertItem: ($item) ->
+    @linkAdd.before $item
 
   focus: ->
     @linkAdd.focus()
