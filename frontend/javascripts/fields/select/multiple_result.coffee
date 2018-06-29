@@ -48,10 +48,7 @@ class SelectMultipleResultElement extends SelectMultipleResultBaseElement
       @linkAdd.attr 'tabindex', '0'
 
   _insertItem: ($item) ->
-    if @sortable
-      @linkAdd.before $item
-    else
-      super($item)
+    @linkAdd.before $item
 
   focus: ->
     @linkAdd.focus()
