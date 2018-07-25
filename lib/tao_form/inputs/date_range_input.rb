@@ -18,7 +18,7 @@ module TaoForm
 
       def component_options
         @component_options ||= input_options.slice(
-          :date_value_format, :date_display_format, :date_placeholder,
+          :value_format, :date_value_format, :date_display_format, :date_placeholder,
           :disabled, :value, :date_icon
         )
       end
